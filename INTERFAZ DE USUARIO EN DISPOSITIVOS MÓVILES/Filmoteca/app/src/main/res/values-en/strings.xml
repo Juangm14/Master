@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Filmoteca</string>
+    <string name="sitioweb_btn">Go to site web</string>
+    <string name="soporte_btn">Get support</string>
+    <string name="volver_btn">Back</string>
+    <string name="creado_por">Created by Juan García Martínez</string>
+    <string name="creado_por_compose">Created by Juan García Martínez with Compose</string>
+    <string name="func_no_imp">Unimplemented feature</string>
+</resources>

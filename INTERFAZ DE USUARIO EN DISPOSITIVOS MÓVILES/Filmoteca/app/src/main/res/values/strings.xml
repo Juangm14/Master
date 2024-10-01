@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Filmoteca</string>
+    <string name="sitioweb_btn">Ir al sitio web</string>
+    <string name="soporte_btn">Obtener soporte</string>
+    <string name="volver_btn">Volver</string>
+    <string name="creado_por">Creada por Juan García Martínez</string>
+    <string name="creado_por_compose">Creada por Juan García Martínez con Compose</string>
+    <string name="func_no_imp">Funcionalidad sin implementar</string>
+</resources>
