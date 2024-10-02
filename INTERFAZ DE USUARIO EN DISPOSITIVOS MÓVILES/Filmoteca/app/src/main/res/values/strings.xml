@@ -6,4 +6,13 @@
     <string name="creado_por">Creada por Juan García Martínez</string>
     <string name="creado_por_compose">Creada por Juan García Martínez con Compose</string>
     <string name="func_no_imp">Funcionalidad sin implementar</string>
+    <string name="ver_peli">Ver película %1$s </string>
+    <string name="acerca_de">Acerca de</string>
+    <string name="datos_peli_label">Datos de la película</string>
+    <string name="relac_peli_btn">Ver película relacionada</string>
+    <string name="edit_peli_btn">Editar película</string>
+    <string name="volver_peli">Volver a la principal</string>
+    <string name="edit_peli_label">Editando película</string>
+    <string name="guardar_btn">Guardar</string>
+    <string name="cancelar_btn">Cancelar</string>
 </resources>

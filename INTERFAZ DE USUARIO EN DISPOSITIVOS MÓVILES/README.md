@@ -1,6 +1,7 @@
 # Primera version del proyecto
 # Actualizado a la segunda versión
 
+# Práctica 1.
 ## AboutActivity
 
 - Creamos la nueva actividad About, pero se lo comento al tutor y me sugiere que en vez de llamar mediante un botón como tenia en la primera versión, que refactorice el nombre de la actividad Main.
@@ -20,3 +21,9 @@
 - Encontrado error en los apuntes en COMPOSE. La función de MyApp obligaba a pasarle content y realmente desde el initUI no se le pasa nada.
 
 - Tuve unos problemas al añadir la imágen del logo con **Compose** porque inicialmente le estaba añadiendo padding a la imágen desde la etiqueta "*Creado por*" y cuando cambié de dispositivo a uno más grande no se quedaba en la esquina del dispositivo. Tuve que indicar que el padding fuera a top y start.
+
+# Práctica 2
+
+## Aclaraciones
+
+- No he traducido 2 veces el texto de *"Ver película A"* y *"Ver película B"* sino lo que he realizado es traducir solo *"Ver plícula"* poniendo **"%1$s "** y en el el archivo *FilmListActivity* concatenar la traducción con el nombre de la película.
