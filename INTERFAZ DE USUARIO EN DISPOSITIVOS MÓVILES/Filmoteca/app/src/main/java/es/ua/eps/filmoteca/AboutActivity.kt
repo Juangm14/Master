@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -83,18 +84,23 @@ class AboutActivity : AppCompatActivity() {
     @Composable
     private fun initCompose() {
         setContent {
-            MyLogo()
-            MyWindow {
-                MyColumn {
-                    Text(text = stringResource(id = R.string.creado_por_compose), modifier = Modifier.padding(8.dp))
-                    MyImage(
-                        painter = painterResource(id = R.drawable.about_creator_picture),
-                        contentDescription = stringResource(id = R.string.creado_por_compose),
-                        modifier = Modifier.size(210.dp, 320.dp).padding(bottom = 32.dp)
-                    )
-                    MyButton({ onClickGoToWeb() }, stringResource(id = R.string.sitioweb_btn))
-                    MyButton({ onClickSupport() }, stringResource(id = R.string.soporte_btn))
-                    MyButton({ onClickBack() }, stringResource(id = R.string.volver_btn))
+            Surface{
+                MyLogo()
+                MyWindow {
+                    MyColumn {
+                        Text(
+                            text = stringResource(id = R.string.creado_por_compose),
+                            modifier = Modifier.padding(8.dp)
+                        )
+                        MyImage(
+                            painter = painterResource(id = R.drawable.about_creator_picture),
+                            contentDescription = stringResource(id = R.string.creado_por_compose),
+                            modifier = Modifier.size(210.dp, 320.dp).padding(bottom = 32.dp)
+                        )
+                        MyButton({ onClickGoToWeb() }, stringResource(id = R.string.sitioweb_btn))
+                        MyButton({ onClickSupport() }, stringResource(id = R.string.soporte_btn))
+                        MyButton({ onClickBack() }, stringResource(id = R.string.volver_btn))
+                    }
                 }
             }
         }
