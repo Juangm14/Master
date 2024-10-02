@@ -1,5 +1,7 @@
 package es.ua.eps.filmoteca
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.compose.setContent
@@ -38,7 +40,7 @@ enum class Mode {
 class AboutActivity : AppCompatActivity() {
 
     //Indica el modo de interfaz que deseamos.
-    private val mode = Mode.Compose
+    private val mode = Mode.Layouts
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,19 +67,33 @@ class AboutActivity : AppCompatActivity() {
         val sitioweb_btn = findViewById<android.widget.Button>(R.id.sitioweb_btn);
 
         sitioweb_btn.setOnClickListener{
-            Toast.makeText(this, R.string.func_no_imp, Toast.LENGTH_LONG).show()
+            val viewIntent = Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://www.midominio.com"))
+
+            if (viewIntent.resolveActivity(packageManager) != null) {
+                startActivity(viewIntent)
+            }else{
+                Toast.makeText(this, R.string.func_no_imp, Toast.LENGTH_LONG).show()
+            }
         }
 
         val soporte_btn = findViewById<android.widget.Button>(R.id.soporte_btn)
 
         soporte_btn.setOnClickListener{
-            Toast.makeText(this, R.string.func_no_imp, Toast.LENGTH_LONG).show()
+            val viewIntent = Intent(Intent.ACTION_SENDTO,
+                Uri.parse("mailto:midireccion@dominio.com"))
+
+            if (viewIntent.resolveActivity(packageManager) != null) {
+                startActivity(viewIntent)
+            }else{
+                Toast.makeText(this, R.string.func_no_imp, Toast.LENGTH_LONG).show()
+            }
         }
 
         val volver_btn = findViewById<android.widget.Button>(R.id.volver_btn)
 
         volver_btn.setOnClickListener{
-            Toast.makeText(this, R.string.func_no_imp, Toast.LENGTH_LONG).show()
+            finish()
         }
     }
 
