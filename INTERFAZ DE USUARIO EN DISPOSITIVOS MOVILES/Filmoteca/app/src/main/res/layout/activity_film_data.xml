@@ -8,7 +8,7 @@
     tools:context=".FilmDataActivity">
 
     <Button
-        android:id="@+id/volver_peli_btn"
+        android:id="@+id/backMainBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="240dp"
@@ -25,30 +25,30 @@
         android:text="@string/datos_peli_label"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/ver_peli_relac_btn"
+        app:layout_constraintBottom_toTopOf="@+id/verPeliRelacBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/ver_peli_relac_btn"
+        android:id="@+id/verPeliRelacBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/relac_peli_btn"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/edit_peli_btn"
+        app:layout_constraintBottom_toTopOf="@+id/editPeliBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/edit_peli_btn"
+        android:id="@+id/editPeliBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/edit_peli_btn"
-        app:layout_constraintBottom_toTopOf="@+id/volver_peli_btn"
+        app:layout_constraintBottom_toTopOf="@+id/backMainBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

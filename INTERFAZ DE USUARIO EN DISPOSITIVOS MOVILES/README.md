@@ -27,3 +27,7 @@
 ## Aclaraciones
 
 - No he traducido 2 veces el texto de *"Ver película A"* y *"Ver película B"* sino lo que he realizado es traducir solo *"Ver plícula"* poniendo **"%1$s "** y en el el archivo *FilmListActivity* concatenar la traducción con el nombre de la película.
+
+- En la función onclick en *FilmDataActivity* hacemos que el parámetro flag sea opcional para que no sea necesario pasarlo cuando no queramos emplearlo. De esta forma podemos asignar distinta flag para distintas actividades.
+
+**No sé si existe la posibilidad de tener multiples flags, hay que tener en cuenta que en caso de poderse deberemos de cambiar el tipo de parámetro de Int? a [Int]**

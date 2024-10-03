@@ -34,8 +34,11 @@ class FilmListActivity : AppCompatActivity() {
         }
     }
 
-    fun onClick(nuevaClase: Class<*>) {
+    fun onClick(nuevaClase: Class<*>, flag: Int? = null) {
         val intent = Intent(this@FilmListActivity, nuevaClase)
+        if (flag != null){
+            intent.flags = flag
+        }
         startActivity(intent)
     }
 }
