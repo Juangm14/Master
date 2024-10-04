@@ -31,21 +31,23 @@ class FilmDataActivity : AppCompatActivity() {
         }
 
         binding.editPeliBtn.setOnClickListener {
-            onClick(FilmEditActivity::class.java)
+            onClick(FilmEditActivity::class.java, result = true)
         }
 
         binding.backMainBtn.setOnClickListener {
-            onClick(FilmListActivity::class.java, Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            onClick(FilmListActivity::class.java, flag = Intent.FLAG_ACTIVITY_CLEAR_TOP)
         }
 
     }
 
     //Hacemos que el parámetro flag sea opcional para que no sea necesario pasarlo cuando no queramos emplearlo.
-    fun onClick(nuevaClase: Class<*>, flag: Int? = null) {
+    fun onClick(nuevaClase: Class<*>, flag: Int? = null, result: Boolean? = false) {
         val intent = Intent(this@FilmDataActivity, nuevaClase)
         if (flag != null){
             intent.flags = flag
         }
+
         startActivity(intent)
+
     }
 }
