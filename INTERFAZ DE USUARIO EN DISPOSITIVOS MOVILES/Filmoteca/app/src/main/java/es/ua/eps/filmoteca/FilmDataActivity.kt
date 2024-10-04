@@ -11,6 +11,9 @@ import es.ua.eps.filmoteca.databinding.ActivityFilmListBinding
 
 class FilmDataActivity : AppCompatActivity() {
 
+    companion object {
+        val EXTRA_FILM_TITLE = "EXTRA_FILM_TITLE"
+    }
 
     private lateinit var binding: ActivityFilmDataBinding
 
@@ -20,6 +23,8 @@ class FilmDataActivity : AppCompatActivity() {
         binding = ActivityFilmDataBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        binding.peliDatosLabel.setText(getString(R.string.datos_peli_label) + " " + EXTRA_FILM_TITLE)
 
         binding.verPeliRelacBtn.setOnClickListener {
             onClick(FilmDataActivity::class.java)
