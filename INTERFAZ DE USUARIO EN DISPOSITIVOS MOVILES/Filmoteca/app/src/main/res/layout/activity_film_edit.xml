@@ -7,6 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".FilmEditActivity">
 
+    <ImageView
+        android:id="@+id/logoFilmEdit"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_filmoteca" />
+
     <Button
         android:id="@+id/guardarEditBtn"
         android:layout_width="wrap_content"

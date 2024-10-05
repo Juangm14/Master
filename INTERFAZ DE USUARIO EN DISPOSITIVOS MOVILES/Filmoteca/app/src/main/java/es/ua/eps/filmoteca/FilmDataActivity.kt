@@ -2,7 +2,9 @@ package es.ua.eps.filmoteca
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -16,6 +18,18 @@ class FilmDataActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityFilmDataBinding
+
+    private val editFilmResultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        //Se han guardado los cambios en la edición de la película correctamente.
+        if (result.resultCode == RESULT_OK) {
+            Toast.makeText(this, getString(R.string.film_edited_success_msg), Toast.LENGTH_SHORT).show()
+            //Se ha cancelado la edición de la película.
+        } else if (result.resultCode == RESULT_CANCELED) {
+            Toast.makeText(this, getString(R.string.film_edit_cancel_msg), Toast.LENGTH_SHORT).show()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +45,8 @@ class FilmDataActivity : AppCompatActivity() {
         }
 
         binding.editPeliBtn.setOnClickListener {
-            onClick(FilmEditActivity::class.java, result = true)
+            val intent = Intent(this@FilmDataActivity, FilmEditActivity::class.java)
+            editFilmResultLauncher.launch(intent)
         }
 
         binding.backMainBtn.setOnClickListener {
@@ -41,8 +56,9 @@ class FilmDataActivity : AppCompatActivity() {
     }
 
     //Hacemos que el parámetro flag sea opcional para que no sea necesario pasarlo cuando no queramos emplearlo.
-    fun onClick(nuevaClase: Class<*>, flag: Int? = null, result: Boolean? = false) {
+    fun onClick(nuevaClase: Class<*>, flag: Int? = null) {
         val intent = Intent(this@FilmDataActivity, nuevaClase)
+
         if (flag != null){
             intent.flags = flag
         }

@@ -20,11 +20,14 @@ class FilmEditActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        //Ponemos setResult para devolver el código de resultado a la actividad padre.
         binding.guardarEditBtn.setOnClickListener {
+            setResult(RESULT_OK)
             finish()
         }
 
         binding.cancelarEditBtn.setOnClickListener {
+            setResult(RESULT_CANCELED)
             finish()
         }
     }

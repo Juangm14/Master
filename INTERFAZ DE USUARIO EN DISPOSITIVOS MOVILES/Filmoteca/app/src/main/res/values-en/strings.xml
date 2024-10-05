@@ -15,4 +15,6 @@
     <string name="edit_peli_label">Editing movie</string>
     <string name="guardar_btn">Save</string>
     <string name="cancelar_btn">Cancel</string>
+    <string name="film_edited_success_msg">Successfully edited movie</string>
+    <string name="film_edit_cancel_msg">Film edition canceled.</string>
 </resources>
