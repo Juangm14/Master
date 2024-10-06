@@ -17,4 +17,7 @@
     <string name="cancelar_btn">Cancel</string>
     <string name="film_edited_success_msg">Successfully edited movie</string>
     <string name="film_edit_cancel_msg">Film edition canceled.</string>
+    <string name="con_compose">with Compose</string>
+    <string name="con_layouts">with Layouts</string>
+    <string name="lanzar_modo_app">Launch Filmoteca "</string>
 </resources>

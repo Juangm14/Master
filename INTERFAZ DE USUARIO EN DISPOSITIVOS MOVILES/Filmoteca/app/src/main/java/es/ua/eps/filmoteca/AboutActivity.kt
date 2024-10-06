@@ -31,16 +31,10 @@ import androidx.compose.ui.unit.dp
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-//Enumerador para seleccionar que modo de interfaz deseamos emplear.
-enum class Mode {
-    Layouts,
-    Compose,
-}
 
 class AboutActivity : AppCompatActivity() {
 
-    //Indica el modo de interfaz que deseamos.
-    private val mode = Mode.Layouts
+    private var mode: Mode = Mode.Layouts
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +42,9 @@ class AboutActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
+
+        mode = intent.getSerializableExtra("MODE", Mode::class.java) ?: Mode.Layouts
+
         when (mode) {
             Mode.Layouts -> initLayouts()
             Mode.Compose -> setContent { initCompose() }
@@ -67,33 +64,19 @@ class AboutActivity : AppCompatActivity() {
         val sitioweb_btn = findViewById<android.widget.Button>(R.id.sitioweb_btn);
 
         sitioweb_btn.setOnClickListener{
-            val viewIntent = Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://www.midominio.com"))
-
-            if (viewIntent.resolveActivity(packageManager) != null) {
-                startActivity(viewIntent)
-            }else{
-                Toast.makeText(this, R.string.func_no_imp, Toast.LENGTH_LONG).show()
-            }
+            onClickGoToWeb()
         }
 
         val soporte_btn = findViewById<android.widget.Button>(R.id.soporte_btn)
 
         soporte_btn.setOnClickListener{
-            val viewIntent = Intent(Intent.ACTION_SENDTO,
-                Uri.parse("mailto:midireccion@dominio.com"))
-
-            if (viewIntent.resolveActivity(packageManager) != null) {
-                startActivity(viewIntent)
-            }else{
-                Toast.makeText(this, R.string.func_no_imp, Toast.LENGTH_LONG).show()
-            }
+           onClickSupport()
         }
 
         val volver_btn = findViewById<android.widget.Button>(R.id.volver_btn)
 
         volver_btn.setOnClickListener{
-            finish()
+            onClickBack()
         }
     }
 
@@ -184,14 +167,28 @@ class AboutActivity : AppCompatActivity() {
     }
 
     private fun onClickGoToWeb() {
-        Toast.makeText(this, R.string.func_no_imp, Toast.LENGTH_LONG).show()
+        val viewIntent = Intent(Intent.ACTION_VIEW,
+            Uri.parse("http://www.midominio.com"))
+
+        if (viewIntent.resolveActivity(packageManager) != null) {
+            startActivity(viewIntent)
+        }else{
+            Toast.makeText(this, R.string.func_no_imp, Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun onClickSupport() {
-        Toast.makeText(this, R.string.func_no_imp, Toast.LENGTH_LONG).show()
+        val viewIntent = Intent(Intent.ACTION_SENDTO,
+            Uri.parse("mailto:midireccion@dominio.com"))
+
+        if (viewIntent.resolveActivity(packageManager) != null) {
+            startActivity(viewIntent)
+        }else{
+            Toast.makeText(this, R.string.func_no_imp, Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun onClickBack() {
-        Toast.makeText(this, R.string.func_no_imp, Toast.LENGTH_LONG).show()
+        finish()
     }
 }

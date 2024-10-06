@@ -31,3 +31,10 @@
 - En la función onclick en *FilmDataActivity* hacemos que el parámetro flag sea opcional para que no sea necesario pasarlo cuando no queramos emplearlo. De esta forma podemos asignar distinta flag para distintas actividades.
 
 **No sé si existe la posibilidad de tener multiples flags, hay que tener en cuenta que en caso de poderse deberemos de cambiar el tipo de parámetro de Int? a [Int]**
+
+- El enumerador se saca en un archivo diferente, de manera pública para que las demás clases puedan emplearlo. Antes era pública, pero al tenerla en otro archivo queda mejor estructurado y deja fuera de confusiones.
+
+- La variable del enumerador  se cambia para la página nueva página principal que es ***FilmListActivity.kt*** para poder ir pasandolo de vista en vista y no hacer pública la variable.
+
+- Se crea una nueva actividad ***ModeActivity.kt*** que se implementa mediante Compose, que tiene 2 botones que son los modos para inicializar *Filmoteca*. 
+  Los modos son *Iniciar Filmoteca con Layouts* y *Iniciar Filmoteca con Compose*. De esta forma no tenemos que modificar el código para lanzar un Modo u Otro, sino retrocedemos con el movil una actividad y seleccionamos el modo.
