@@ -8,8 +8,9 @@
     <string name="func_no_imp">Unimplemented feature</string>
     <string name="ver_peli">Watch movie %1$s </string>
     <string name="acerca_de">About</string>
-    <string name="datos_peli_label">Movie data</string>
-    <string name="relac_peli_btn">Watch related movie</string>
+    <string name="list_peli_label">Film list</string>
+    <string name="datos_peli_label">Back to the future</string>
+    <string name="relac_peli_btn">Watch in IMDB</string>
     <string name="edit_peli_btn">Edit movie</string>
     <string name="volver_peli">Back to main page</string>
     <string name="edit_peli_label">Editing movie</string>
@@ -20,4 +21,7 @@
     <string name="con_compose">with Compose</string>
     <string name="con_layouts">with Layouts</string>
     <string name="lanzar_modo_app">Launch Filmoteca "</string>
+    <string name="director_label">Director</string>
+    <string name="anyo_label">Year</string>
+    <string name="nota_peli_label">Extended version</string>
 </resources>

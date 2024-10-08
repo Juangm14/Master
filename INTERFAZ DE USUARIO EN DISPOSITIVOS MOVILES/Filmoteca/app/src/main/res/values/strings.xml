@@ -8,8 +8,9 @@
     <string name="func_no_imp">Funcionalidad sin implementar</string>
     <string name="ver_peli">Ver película %1$s </string>
     <string name="acerca_de">Acerca de</string>
+    <string name="list_peli_label">Lista de películas</string>
     <string name="datos_peli_label">Datos de la película</string>
-    <string name="relac_peli_btn">Ver película relacionada</string>
+    <string name="relac_peli_btn">Ver en IMDB</string>
     <string name="edit_peli_btn">Editar película</string>
     <string name="volver_peli">Volver a la principal</string>
     <string name="edit_peli_label">Editando película</string>
@@ -20,4 +21,7 @@
     <string name="con_compose">con Compose</string>
     <string name="con_layouts">con Layouts</string>
     <string name="lanzar_modo_app">Iniciar Filmoteca "</string>
+    <string name="director_label">Director</string>
+    <string name="anyo_label">Año</string>
+    <string name="nota_peli_label">Versión extendida</string>
 </resources>

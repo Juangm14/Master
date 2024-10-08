@@ -15,14 +15,28 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
-import android.content.Context
+import android.net.Uri
+import android.widget.Toolbar
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.content.ContextCompat
 
 import es.ua.eps.filmoteca.databinding.ActivityFilmDataBinding
 
@@ -69,10 +83,19 @@ class FilmDataActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        binding.peliDatosLabel.setText(getString(R.string.datos_peli_label) + " " + EXTRA_FILM_TITLE)
+        binding.peliDatosLabel.setText(getString(R.string.datos_peli_label))
+        binding.directorLabel.setText(getString(R.string.director_label) + ":")
 
-        binding.verPeliRelacBtn.setOnClickListener {
-            onClick(FilmDataActivity::class.java)
+        binding.directorDataLabel.setText("Robert Zemeckis")
+        binding.anyoLabel.setText(getString(R.string.anyo_label) + ":")
+        binding.anyoDataLabel.setText("1985")
+        binding.generoFormatoLabel.setText("Blueray, Sci-Fi")
+        binding.notasDataLabel.setText(getString(R.string.nota_peli_label))
+
+        binding.verEnImdbBtn.setOnClickListener {
+            val imdbUrl = "https://www.imdb.com/title/tt0088763"
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(imdbUrl))
+            startActivity(intent)
         }
 
         binding.editPeliBtn.setOnClickListener {
@@ -101,17 +124,118 @@ class FilmDataActivity : AppCompatActivity() {
     private fun initCompose() {
         Surface {
             MyWindow {
+                // Agregamos la Toolbar
+                AndroidView(
+                    factory = { ctx ->
+                        Toolbar(ctx).apply {
+                            setTitle(R.string.app_name)
+                            setTitleTextColor(ContextCompat.getColor(ctx, android.R.color.white))
+                            setBackgroundColor(ContextCompat.getColor(ctx, R.color.customPurple))
+                        }
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(128.dp)
+                )
+
                 MyColumn {
-                    Text(
-                        text = getString(R.string.datos_peli_label) + " " + EXTRA_FILM_TITLE + " " + getString(R.string.con_compose),
-                        modifier = Modifier.padding(8.dp)
-                    )
+                    Spacer(modifier = Modifier.height(20.dp))
 
-                    MyButton(onClick = { onClickEdit() }, text = stringResource(id = R.string.edit_peli_btn))
+                    // Fila con la imagen de la película y los textos + botones a la derecha
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 8.dp),
+                        verticalAlignment = Alignment.Top
+                    ) {
+                        // Imagen de la película
+                        Column(
+                            modifier = Modifier
+                                .width(168.dp)
+                                .padding(end = 16.dp)
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.icon_android),
+                                contentDescription = "Imagen de la película",
+                                contentScale = ContentScale.Crop,
+                                modifier = Modifier
+                                    .width(168.dp)
+                                    .height(212.dp)
+                                    .padding(bottom = 16.dp)
+                            )
 
-                    MyButton(onClick = { onClick(FilmDataActivity::class.java) }, text = stringResource(id = R.string.relac_peli_btn))
+                            // Botón para editar la película debajo de la imagen
+                            MyButton(
+                                onClick = { onClickEdit() },
+                                text = stringResource(id = R.string.edit_peli_btn),
+                                modifier = Modifier.padding(bottom = 8.dp) // Asegúrate de que este padding esté aquí
+                            )
+                        }
 
-                    MyButton(onClick = { onClick(FilmListActivity::class.java, Intent.FLAG_ACTIVITY_CLEAR_TOP) }, text = stringResource(id = R.string.volver_peli))
+                        // Columna con los textos y botones a la derecha
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(end = 8.dp),
+                            verticalArrangement = Arrangement.Top,
+                            horizontalAlignment = Alignment.Start
+                        ) {
+                            // Texto principal "Datos de la Película"
+                            Text(
+                                text = getString(R.string.datos_peli_label),
+                                fontSize = 20.sp,
+                                color = Color.Black,
+                                modifier = Modifier
+                                    .padding(bottom = 12.dp)
+                            )
+
+                            // Detalles de la película: Director, Año, Género/Formato
+                            Text(
+                                text = getString(R.string.director_label) + ": Robert Zemeckis",
+                                fontSize = 16.sp,
+                                modifier = Modifier
+                                    .padding(bottom = 6.dp)
+                            )
+
+                            Text(
+                                text = getString(R.string.anyo_label) + ": 1985",
+                                fontSize = 16.sp,
+                                modifier = Modifier
+                                    .padding(bottom = 6.dp)
+                            )
+
+                            Text(
+                                text = "Blueray, Sci-Fi",
+                                fontSize = 16.sp,
+                                modifier = Modifier
+                                    .padding(bottom = 6.dp)
+                            )
+
+                            Spacer(modifier = Modifier.height(16.dp))
+
+                            // Botón para ver en IMDb
+                            MyButton(
+                                onClick = {
+                                    val imdbUrl = "https://www.imdb.com/title/tt0088763"
+                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(imdbUrl))
+                                    startActivity(intent)
+                                },
+                                text = stringResource(id = R.string.relac_peli_btn),
+                                modifier =Modifier
+                                    .width(178.dp)
+                                    .padding(bottom = 8.dp)
+                            )
+
+                            // Botón para volver a la lista principal debajo del botón de IMDb
+                            MyButton(
+                                onClick = { onClickBack() },
+                                text = stringResource(id = R.string.volver_peli),
+                                modifier =Modifier
+                                    .width(178.dp)
+                                    .padding(top = 30.dp)
+                            )
+                        }
+                    }
                 }
             }
         }
@@ -124,8 +248,8 @@ class FilmDataActivity : AppCompatActivity() {
                 .fillMaxSize()
                 .systemBarsPadding()
                 .padding(16.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.Start
         ) {
             content()
         }
@@ -134,18 +258,18 @@ class FilmDataActivity : AppCompatActivity() {
     @Composable
     fun MyColumn(content: @Composable ColumnScope.() -> Unit) {
         Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.Start,
+            verticalArrangement = Arrangement.Top,
         ) {
             content()
         }
     }
 
     @Composable
-    fun MyButton(onClick: () -> Unit, text: String) {
+    fun MyButton(onClick: () -> Unit, text: String, modifier: Modifier) {
         Button(
             onClick = { onClick() },
-            modifier = Modifier.width(210.dp).padding(bottom = 8.dp),
+            modifier = modifier
         ) {
             Text(text = text)
         }
@@ -160,4 +284,6 @@ class FilmDataActivity : AppCompatActivity() {
     private fun onClickBack() {
         finish()
     }
+
+
 }
