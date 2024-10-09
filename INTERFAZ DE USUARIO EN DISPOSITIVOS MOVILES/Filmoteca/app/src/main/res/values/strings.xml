@@ -24,4 +24,14 @@
     <string name="director_label">Director</string>
     <string name="anyo_label">Año</string>
     <string name="nota_peli_label">Versión extendida</string>
+    <string name="capturar_foto">Capturar fotografia</string>
+    <string name="seleccionar_img">Selecciona imagen</string>
+    <string name="titulo_peli">Título de la película</string>
+    <string name="nombre_director">Nombre del director</string>
+    <string name="anyo_peli">Año</string>
+    <string name="enlace_imdb">Enlace a IMDb</string>
+    <string name="comentarios">Comentarios</string>
+    <string name="genero_peli">Selecciona el género</string>
+    <string name="formato_peli">Selecciona el formato</string>
+    <string name="cartel_pelicula">Cartel de la película</string>
 </resources>

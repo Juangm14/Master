@@ -2,6 +2,7 @@ package es.ua.eps.filmoteca
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toolbar
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +16,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.content.ContextCompat
 
 class FilmListActivity : AppCompatActivity() {
 
@@ -65,6 +68,20 @@ class FilmListActivity : AppCompatActivity() {
     private fun initCompose() {
         Surface {
             MyWindow {
+                AndroidView(
+                factory = { ctx ->
+                    Toolbar(ctx).apply {
+                        setTitle(R.string.app_name)
+                        setTitleTextColor(ContextCompat.getColor(ctx, android.R.color.white))
+                        setBackgroundColor(ContextCompat.getColor(ctx, R.color.customPurple))
+
+                    }
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(64.dp)
+                )
+
                 MyColumn {
                     Text(
                         text = getString(R.string.app_name) + " " + getString(R.string.con_compose),
@@ -90,7 +107,6 @@ class FilmListActivity : AppCompatActivity() {
                 .fillMaxSize()
                 .systemBarsPadding()
                 .padding(16.dp),
-            verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             content()
@@ -101,7 +117,6 @@ class FilmListActivity : AppCompatActivity() {
     fun MyColumn(content: @Composable ColumnScope.() -> Unit) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
         ) {
             content()
         }

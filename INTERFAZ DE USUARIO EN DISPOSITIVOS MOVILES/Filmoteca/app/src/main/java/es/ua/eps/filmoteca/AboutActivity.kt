@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
@@ -13,6 +14,7 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBarsPadding
@@ -28,6 +30,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -84,8 +88,21 @@ class AboutActivity : AppCompatActivity() {
     private fun initCompose() {
         setContent {
             Surface{
-                MyLogo()
                 MyWindow {
+                    AndroidView(
+                    factory = { ctx ->
+                        Toolbar(ctx).apply {
+                            setTitle(R.string.app_name)
+                            setTitleTextColor(ContextCompat.getColor(ctx, android.R.color.white))
+                            setBackgroundColor(ContextCompat.getColor(ctx, R.color.customPurple))
+
+                        }
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(64.dp)
+                )
+
                     MyColumn {
                         Text(
                             text = stringResource(id = R.string.creado_por_compose),
@@ -102,23 +119,6 @@ class AboutActivity : AppCompatActivity() {
                     }
                 }
             }
-        }
-    }
-
-    @Composable
-    fun MyLogo() {
-        Row(
-            modifier = Modifier.fillMaxWidth()
-                               .padding(top = 8.dp, start = 16.dp),
-            verticalAlignment = Alignment.Top
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.logo_filmoteca),
-                contentDescription = stringResource(id = R.string.app_name),
-                modifier = Modifier
-                    .size(80.dp, 60.dp)
-                    .align(Alignment.Top)
-            )
         }
     }
 

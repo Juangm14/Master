@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <queries>
-
         <!-- Browser -->
         <intent>
             <action android:name="android.intent.action.VIEW" />
@@ -37,9 +36,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".FilmEditActivity"
-            android:exported="false" />
+
+        <activity android:name=".FilmEditActivity"
+            android:exported="false"/>
+
         <activity
             android:name=".FilmDataActivity"
             android:exported="false" />

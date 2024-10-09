@@ -16,8 +16,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import android.net.Uri
+import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.Toolbar
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,14 +28,19 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -119,23 +127,22 @@ class FilmDataActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    // MEDIANTE JETPACK COMPOSE
     @Composable
     private fun initCompose() {
         Surface {
             MyWindow {
-                // Agregamos la Toolbar
                 AndroidView(
                     factory = { ctx ->
                         Toolbar(ctx).apply {
                             setTitle(R.string.app_name)
                             setTitleTextColor(ContextCompat.getColor(ctx, android.R.color.white))
                             setBackgroundColor(ContextCompat.getColor(ctx, R.color.customPurple))
+
                         }
                     },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(128.dp)
+                        .height(64.dp)
                 )
 
                 MyColumn {
@@ -145,8 +152,7 @@ class FilmDataActivity : AppCompatActivity() {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 8.dp),
-                        verticalAlignment = Alignment.Top
+                            .padding(start = 8.dp)
                     ) {
                         // Imagen de la película
                         Column(
@@ -176,7 +182,7 @@ class FilmDataActivity : AppCompatActivity() {
                         Column(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(end = 8.dp),
+                                .padding(end = 8.dp, bottom = 16.dp),
                             verticalArrangement = Arrangement.Top,
                             horizontalAlignment = Alignment.Start
                         ) {
@@ -226,13 +232,12 @@ class FilmDataActivity : AppCompatActivity() {
                                     .padding(bottom = 8.dp)
                             )
 
-                            // Botón para volver a la lista principal debajo del botón de IMDb
                             MyButton(
                                 onClick = { onClickBack() },
                                 text = stringResource(id = R.string.volver_peli),
                                 modifier =Modifier
                                     .width(178.dp)
-                                    .padding(top = 30.dp)
+                                    .padding(top = 42.dp)
                             )
                         }
                     }
@@ -284,6 +289,5 @@ class FilmDataActivity : AppCompatActivity() {
     private fun onClickBack() {
         finish()
     }
-
 
 }
