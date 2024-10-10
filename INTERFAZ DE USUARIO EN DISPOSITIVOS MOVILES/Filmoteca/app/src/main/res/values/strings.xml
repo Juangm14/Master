@@ -34,4 +34,9 @@
     <string name="genero_peli">Selecciona el género</string>
     <string name="formato_peli">Selecciona el formato</string>
     <string name="cartel_pelicula">Cartel de la película</string>
+    <string name="accion_gen">Acción</string>
+    <string name="comedia_gen">Comedia</string>
+    <string name="drama_gen">Drama</string>
+    <string name="scifi_gen">Sci-Fi</string>
+    <string name="terror_gen">Terror</string>
 </resources>

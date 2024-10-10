@@ -53,9 +53,10 @@ class FilmListActivity : AppCompatActivity() {
             val intent = Intent(this, FilmDataActivity::class.java).apply {
                 putExtra("MODE", mode)
                 putExtra("TITULO_PELI", selectedFilm.title)
-                putExtra("FIRECTOR_PELI", selectedFilm.director)
+                putExtra("DIRECTOR_PELI", selectedFilm.director)
                 putExtra("ANYO_PELI", selectedFilm.year)
                 putExtra("GENERO_PELI", selectedFilm.genre)
+                putExtra("FORMATO_PELI", selectedFilm.format)
                 putExtra("COMENTARIO_PELI", selectedFilm.comments)
                 putExtra("ENLACE_IMDB", selectedFilm.imdbUrl)
             }

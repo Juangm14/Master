@@ -34,4 +34,9 @@
     <string name="genero_peli">Genre film</string>
     <string name="formato_peli">Film format</string>
     <string name="cartel_pelicula">Film poster</string>
+    <string name="accion_gen">Action</string>
+    <string name="comedia_gen">Comedy</string>
+    <string name="drama_gen">Drama</string>
+    <string name="scifi_gen">Sci-Fi</string>
+    <string name="terror_gen">Horror</string>
 </resources>

@@ -91,17 +91,26 @@ class FilmDataActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        binding.peliDatosLabel.setText(getString(R.string.datos_peli_label))
-        binding.directorLabel.setText(getString(R.string.director_label) + ":")
+        var generoPeli = Film.getGeneroString(this, intent.getIntExtra("GENERO_PELI", -1))
+        var formatoPeli = Film.getFormatoString(this, intent.getIntExtra("FORMATO_PELI", -1))
 
-        binding.directorDataLabel.setText("Robert Zemeckis")
+        //Para concatenar la "," con el formato encaso de que tenta o que no tenga género
+        if(generoPeli.isNotEmpty() && formatoPeli.isNotEmpty()){
+            generoPeli += ", " + formatoPeli
+        }else if(generoPeli.isEmpty()){
+            generoPeli = formatoPeli
+        }
+
+        binding.peliDatosLabel.setText(intent.getStringExtra("TITULO_PELI"))
+        binding.directorLabel.setText(getString(R.string.director_label) + ":")
+        binding.directorDataLabel.setText(intent.getStringExtra("DIRECTOR_PELI"))
         binding.anyoLabel.setText(getString(R.string.anyo_label) + ":")
-        binding.anyoDataLabel.setText("1985")
-        binding.generoFormatoLabel.setText("Blueray, Sci-Fi")
-        binding.notasDataLabel.setText(getString(R.string.nota_peli_label))
+        binding.anyoDataLabel.setText(intent.getIntExtra("ANYO_PELI", 0).toString())
+        binding.generoFormatoLabel.setText(generoPeli)
+        binding.notasDataLabel.setText(intent.getStringExtra("COMENTARIO_PELI"))
 
         binding.verEnImdbBtn.setOnClickListener {
-            val imdbUrl = "https://www.imdb.com/title/tt0088763"
+            val imdbUrl = intent.getStringExtra("ENLACE_IMDB")
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(imdbUrl))
             startActivity(intent)
         }

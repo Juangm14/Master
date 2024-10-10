@@ -177,8 +177,8 @@
     <TextView
         android:id="@+id/notas_data_label"
         android:layout_width="363dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"

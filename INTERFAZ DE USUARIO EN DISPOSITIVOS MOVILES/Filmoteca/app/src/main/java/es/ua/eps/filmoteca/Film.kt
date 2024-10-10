@@ -1,5 +1,8 @@
 package es.ua.eps.filmoteca
 
+import android.content.Context
+import androidx.compose.ui.res.stringResource
+
 class Film {
     var imageResId = 0 // Propiedades de la clase
     var title: String? = null
@@ -23,5 +26,25 @@ class Film {
         const val GENRE_DRAMA = 2
         const val GENRE_SCIFI = 3
         const val GENRE_HORROR = 4
+
+        fun getGeneroString(context: Context, genero: Int) : String {
+            return when(genero){
+                GENRE_ACTION -> context.getString(R.string.accion_gen)
+                GENRE_COMEDY -> context.getString(R.string.comedia_gen)
+                GENRE_DRAMA -> context.getString(R.string.drama_gen)
+                GENRE_SCIFI -> context.getString(R.string.scifi_gen)
+                GENRE_HORROR -> context.getString(R.string.terror_gen)
+                else -> ""
+            }
+        }
+
+        fun getFormatoString(context: Context, formato: Int) : String {
+            return when(formato){
+                FORMAT_DVD -> "DVD"
+                FORMAT_BLURAY -> "BluRay"
+                FORMAT_DIGITAL -> "Digital"
+                else -> ""
+            }
+        }
     }
 }
