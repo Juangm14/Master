@@ -52,6 +52,8 @@ dependencies {
 
     implementation(platform("androidx.compose:compose-bom:2024.09.02"))
 
+    implementation("io.coil-kt:coil-compose:2.2.2")
+
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.activity:activity:1.9.2")
     implementation("androidx.activity:activity-ktx:1.9.2")
@@ -61,6 +63,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.play.services.cast.framework)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

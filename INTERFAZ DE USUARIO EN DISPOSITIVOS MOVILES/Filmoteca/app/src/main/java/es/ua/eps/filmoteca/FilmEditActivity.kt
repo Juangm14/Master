@@ -1,10 +1,17 @@
 package es.ua.eps.filmoteca
 
+import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import android.widget.Toolbar
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -36,12 +43,22 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.ComposeView
+import androidx.core.view.drawToBitmap
+import com.google.android.gms.cast.framework.media.ImagePicker
 
 class FilmEditActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFilmEditBinding
+    private lateinit var imageView: ImageView
 
     private var mode: Mode = Mode.Layouts
+
+    private val getImage = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        uri?.let {
+            binding.moviePoster.setImageURI(it)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,7 +77,6 @@ class FilmEditActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        //Ponemos setResult para devolver el código de resultado a la actividad padre.
         binding.guardarEditBtn.setOnClickListener {
             setResult(RESULT_OK)
             finish()
@@ -69,6 +85,31 @@ class FilmEditActivity : AppCompatActivity() {
         binding.cancelarEditBtn.setOnClickListener {
             setResult(RESULT_CANCELED)
             finish()
+        }
+
+        binding.buttonTakePhoto.setOnClickListener {
+            imageView = binding.moviePoster
+
+            val mb: Bitmap = Screenshot.hacerScreenshotView(imageView)
+            imageView.setImageBitmap(mb)
+        }
+
+        binding.buttonSelectImage.setOnClickListener {
+            getImage.launch("image/*")
+        }
+    }
+
+    companion object Screenshot {
+        private fun hacerScreenShot(view: View) : Bitmap {
+            view.isDrawingCacheEnabled = true
+            view.buildDrawingCache(true)
+            val b = Bitmap.createBitmap(view.drawingCache)
+            view.isDrawingCacheEnabled = false
+            return b
+        }
+
+        fun hacerScreenshotView(v: View): Bitmap {
+            return hacerScreenShot(v.rootView)
         }
     }
 
@@ -141,9 +182,9 @@ class FilmEditActivity : AppCompatActivity() {
 
                     Row {
                         MyButton(
-                            onClick = { onClickCancelar() },
+                            onClick = { onClickGuardar() },
                             text = stringResource(id = R.string.guardar_btn),
-                            modifier =Modifier
+                            modifier = Modifier
                                 .width(178.dp)
                                 .padding(top = 40.dp)
                         )
@@ -152,7 +193,7 @@ class FilmEditActivity : AppCompatActivity() {
                         MyButton(
                             onClick = { onClickCancelar() },
                             text = stringResource(id = R.string.cancelar_btn),
-                            modifier =Modifier
+                            modifier = Modifier
                                 .width(178.dp)
                                 .padding(top = 40.dp)
                         )
@@ -165,6 +206,12 @@ class FilmEditActivity : AppCompatActivity() {
 
     @Composable
     fun FilmEditForm() {
+        var titulo by remember { mutableStateOf("") }
+        var director by remember { mutableStateOf("Robert Zemeckis") }
+        var anyo by remember { mutableStateOf("1985") }
+        var enlaceimdb by remember { mutableStateOf("https://www.imdb.com/title/tt0088763") }
+        var notas by remember { mutableStateOf("") }
+
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -172,8 +219,8 @@ class FilmEditActivity : AppCompatActivity() {
             horizontalAlignment = Alignment.Start
         ) {
             TextField(
-                value = "",
-                onValueChange = { },
+                value = titulo,
+                onValueChange = { titulo = it },
                 placeholder = {  Text( text = stringResource(R.string.titulo_peli)) },
                 modifier = Modifier
                     .fillMaxWidth()
@@ -182,8 +229,8 @@ class FilmEditActivity : AppCompatActivity() {
             )
 
             TextField(
-                value = "",
-                onValueChange = { },
+                value = director,
+                onValueChange = { director = it },
                 placeholder = { Text( text = stringResource(R.string.nombre_director)) },
                 modifier = Modifier
                     .fillMaxWidth()
@@ -192,8 +239,8 @@ class FilmEditActivity : AppCompatActivity() {
             )
 
             TextField(
-                value = "",
-                onValueChange = { },
+                value = anyo,
+                onValueChange = { anyo = it },
                 placeholder = { Text( text = stringResource(R.string.anyo_label)) },
                 modifier = Modifier
                     .fillMaxWidth()
@@ -202,8 +249,8 @@ class FilmEditActivity : AppCompatActivity() {
             )
 
             TextField(
-                value = "",
-                onValueChange = { },
+                value = enlaceimdb,
+                onValueChange = { enlaceimdb = it },
                 placeholder = { Text( text = stringResource(R.string.enlace_imdb)) },
                 modifier = Modifier
                     .fillMaxWidth()
@@ -221,7 +268,8 @@ class FilmEditActivity : AppCompatActivity() {
             val formatos = resources.getStringArray(R.array.formato_peli).toList()
 
             Box(
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .wrapContentSize(Alignment.TopEnd)
             ) {
                 OutlinedTextField(
@@ -252,7 +300,8 @@ class FilmEditActivity : AppCompatActivity() {
             }
 
             Box(
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .wrapContentSize(Alignment.TopEnd)
             ) {
                 OutlinedTextField(
@@ -283,8 +332,8 @@ class FilmEditActivity : AppCompatActivity() {
             }
 
             TextField(
-                value = "",
-                onValueChange = { },
+                value = notas,
+                onValueChange = { notas = it },
                 placeholder = { Text( text = stringResource(R.string.comentarios)) },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true,

@@ -44,3 +44,5 @@
 - En la creación de *ToolBar* se intentó mediante [Scaffold](https://developer.android.com/develop/ui/compose/components/app-bars?hl=es-419) pero está en fase experimental. Por ello, se decidió optar por la que no está en fase experimental que es [AndroidView](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose?hl=es-419) permitiendo la creación de un *Toolbar* de manera muy sencilla.
 
 - Para la creación de los dropdown con Compose me he basado en una pagina de [GeeksForGeeks](https://www.geeksforgeeks.org/drop-down-menu-in-android-using-jetpack-compose/) y otra de alguna persona que es la que realmente me ha funcionado [DropDownMenu JetpackCompose](https://alexzh.com/jetpack-compose-dropdownmenu/)
+
+- En compose no se mete texto en algunos campos en la edición para que se vean los placeholders.
