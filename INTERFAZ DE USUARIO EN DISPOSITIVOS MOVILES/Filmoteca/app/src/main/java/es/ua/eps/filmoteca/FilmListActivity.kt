@@ -2,6 +2,7 @@ package es.ua.eps.filmoteca
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Toolbar
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -42,19 +43,24 @@ class FilmListActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        binding.verPeliA.text = String.format(getString(R.string.ver_peli), "A")
-        binding.verPeliB.text = String.format(getString(R.string.ver_peli), "B")
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, FilmDataSource.films)
+        binding.listadoPeliculas.adapter = adapter
 
-        binding.verPeliA.setOnClickListener {
-            onClick(FilmDataActivity::class.java)
-        }
+        binding.listadoPeliculas.setOnItemClickListener { padre, view, posicion, id ->
 
-        binding.verPeliB.setOnClickListener {
-            onClick(FilmDataActivity::class.java)
-        }
+            val selectedFilm = FilmDataSource.films[posicion]
 
-        binding.acercaDeBtn.setOnClickListener{
-            onClick(AboutActivity::class.java)
+            val intent = Intent(this, FilmDataActivity::class.java).apply {
+                putExtra("MODE", mode)
+                putExtra("TITULO_PELI", selectedFilm.title)
+                putExtra("FIRECTOR_PELI", selectedFilm.director)
+                putExtra("ANYO_PELI", selectedFilm.year)
+                putExtra("GENERO_PELI", selectedFilm.genre)
+                putExtra("COMENTARIO_PELI", selectedFilm.comments)
+                putExtra("ENLACE_IMDB", selectedFilm.imdbUrl)
+            }
+
+            startActivity(intent)
         }
     }
 
