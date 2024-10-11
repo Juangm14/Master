@@ -3,6 +3,7 @@ package es.ua.eps.filmoteca
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.ListView
 import android.widget.Toolbar
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -43,10 +44,15 @@ class FilmListActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, FilmDataSource.films)
-        binding.listadoPeliculas.adapter = adapter
+        val listaPeliculas = findViewById<ListView>(R.id.listadoPeliculas)
 
-        binding.listadoPeliculas.setOnItemClickListener { padre, view, posicion, id ->
+        val peliculas = FilmDataSource.films
+
+        val adaptador = FilmArrayAdapter(this, R.layout.item_film, peliculas)
+
+        listaPeliculas.adapter = adaptador
+
+        binding.listadoPeliculas.setOnItemClickListener { _, _, posicion, _ ->
 
             val selectedFilm = FilmDataSource.films[posicion]
 
