@@ -49,6 +49,8 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("com.google.accompanist:accompanist-permissions:0.32.0")
+    implementation("androidx.recyclerview:recyclerview:1.1.0")
 
     implementation(platform("androidx.compose:compose-bom:2024.09.02"))
 

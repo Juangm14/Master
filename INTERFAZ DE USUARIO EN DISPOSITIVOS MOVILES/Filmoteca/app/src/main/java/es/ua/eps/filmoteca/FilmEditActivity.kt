@@ -1,9 +1,12 @@
 package es.ua.eps.filmoteca
 
+import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -11,7 +14,6 @@ import android.widget.Toolbar
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -43,14 +45,28 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.platform.ComposeView
-import androidx.core.view.drawToBitmap
-import com.google.android.gms.cast.framework.media.ImagePicker
+import androidx.core.app.ActivityCompat
+import android.Manifest
+import android.content.Context
+import android.graphics.BitmapFactory
+import android.widget.ArrayAdapter
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.compose.ui.graphics.asImageBitmap
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.isGranted
+import com.google.accompanist.permissions.rememberPermissionState
+import com.google.accompanist.permissions.shouldShowRationale
+import java.io.File
+import java.io.FileOutputStream
+
 
 class FilmEditActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFilmEditBinding
     private lateinit var imageView: ImageView
+    private val REQUEST_IMAGE_CAPTURE = 1
+    private val REQUEST_CAMERA_PERMISSION = 1001
+    private var filmIndex: Int = -1
 
     private var mode: Mode = Mode.Layouts
 
@@ -77,9 +93,33 @@ class FilmEditActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        filmIndex = intent.getIntExtra("FILM_INDEX", -1)
+
+        val film = FilmDataSource.films[filmIndex]
+        binding.editMovieTitle.setText(film.title)
+        binding.editMovieDirector.setText(film.director)
+        binding.editMovieYear.setText(film.year.toString())
+        binding.editMovieComments.setText(film.comments)
+        binding.editMovieImdb.setText(film.imdbUrl)
+        binding.moviePoster.setImageResource(film.imageResId)
+
+        val generos = resources.getStringArray(R.array.generos_peli)
+        val adapterGeneros = ArrayAdapter(this, android.R.layout.simple_spinner_item, generos)
+        adapterGeneros.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinnerGenre.adapter = adapterGeneros
+
+        binding.spinnerGenre.setSelection(film.genre)
+
+        val formatos = resources.getStringArray(R.array.formato_peli)
+        val adapterFormatos = ArrayAdapter(this, android.R.layout.simple_spinner_item, formatos)
+        adapterFormatos.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinnerFormat.adapter = adapterFormatos
+
+        binding.spinnerFormat.setSelection(film.format)
+
         binding.guardarEditBtn.setOnClickListener {
+            guardarDatos()
             setResult(RESULT_OK)
-            finish()
         }
 
         binding.cancelarEditBtn.setOnClickListener {
@@ -88,14 +128,85 @@ class FilmEditActivity : AppCompatActivity() {
         }
 
         binding.buttonTakePhoto.setOnClickListener {
-            imageView = binding.moviePoster
-
-            val mb: Bitmap = Screenshot.hacerScreenshotView(imageView)
-            imageView.setImageBitmap(mb)
+//            val mb: Bitmap = Screenshot.hacerScreenshotView(imageView)
+//            imageView.setImageBitmap(mb)
+            capturarImagen()
         }
 
         binding.buttonSelectImage.setOnClickListener {
             getImage.launch("image/*")
+        }
+    }
+
+    private fun guardarDatos() {
+
+        val film = FilmDataSource.films[filmIndex]
+
+        // Actualiza los datos de la película
+        film.title = binding.editMovieTitle.text.toString()
+        film.director = binding.editMovieDirector.text.toString()
+        film.year = binding.editMovieYear.text.toString().toIntOrNull() ?: 0
+        film.comments = binding.editMovieComments.text.toString()
+        film.imdbUrl = binding.editMovieImdb.text.toString()
+
+        // Notifica que los cambios se han guardado
+        Toast.makeText(this, getString(R.string.film_edited_success_msg), Toast.LENGTH_SHORT).show()
+        setResult(RESULT_OK)
+        finish()  // Regresa a FilmDataActivity
+    }
+
+    fun capturarImagen(){
+        imageView = binding.moviePoster
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                arrayOf(Manifest.permission.CAMERA),
+                REQUEST_CAMERA_PERMISSION)
+        } else {
+            val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            if (takePictureIntent.resolveActivity(packageManager) != null) {
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+            }
+        }
+    }
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_CAMERA_PERMISSION) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                if (takePictureIntent.resolveActivity(packageManager) != null) {
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                }
+            } else {
+                Toast.makeText(this, "Permiso de cámara denegado", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
+            val imageBitmap = data?.extras?.get("data") as Bitmap
+            imageView.setImageBitmap(imageBitmap)
+        }
+    }
+
+    private fun guardarImagenEnAlmacenamientoInterno(bitmap: Bitmap): String? {
+        val filename = "imagen_${System.currentTimeMillis()}.png"
+        var fos: FileOutputStream? = null
+        return try {
+            fos = openFileOutput(filename, Context.MODE_PRIVATE)
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos)
+            fos.close()
+            File(filesDir, filename).absolutePath
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
         }
     }
 
@@ -142,39 +253,8 @@ class FilmEditActivity : AppCompatActivity() {
                             .height(64.dp)
                     )
                     Spacer(modifier = Modifier.height(16.dp))
-                    Row {
-                        Image(
-                            painter = painterResource(id = R.drawable.icon_android),
-                            contentDescription = "Imagen de la película",
-                            contentScale = ContentScale.Crop,
-                            modifier = Modifier
-                                .width(50.dp)
-                                .height(60.dp)
-                                .padding(bottom = 16.dp, end = 8.dp)
-                        )
 
-                        val context = LocalContext.current
-
-                        Button(
-                            onClick = {
-                                Toast.makeText(context, R.string.func_no_imp, Toast.LENGTH_SHORT)
-                                    .show()
-                            }, modifier = Modifier
-                                .padding(end = 4.dp)
-                        ) {
-                            Text(text = stringResource(id = R.string.capturar_foto))
-                        }
-
-                        Button(
-                            onClick = {
-                                Toast.makeText(context, R.string.func_no_imp, Toast.LENGTH_SHORT)
-                                    .show()
-                            }, modifier = Modifier
-                                .padding(end = 4.dp)
-                        ) {
-                            Text(text = stringResource(id = R.string.seleccionar_img))
-                        }
-                    }
+                    CapturarSeleccionarImagen()
 
                     Spacer(modifier = Modifier.height(16.dp))
 
@@ -203,6 +283,91 @@ class FilmEditActivity : AppCompatActivity() {
             }
         }
     }
+
+    @OptIn(ExperimentalPermissionsApi::class)
+    @Composable
+    fun CapturarSeleccionarImagen() {
+        val context = LocalContext.current
+        var imageBitmap by remember { mutableStateOf<Bitmap?>(null) }
+
+        // Launcher para capturar imágenes desde la cámara
+        val cameraLauncher = rememberLauncherForActivityResult(
+            contract = ActivityResultContracts.TakePicturePreview()
+        ) { bitmap ->
+            imageBitmap = bitmap
+        }
+
+        // Launcher para seleccionar una imagen de la galería
+        val galleryLauncher = rememberLauncherForActivityResult(
+            contract = ActivityResultContracts.GetContent()
+        ) { uri ->
+            uri?.let {
+                val inputStream = context.contentResolver.openInputStream(uri)
+                val bitmap = BitmapFactory.decodeStream(inputStream)
+                imageBitmap = bitmap
+            }
+        }
+
+        // Permiso para la cámara
+        val cameraPermissionState = rememberPermissionState(Manifest.permission.CAMERA)
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            imageBitmap?.let {
+                Image(
+                    bitmap = it.asImageBitmap(),
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .width(50.dp)
+                        .height(60.dp)
+                        .padding(bottom = 16.dp, end = 8.dp)
+                )
+            } ?: Image(
+                painter = painterResource(id = R.drawable.icon_android),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .width(50.dp)
+                    .height(60.dp)
+                    .padding(bottom = 16.dp, end = 8.dp)
+            )
+
+            Button(
+                onClick = {
+                    if (cameraPermissionState.status.isGranted) {
+                        cameraLauncher.launch(null)
+                    } else {
+                        cameraPermissionState.launchPermissionRequest()
+                    }
+                },
+                modifier = Modifier.padding(end = 4.dp).width(140.dp)
+            ) {
+                Text(text = stringResource(id = R.string.capturar_foto))
+            }
+
+            Button(
+                onClick = {
+                    galleryLauncher.launch("image/*")
+                },
+                modifier = Modifier.padding(end = 4.dp).width(140.dp)
+            ) {
+                Text(text = stringResource(id = R.string.seleccionar_img))
+            }
+
+            if (cameraPermissionState.status.shouldShowRationale) {
+                Text(
+                    text = "Se necesita permiso de cámara para capturar imágenes.",
+                    modifier = Modifier.padding(start = 8.dp)
+                )
+            }
+        }
+    }
+
 
     @Composable
     fun FilmEditForm() {

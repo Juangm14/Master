@@ -58,7 +58,7 @@ class ModeActivity : AppCompatActivity() {
     }
 
     private fun startFilmListActivity(mode: Mode) {
-        val intent = Intent(this, FilmListActivity::class.java)
+        val intent = Intent(this, FilmListActivityRecycler::class.java)
         intent.putExtra("MODE", mode)
         startActivity(intent)
     }

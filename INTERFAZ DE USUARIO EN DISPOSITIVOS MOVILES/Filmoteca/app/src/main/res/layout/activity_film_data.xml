@@ -21,7 +21,7 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/posterFilm"
         app:layout_constraintTop_toBottomOf="@+id/peli_datos_label" />
 
     <TextView
@@ -37,7 +37,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/posterFilm"
         app:layout_constraintTop_toBottomOf="@+id/anyo_label" />
 
     <TextView
@@ -53,7 +53,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/posterFilm"
         app:layout_constraintTop_toBottomOf="@+id/anyo_data_label" />
 
     <androidx.appcompat.widget.Toolbar
@@ -102,7 +102,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/posterFilm"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
@@ -118,7 +118,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/posterFilm"
         app:layout_constraintTop_toBottomOf="@+id/director_label" />
 
     <TextView
@@ -135,7 +135,7 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/posterFilm"
         app:layout_constraintTop_toBottomOf="@+id/director_data_label" />
 
     <Button
@@ -164,7 +164,7 @@
         app:layout_constraintVertical_bias="0.003" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/posterFilm"
         android:layout_width="168dp"
         android:layout_height="212dp"
         android:layout_marginTop="12dp"
@@ -182,7 +182,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/posterFilm" />
 
     <TextView
         android:id="@+id/titulo_app"

@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="generos_peli">
-        <item>Sci-Fi</item>
+        <item>Acción</item>
+        <item>Comedia</item>
+        <item>Drama</item>
+        <item>Ciencia Ficción</item>
+        <item>Terror</item>
     </string-array>
+
     <string-array name="formato_peli">
+        <item>DVD</item>
         <item>Blu-ray</item>
+        <item>Digital</item>
     </string-array>
 </resources>

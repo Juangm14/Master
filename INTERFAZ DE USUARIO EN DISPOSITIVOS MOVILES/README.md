@@ -46,3 +46,10 @@
 - Para la creación de los dropdown con Compose me he basado en una pagina de [GeeksForGeeks](https://www.geeksforgeeks.org/drop-down-menu-in-android-using-jetpack-compose/) y otra de alguna persona que es la que realmente me ha funcionado [DropDownMenu JetpackCompose](https://alexzh.com/jetpack-compose-dropdownmenu/)
 
 - En compose no se mete texto en algunos campos en la edición para que se vean los placeholders.
+
+- En esta práctica me confundí y pensaba que era tomar captura de patantalla. Lo voy a dejar comentado igualmente porque me costo encontrar como se hacía (Está en el archivo *EditFilmActivity.kt*).
+
+- Se añade el siguiente codigo para que me permita acceder a los permisos mediante Compose ya que se hace de distinta forma a layouts porque no se puede modificar la imagen facilmente.
+
+      `implementation "com.google.accompanist:accompanist-permissions:<version>"`
+

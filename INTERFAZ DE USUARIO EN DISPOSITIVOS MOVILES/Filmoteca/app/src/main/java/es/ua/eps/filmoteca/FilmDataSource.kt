@@ -7,7 +7,7 @@ object FilmDataSource {
         var f = Film()
         f.title = "Regreso al futuro"
         f.director = "Robert Zemeckis"
-        f.imageResId = R.mipmap.ic_launcher
+        f.imageResId = R.drawable.back_to_the_future
         f.comments = ""
         f.format = Film.Companion.FORMAT_DIGITAL
         f.genre = Film.Companion.GENRE_SCIFI
@@ -18,7 +18,7 @@ object FilmDataSource {
         f = Film()
         f.title = "Spider-Man"
         f.director = "Sam Raimi"
-        f.imageResId = R.mipmap.ic_launcher // Cambia esto por la imagen correspondiente
+        f.imageResId = R.drawable.spiderman // Cambia esto por la imagen correspondiente
         f.comments = "Presenta la historia de origen de Peter Parker y su lucha contra el Duende Verde."
         f.format = Film.Companion.FORMAT_DIGITAL
         f.genre = Film.Companion.GENRE_ACTION // Cambia a GENRE_SUPERHERO si lo prefieres
@@ -29,7 +29,7 @@ object FilmDataSource {
         f = Film()
         f.title = "Spider-Man 2"
         f.director = "Sam Raimi"
-        f.imageResId = R.mipmap.ic_launcher // Cambia esto por la imagen correspondiente
+        f.imageResId = R.drawable.spiderman2 // Cambia esto por la imagen correspondiente
         f.comments = "Considerada una de las mejores secuelas de superhéroes, introduce a Doctor Octopus."
         f.format = Film.Companion.FORMAT_DIGITAL
         f.genre = Film.Companion.GENRE_ACTION // Cambia a GENRE_SUPERHERO si lo prefieres
@@ -40,7 +40,7 @@ object FilmDataSource {
         f = Film()
         f.title = "Spider-Man 3"
         f.director = "Sam Raimi"
-        f.imageResId = R.mipmap.ic_launcher // Cambia esto por la imagen correspondiente
+        f.imageResId = R.drawable.spiderman3 // Cambia esto por la imagen correspondiente
         f.comments = "Introduce al simbiótico Venom y explora el lado oscuro de Peter Parker."
         f.format = Film.Companion.FORMAT_DIGITAL
         f.genre = Film.Companion.GENRE_ACTION // Cambia a GENRE_SUPERHERO si lo prefieres
@@ -51,7 +51,7 @@ object FilmDataSource {
         f = Film()
         f.title = "The Amazing Spider-Man"
         f.director = "Marc Webb"
-        f.imageResId = R.mipmap.ic_launcher // Cambia esto por la imagen correspondiente
+        f.imageResId = R.drawable.the_amazing_spiderman // Cambia esto por la imagen correspondiente
         f.comments = "Reinventa la historia de Spider-Man con un enfoque más oscuro y emocional."
         f.format = Film.Companion.FORMAT_DIGITAL
         f.genre = Film.Companion.GENRE_ACTION // Cambia a GENRE_SUPERHERO si lo prefieres
@@ -62,7 +62,7 @@ object FilmDataSource {
         f = Film()
         f.title = "The Amazing Spider-Man 2"
         f.director = "Marc Webb"
-        f.imageResId = R.mipmap.ic_launcher // Cambia esto por la imagen correspondiente
+        f.imageResId = R.drawable.the_amazing_spiderman2 // Cambia esto por la imagen correspondiente
         f.comments = "Presenta la relación de Peter con Gwen Stacy y introduce a varios villanos."
         f.format = Film.Companion.FORMAT_DIGITAL
         f.genre = Film.Companion.GENRE_ACTION // Cambia a GENRE_SUPERHERO si lo prefieres

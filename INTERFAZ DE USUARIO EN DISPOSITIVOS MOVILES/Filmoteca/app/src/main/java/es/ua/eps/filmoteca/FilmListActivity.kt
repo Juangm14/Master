@@ -54,17 +54,9 @@ class FilmListActivity : AppCompatActivity() {
 
         binding.listadoPeliculas.setOnItemClickListener { _, _, posicion, _ ->
 
-            val selectedFilm = FilmDataSource.films[posicion]
-
             val intent = Intent(this, FilmDataActivity::class.java).apply {
                 putExtra("MODE", mode)
-                putExtra("TITULO_PELI", selectedFilm.title)
-                putExtra("DIRECTOR_PELI", selectedFilm.director)
-                putExtra("ANYO_PELI", selectedFilm.year)
-                putExtra("GENERO_PELI", selectedFilm.genre)
-                putExtra("FORMATO_PELI", selectedFilm.format)
-                putExtra("COMENTARIO_PELI", selectedFilm.comments)
-                putExtra("ENLACE_IMDB", selectedFilm.imdbUrl)
+                putExtra("FILM_INDEX", posicion)
             }
 
             startActivity(intent)

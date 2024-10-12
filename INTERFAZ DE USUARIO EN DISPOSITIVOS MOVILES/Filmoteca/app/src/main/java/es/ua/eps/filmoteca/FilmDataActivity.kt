@@ -55,16 +55,15 @@ class FilmDataActivity : AppCompatActivity() {
     }
 
     private var mode: Mode = Mode.Layouts
-
     private lateinit var binding: ActivityFilmDataBinding
+    private var filmIndex: Int = -1
 
     private val editFilmResultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
-        //Se han guardado los cambios en la edición de la película correctamente.
         if (result.resultCode == RESULT_OK) {
+            obtenerPelicula()
             Toast.makeText(this, getString(R.string.film_edited_success_msg), Toast.LENGTH_SHORT).show()
-            //Se ha cancelado la edición de la película.
         } else if (result.resultCode == RESULT_CANCELED) {
             Toast.makeText(this, getString(R.string.film_edit_cancel_msg), Toast.LENGTH_SHORT).show()
         }
@@ -91,8 +90,24 @@ class FilmDataActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        var generoPeli = Film.getGeneroString(this, intent.getIntExtra("GENERO_PELI", -1))
-        var formatoPeli = Film.getFormatoString(this, intent.getIntExtra("FORMATO_PELI", -1))
+        filmIndex = intent.getIntExtra("FILM_INDEX", -1)
+
+        obtenerPelicula()
+
+        binding.editPeliBtn.setOnClickListener {
+            onClickEdit();
+        }
+
+        binding.backMainBtn.setOnClickListener {
+            onClick(FilmListActivity::class.java, flag = Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        }
+    }
+
+    private fun obtenerPelicula(){
+        val selectedFilm = FilmDataSource.films[filmIndex]
+
+        var generoPeli = Film.getGeneroString(this,  selectedFilm.genre)
+        var formatoPeli = Film.getFormatoString(this, selectedFilm.format)
 
         //Para concatenar la "," con el formato encaso de que tenta o que no tenga género
         if(generoPeli.isNotEmpty() && formatoPeli.isNotEmpty()){
@@ -101,26 +116,17 @@ class FilmDataActivity : AppCompatActivity() {
             generoPeli = formatoPeli
         }
 
-        binding.peliDatosLabel.setText(intent.getStringExtra("TITULO_PELI"))
-        binding.directorLabel.setText(getString(R.string.director_label) + ":")
-        binding.directorDataLabel.setText(intent.getStringExtra("DIRECTOR_PELI"))
-        binding.anyoLabel.setText(getString(R.string.anyo_label) + ":")
-        binding.anyoDataLabel.setText(intent.getIntExtra("ANYO_PELI", 0).toString())
-        binding.generoFormatoLabel.setText(generoPeli)
-        binding.notasDataLabel.setText(intent.getStringExtra("COMENTARIO_PELI"))
+        binding.peliDatosLabel.text = selectedFilm.title
+        binding.directorDataLabel.text = selectedFilm.director
+        binding.anyoDataLabel.text = selectedFilm.year.toString()
+        binding.generoFormatoLabel.text = generoPeli
+        binding.notasDataLabel.text = selectedFilm.comments
+        binding.posterFilm.setImageResource(selectedFilm.imageResId)
 
         binding.verEnImdbBtn.setOnClickListener {
-            val imdbUrl = intent.getStringExtra("ENLACE_IMDB")
+            val imdbUrl = selectedFilm.imdbUrl
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(imdbUrl))
             startActivity(intent)
-        }
-
-        binding.editPeliBtn.setOnClickListener {
-            onClickEdit();
-        }
-
-        binding.backMainBtn.setOnClickListener {
-            onClick(FilmListActivity::class.java, flag = Intent.FLAG_ACTIVITY_CLEAR_TOP)
         }
     }
 
@@ -325,6 +331,7 @@ class FilmDataActivity : AppCompatActivity() {
     private fun onClickEdit() {
         val intent = Intent(this@FilmDataActivity, FilmEditActivity::class.java)
         intent.putExtra("MODE", mode)
+        intent.putExtra("FILM_INDEX", filmIndex)
         editFilmResultLauncher.launch(intent)
     }
 
