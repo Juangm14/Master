@@ -51,13 +51,25 @@ class ModeActivity : AppCompatActivity() {
             }
 
             //Para inicializar la aplicación en modo Compose
-            Button(onClick = { startFilmListActivity(Mode.Compose) }) {
+            Button(onClick = { startFilmListActivity(Mode.Compose) },
+                modifier = Modifier.padding(bottom = 16.dp)
+            ) {
                 Text(text = getString(R.string.lanzar_modo_app) + getString(R.string.con_compose))
+            }
+
+            Button(onClick = { startFilmListActivityRecycler(Mode.Compose) }) {
+                Text(text = getString(R.string.lanzar_modo_app) + getString(R.string.con_compose) + " Recycler")
             }
         }
     }
 
     private fun startFilmListActivity(mode: Mode) {
+        val intent = Intent(this, FilmListActivity::class.java)
+        intent.putExtra("MODE", mode)
+        startActivity(intent)
+    }
+
+    private fun startFilmListActivityRecycler(mode: Mode) {
         val intent = Intent(this, FilmListActivityRecycler::class.java)
         intent.putExtra("MODE", mode)
         startActivity(intent)

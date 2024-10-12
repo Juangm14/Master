@@ -144,148 +144,173 @@ class FilmDataActivity : AppCompatActivity() {
 
     @Composable
     private fun initCompose() {
-        Surface {
-            MyWindow {
-                // Barra de herramientas
-                AndroidView(
-                    factory = { ctx ->
-                        Toolbar(ctx).apply {
-                            setTitle(R.string.app_name)
-                            setTitleTextColor(ContextCompat.getColor(ctx, android.R.color.white))
-                            setBackgroundColor(ContextCompat.getColor(ctx, R.color.customPurple))
-                        }
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(64.dp)
-                )
 
-                MyColumn {
-                    Spacer(modifier = Modifier.height(20.dp))
+        val filmIndex = intent.getIntExtra("FILM_INDEX", -1)
 
-                    // Fila principal: imagen de la película a la izquierda, textos y botones a la derecha
-                    Row(
+        if (filmIndex != -1) {
+            val film = FilmDataSource.films[filmIndex]
+
+            var generoPeli = Film.getGeneroString(this,  film.genre)
+            var formatoPeli = Film.getFormatoString(this, film.format)
+
+            if(generoPeli.isNotEmpty() && formatoPeli.isNotEmpty()){
+                generoPeli += ", " + formatoPeli
+            }else if(generoPeli.isEmpty()){
+                generoPeli = formatoPeli
+            }
+
+            Surface {
+                MyWindow {
+                    AndroidView(
+                        factory = { ctx ->
+                            Toolbar(ctx).apply {
+                                setTitle(R.string.app_name)
+                                setTitleTextColor(
+                                    ContextCompat.getColor(
+                                        ctx,
+                                        android.R.color.white
+                                    )
+                                )
+                                setBackgroundColor(
+                                    ContextCompat.getColor(
+                                        ctx,
+                                        R.color.customPurple
+                                    )
+                                )
+                            }
+                        },
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 8.dp)
-                    ) {
-                        // Columna con la imagen y el botón de editar
-                        Column(
-                            modifier = Modifier
-                                .width(168.dp)
-                                .padding(end = 16.dp)
-                        ) {
-                            Image(
-                                painter = painterResource(id = R.drawable.icon_android),
-                                contentDescription = "Imagen de la película",
-                                contentScale = ContentScale.Crop,
-                                modifier = Modifier
-                                    .width(168.dp)
-                                    .height(212.dp)
-                                    .padding(bottom = 16.dp)
-                            )
-                        }
-
-                        // Columna derecha: textos y botones adicionales
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(end = 8.dp, bottom = 16.dp),
-                            verticalArrangement = Arrangement.Top,
-                            horizontalAlignment = Alignment.Start
-                        ) {
-                            // Título "Datos de la Película"
-                            Text(
-                                text = getString(R.string.datos_peli_label),
-                                fontSize = 20.sp,
-                                color = Color.Black,
-                                modifier = Modifier
-                                    .padding(bottom = 12.dp)
-                            )
-
-                            Text(
-                                text = getString(R.string.director_label) + ":",
-                                fontSize = 16.sp,
-                                modifier = Modifier
-                                    .padding(bottom = 6.dp)
-                            )
-                            Text(
-                                text = "Robert Zemeckis",
-                                fontSize = 16.sp,
-                                modifier = Modifier
-                                    .padding(bottom = 6.dp)
-                            )
-
-                            Text(
-                                text = getString(R.string.anyo_label) + ":",
-                                fontSize = 16.sp,
-                                modifier = Modifier
-                                    .padding(bottom = 6.dp)
-                            )
-                            Text(
-                                text = "1985",
-                                fontSize = 16.sp,
-                                modifier = Modifier
-                                    .padding(bottom = 6.dp)
-                            )
-
-                            Text(
-                                text = "Blueray, Sci-Fi",
-                                fontSize = 16.sp,
-                                modifier = Modifier
-                                    .padding(bottom = 6.dp)
-                            )
-
-                            MyButton(
-                                onClick = {
-                                    val imdbUrl = "https://www.imdb.com/title/tt0088763"
-                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(imdbUrl))
-                                    startActivity(intent)
-                                },
-                                text = stringResource(id = R.string.relac_peli_btn),
-                                modifier = Modifier
-                                    .width(178.dp)
-                                    .padding(bottom = 8.dp)
-                            )
-                        }
-                    }
-
-                    Text(
-                        text = stringResource(R.string.nota_peli_label),
-                        fontSize = 16.sp,
-                        modifier = Modifier
-                            .padding(bottom = 4.dp)
+                            .height(64.dp)
                     )
 
-                    Row (modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(start = 4.dp)
-                    ){
-                        Column(
+                    MyColumn {
+                        Spacer(modifier = Modifier.height(20.dp))
+
+                        // Fila principal: imagen de la película a la izquierda, textos y botones a la derecha
+                        Row(
                             modifier = Modifier
-                                .width(168.dp)
-                                .padding(end = 4.dp)
+                                .fillMaxWidth()
+                                .padding(start = 8.dp)
                         ) {
-                            MyButton(
-                                onClick = { onClickEdit() },
-                                text = stringResource(id = R.string.edit_peli_btn),
+                            // Columna con la imagen y el botón de editar
+                            Column(
                                 modifier = Modifier
-                                    .width(178.dp)
-                                    .padding(end = 4.dp)
-                            )
+                                    .width(168.dp)
+                                    .padding(end = 16.dp)
+                            ) {
+                                Image(
+                                    painter = painterResource(id = film.imageResId),
+                                    contentDescription = "Imagen de la película",
+                                    contentScale = ContentScale.Crop,
+                                    modifier = Modifier
+                                        .width(168.dp)
+                                        .height(212.dp)
+                                        .padding(bottom = 16.dp)
+                                )
+                            }
+
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(end = 8.dp, bottom = 16.dp),
+                                verticalArrangement = Arrangement.Top,
+                                horizontalAlignment = Alignment.Start
+                            ) {
+                                Text(
+                                    text = film.title ?: "",
+                                    fontSize = 20.sp,
+                                    color = Color.Black,
+                                    modifier = Modifier
+                                        .padding(bottom = 12.dp)
+                                )
+
+                                Text(
+                                    text = getString(R.string.director_label) + ":",
+                                    fontSize = 16.sp,
+                                    modifier = Modifier
+                                        .padding(bottom = 6.dp)
+                                )
+                                Text(
+                                    text = film.director ?: "",
+                                    fontSize = 16.sp,
+                                    modifier = Modifier
+                                        .padding(bottom = 6.dp)
+                                )
+
+                                Text(
+                                    text = getString(R.string.anyo_label) + ":",
+                                    fontSize = 16.sp,
+                                    modifier = Modifier
+                                        .padding(bottom = 6.dp)
+                                )
+                                Text(
+                                    text = film.year.toString(),
+                                    fontSize = 16.sp,
+                                    modifier = Modifier
+                                        .padding(bottom = 6.dp)
+                                )
+
+                                Text(
+                                    text = generoPeli,
+                                    fontSize = 16.sp,
+                                    modifier = Modifier
+                                        .padding(bottom = 6.dp)
+                                )
+
+                                MyButton(
+                                    onClick = {
+                                        val imdbUrl = film.imdbUrl
+                                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(imdbUrl))
+                                        startActivity(intent)
+                                    },
+                                    text = stringResource(id = R.string.relac_peli_btn),
+                                    modifier = Modifier
+                                        .width(178.dp)
+                                        .padding(bottom = 8.dp)
+                                )
+                            }
                         }
 
-                        Column(
+                        Text(
+                            text = film.comments ?: "",
+                            fontSize = 16.sp,
                             modifier = Modifier
-                                .width(168.dp)
-                                .padding(end = 4.dp)
+                                .padding(bottom = 4.dp)
+                        )
+
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(start = 4.dp)
                         ) {
-                            MyButton(
-                                onClick = { onClickBack() },
-                                text = stringResource(id = R.string.volver_peli),
+                            Column(
                                 modifier = Modifier
-                                    .width(178.dp)
-                            )
+                                    .width(170.dp)
+                                    .padding(end = 4.dp)
+                            ) {
+                                MyButton(
+                                    onClick = { onClickBack() },
+                                    text = stringResource(id = R.string.volver_peli),
+                                    modifier = Modifier
+                                        .width(178.dp)
+                                )
+                            }
+
+
+                            Column(
+                                modifier = Modifier
+                                    .width(170.dp)
+                                    .padding(end = 4.dp)
+                            ) {
+                                MyButton(
+                                    onClick = { onClickEdit() },
+                                    text = stringResource(id = R.string.edit_peli_btn),
+                                    modifier = Modifier
+                                        .width(178.dp)
+                                        .padding(end = 4.dp)
+                                )
+                            }
                         }
                     }
                 }

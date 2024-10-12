@@ -11,14 +11,21 @@ import android.widget.Toolbar
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import es.ua.eps.filmoteca.databinding.ActivityFilmListBinding
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -77,36 +84,43 @@ class FilmListActivityRecycler : AppCompatActivity() {
     }
 
     @Composable
-    private fun initCompose() {
+    fun initCompose() {
+        val films = FilmDataSource.films
+
+        val contexto = LocalContext.current
+
         Surface {
             MyWindow {
                 AndroidView(
-                    factory = { ctx ->
-                        Toolbar(ctx).apply {
+                    factory = { content ->
+                        Toolbar(content).apply {
                             setTitle(R.string.app_name)
-                            setTitleTextColor(ContextCompat.getColor(ctx, android.R.color.white))
-                            setBackgroundColor(ContextCompat.getColor(ctx, R.color.customPurple))
-
+                            setTitleTextColor(
+                                ContextCompat.getColor(
+                                    content,
+                                    android.R.color.white
+                                )
+                            )
+                            setBackgroundColor(
+                                ContextCompat.getColor(
+                                    content,
+                                    R.color.customPurple
+                                )
+                            )
                         }
                     },
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(64.dp)
                 )
+                Spacer(modifier = Modifier.height(16.dp))
+                ListaFilms(films) { pelicula ->
 
-                MyColumn {
-                    Text(
-                        text = getString(R.string.app_name) + " " + getString(R.string.con_compose),
-                        modifier = Modifier.padding(16.dp)
-                    )
-
-                    MyButton({ onClick(FilmDataActivity::class.java) },
-                        getString(R.string.ver_peli, "A"))
-
-                    MyButton({ onClick(FilmDataActivity::class.java) },
-                        getString(R.string.ver_peli, "B"))
-
-                    MyButton({ onClick(AboutActivity::class.java) }, stringResource(id = R.string.acerca_de))
+                    val intent = Intent(contexto, FilmDataActivity::class.java).apply {
+                        putExtra("MODE", mode)
+                        putExtra("FILM_INDEX", films.indexOf(pelicula))
+                    }
+                    contexto.startActivity(intent)
                 }
             }
         }
@@ -119,31 +133,48 @@ class FilmListActivityRecycler : AppCompatActivity() {
                 .fillMaxSize()
                 .systemBarsPadding()
                 .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.Start
         ) {
             content()
         }
     }
 
     @Composable
-    fun MyColumn(content: @Composable ColumnScope.() -> Unit) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            content()
+    fun ListaFilms(films: List<Film>, onItemClick: (Film) -> Unit) {
+        LazyColumn {
+            items(films) { film ->
+                ItemFilm(film) { clickedFilm ->
+                    onItemClick(clickedFilm)
+                }
+            }
         }
     }
 
     @Composable
-    fun MyButton(onClick: () -> Unit, text: String) {
-        Button(
-            onClick = { onClick() },
+    fun ItemFilm(film: Film, onClick: (Film) -> Unit) {
+        Row(
             modifier = Modifier
-                .width(200.dp)
-                .padding(8.dp),
+                .fillMaxWidth()
+                .clickable { onClick(film) }
+                .padding(8.dp)
         ) {
-            Text(text = text)
+            Image(
+                painter = painterResource(id = film.imageResId),
+                contentDescription = "",
+                modifier = Modifier.size(50.dp)
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            Column {
+                Text(
+                    text = film.title ?: "",
+                    style = MaterialTheme.typography.titleMedium
+                )
+                Text(
+                    text = film.director ?: "",
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
         }
     }
-
 }

@@ -1,7 +1,6 @@
 package es.ua.eps.filmoteca
 
 import android.content.Context
-import androidx.compose.ui.res.stringResource
 
 class Film {
     var imageResId = 0 // Propiedades de la clase
