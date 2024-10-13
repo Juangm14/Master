@@ -50,6 +50,13 @@ class ModeActivity : AppCompatActivity() {
                 Text(text = getString(R.string.lanzar_modo_app) + getString(R.string.con_layouts))
             }
 
+            Button(
+                onClick = { startFilmListActivityRecycler(Mode.Layouts) },
+                modifier = Modifier.padding(bottom = 16.dp)
+            ) {
+                Text(text = getString(R.string.lanzar_modo_app) + getString(R.string.con_layouts) + " Recycler")
+            }
+
             //Para inicializar la aplicación en modo Compose
             Button(onClick = { startFilmListActivity(Mode.Compose) },
                 modifier = Modifier.padding(bottom = 16.dp)
