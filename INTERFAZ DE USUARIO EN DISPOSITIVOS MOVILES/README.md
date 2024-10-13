@@ -47,9 +47,52 @@
 
 - En compose no se mete texto en algunos campos en la edición para que se vean los placeholders.
 
+
+
+# Práctica 4
+
 - En esta práctica me confundí y pensaba que era tomar captura de patantalla. Lo voy a dejar comentado igualmente porque me costo encontrar como se hacía (Está en el archivo *EditFilmActivity.kt*).
 
 - Se añade el siguiente codigo para que me permita acceder a los permisos mediante Compose ya que se hace de distinta forma a layouts porque no se puede modificar la imagen facilmente.
 
-      `implementation "com.google.accompanist:accompanist-permissions:<version>"`
+    ```kotlin
+      implementation "com.google.accompanist:accompanist-permissions:<version>"
+    ```
+- He tenido diversos problemas con esta práctica. No he conseguido actualizar las imágenes al regresar al `FilmDataActivity.kt` ya que  tenia que guardar la imágen de alguna forma para recuperarlo mediante la ID.
+Se podría haber cambiado el tipo de la imágen por *Bitmap* pero ya tenia todas hecho excepto eso.
+
+- Para los desplegables mediante Compose tuve que hacer loas funciones contrarias a la que ponia en los apuntes.
+
+       
+    ```kotlin
+      fun getGeneroNumero(context: Context, generoStr: String): Int {
+
+        var seleccionado = -1
+
+        seleccionado = when (generoStr) {
+            context.getString(R.string.accion_gen) ->  GENRE_ACTION
+            context.getString(R.string.comedia_gen) -> GENRE_COMEDY
+            context.getString(R.string.drama_gen) -> GENRE_DRAMA
+            context.getString(R.string.scifi_gen) -> GENRE_SCIFI
+            context.getString(R.string.terror_gen) -> GENRE_HORROR
+            else -> -1
+        }
+
+        return seleccionado;
+      }
+
+      fun getFormatoNumero(formatoStr: String): Int {
+            val seleccionado = when (formatoStr) {
+                "DVD" -> FORMAT_DVD
+                "Blu-Ray" -> FORMAT_BLURAY
+                "Digital" -> FORMAT_DIGITAL
+                else -> -1 // Devuelve -1 si el formato no es reconocido
+            }
+            return seleccionado
+      }
+    ```
+
+- Tuve problemas con `RecyclerView` porque en el `item_list.xml` habia puesto que el item fuera todo el contenido de la pantalla en vez de **`wrap_content`**. En el caso mediante el *Adapter propio* no fallaba pero al emplear el de `RecycledVier`
+  cada elemento de la lista ocupaba y no me di cuenta, hasta 2 horas después (debbugeando, poiendo Logs, editando código), que se lo enseñe a mi hermano para explicarselo a alguien y sin querer deslicé y ahi estaban el resto de películas.
+
 
