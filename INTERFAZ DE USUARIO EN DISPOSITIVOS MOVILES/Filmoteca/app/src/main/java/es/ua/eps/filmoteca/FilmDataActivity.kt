@@ -62,11 +62,16 @@ class FilmDataActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == RESULT_OK) {
-            obtenerPelicula()
             Toast.makeText(this, getString(R.string.film_edited_success_msg), Toast.LENGTH_SHORT).show()
+            when (mode) {
+                Mode.Layouts -> obtenerPelicula()
+                Mode.Compose -> setContent { initCompose() }
+            }
         } else if (result.resultCode == RESULT_CANCELED) {
             Toast.makeText(this, getString(R.string.film_edit_cancel_msg), Toast.LENGTH_SHORT).show()
         }
+
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -145,7 +150,7 @@ class FilmDataActivity : AppCompatActivity() {
     @Composable
     private fun initCompose() {
 
-        val filmIndex = intent.getIntExtra("FILM_INDEX", -1)
+        filmIndex = intent.getIntExtra("FILM_INDEX", -1)
 
         if (filmIndex != -1) {
             val film = FilmDataSource.films[filmIndex]
@@ -187,7 +192,6 @@ class FilmDataActivity : AppCompatActivity() {
                     MyColumn {
                         Spacer(modifier = Modifier.height(20.dp))
 
-                        // Fila principal: imagen de la película a la izquierda, textos y botones a la derecha
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()

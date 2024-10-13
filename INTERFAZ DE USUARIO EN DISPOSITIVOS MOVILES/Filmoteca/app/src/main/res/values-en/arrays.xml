@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="generos_peli">
-        <item>Acción</item>
-        <item>Comedia</item>
+        <item>Action</item>
+        <item>Comedy</item>
         <item>Drama</item>
-        <item>Ciencia Ficción</item>
-        <item>Terror</item>
+        <item>Science Fiction</item>
+        <item>Horror</item>
     </string-array>
 
     <string-array name="formato_peli">

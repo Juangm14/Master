@@ -37,6 +37,23 @@ class Film {
             }
         }
 
+        fun getGeneroNumero(context: Context, generoStr: String): Int {
+
+            var seleccionado = -1
+
+            seleccionado = when (generoStr) {
+                context.getString(R.string.accion_gen) ->  GENRE_ACTION
+                context.getString(R.string.comedia_gen) -> GENRE_COMEDY
+                context.getString(R.string.drama_gen) -> GENRE_DRAMA
+                context.getString(R.string.scifi_gen) -> GENRE_SCIFI
+                context.getString(R.string.terror_gen) -> GENRE_HORROR
+                else -> -1
+            }
+
+            return seleccionado;
+        }
+
+
         fun getFormatoString(context: Context, formato: Int) : String {
             return when(formato){
                 FORMAT_DVD -> "DVD"
@@ -45,5 +62,16 @@ class Film {
                 else -> ""
             }
         }
+
+        fun getFormatoNumero(formatoStr: String): Int {
+            val seleccionado = when (formatoStr) {
+                "DVD" -> FORMAT_DVD
+                "Blu-Ray" -> FORMAT_BLURAY
+                "Digital" -> FORMAT_DIGITAL
+                else -> -1 // Devuelve -1 si el formato no es reconocido
+            }
+            return seleccionado
+        }
+
     }
 }

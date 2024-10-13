@@ -371,138 +371,178 @@ class FilmEditActivity : AppCompatActivity() {
 
     @Composable
     fun FilmEditForm() {
-        var titulo by remember { mutableStateOf("") }
-        var director by remember { mutableStateOf("Robert Zemeckis") }
-        var anyo by remember { mutableStateOf("1985") }
-        var enlaceimdb by remember { mutableStateOf("https://www.imdb.com/title/tt0088763") }
-        var notas by remember { mutableStateOf("") }
+        val filmIndex = intent.getIntExtra("FILM_INDEX", -1)
+        val context = LocalContext.current
 
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 16.dp),
-            horizontalAlignment = Alignment.Start
-        ) {
-            TextField(
-                value = titulo,
-                onValueChange = { titulo = it },
-                placeholder = {  Text( text = stringResource(R.string.titulo_peli)) },
+        if (filmIndex != -1) {
+            val film = FilmDataSource.films[filmIndex]
+
+            var titulo by remember { mutableStateOf(film.title ?: "") }
+            var director by remember { mutableStateOf(film.director ?: "") }
+            var anyo by remember { mutableStateOf(film.year.toString()) }
+            var enlaceimdb by remember { mutableStateOf(film.imdbUrl ?: "") }
+            var notas by remember { mutableStateOf(film.comments ?: "") }
+
+            var generoPeli = Film.getGeneroString(this,  film.genre)
+            var formatoPeli = Film.getFormatoString(this, film.format)
+
+            Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 4.dp),
-                singleLine = true,
-            )
-
-            TextField(
-                value = director,
-                onValueChange = { director = it },
-                placeholder = { Text( text = stringResource(R.string.nombre_director)) },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 4.dp),
-                singleLine = true,
-            )
-
-            TextField(
-                value = anyo,
-                onValueChange = { anyo = it },
-                placeholder = { Text( text = stringResource(R.string.anyo_label)) },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 4.dp),
-                singleLine = true,
-            )
-
-            TextField(
-                value = enlaceimdb,
-                onValueChange = { enlaceimdb = it },
-                placeholder = { Text( text = stringResource(R.string.enlace_imdb)) },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 4.dp),
-                singleLine = true,
-            )
-
-            var expandidoGeneros by remember { mutableStateOf(false) }
-            var expandidoFormatos by remember { mutableStateOf(false) }
-
-            var generoSeleccionado by remember { mutableStateOf("Selecciona un género") }
-            var formatoSeleccionado by remember { mutableStateOf("Selecciona un formato") }
-
-            val generos = resources.getStringArray(R.array.generos_peli).toList()
-            val formatos = resources.getStringArray(R.array.formato_peli).toList()
-
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentSize(Alignment.TopEnd)
+                    .padding(vertical = 16.dp),
+                horizontalAlignment = Alignment.Start
             ) {
-                OutlinedTextField(
-                    value = generoSeleccionado,
-                    onValueChange = { generoSeleccionado = it },
+                TextField(
+                    value = titulo,
+                    onValueChange =
+                    {
+                        film.title = it
+                        titulo = it
+                    },
+                    placeholder = { Text(text = stringResource(R.string.titulo_peli)) },
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(bottom = 4.dp),
-                    trailingIcon = {
-                        Icon(Icons.Default.KeyboardArrowDown,"",
-                            Modifier.clickable { expandidoGeneros = !expandidoGeneros })
-                    }
+                    singleLine = true,
                 )
-                DropdownMenu(
-                    expanded = expandidoGeneros,
-                    onDismissRequest = { expandidoGeneros = false },
+
+                TextField(
+                    value = director,
+                    onValueChange =
+                    {
+                        film.director = it
+                        director = it
+                    },
+                    placeholder = { Text(text = stringResource(R.string.nombre_director)) },
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(bottom = 4.dp),
-                ) {
-                    generos.forEach { label ->
-                        DropdownMenuItem(onClick = {
-                            generoSeleccionado = label
-                            expandidoGeneros = false
-                        }, text = { Text(label) })
-                    }
-                }
-            }
-
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentSize(Alignment.TopEnd)
-            ) {
-                OutlinedTextField(
-                    value = formatoSeleccionado,
-                    onValueChange = { formatoSeleccionado = it },
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    trailingIcon = {
-                        Icon(Icons.Default.KeyboardArrowDown,"",
-                            Modifier.clickable { expandidoFormatos = !expandidoFormatos })
-                    }
+                    singleLine = true,
                 )
 
-                DropdownMenu(
-                    expanded = expandidoFormatos,
-                    onDismissRequest = { expandidoFormatos = false },
+                TextField(
+                    value = anyo,
+                    onValueChange =
+                    {
+                        film.year = it.toInt()
+                        anyo = it
+                    },
+                    placeholder = { Text(text = stringResource(R.string.anyo_label)) },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = 4.dp)
+                        .padding(bottom = 4.dp),
+                    singleLine = true,
+                )
+
+                TextField(
+                    value = enlaceimdb,
+                    onValueChange =
+                    {
+                        film.imdbUrl = it
+                        enlaceimdb = it
+                    },
+                    placeholder = { Text(text = stringResource(R.string.enlace_imdb)) },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 4.dp),
+                    singleLine = true,
+                )
+
+                var expandidoGeneros by remember { mutableStateOf(false) }
+                var expandidoFormatos by remember { mutableStateOf(false) }
+
+                var generoSeleccionado by remember { mutableStateOf(generoPeli) }
+                var formatoSeleccionado by remember { mutableStateOf(formatoPeli) }
+
+                val generos = context.resources.getStringArray(R.array.generos_peli).toList()
+                val formatos = context.resources.getStringArray(R.array.formato_peli).toList()
+
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentSize(Alignment.TopEnd)
                 ) {
-                    formatos.forEach { label ->
-                        DropdownMenuItem(onClick = {
-                            formatoSeleccionado = label
-                            expandidoFormatos = false
-                        }, text = { Text(label) })
+                    OutlinedTextField(
+                        value = generoSeleccionado,
+                        onValueChange =
+                        {
+                            film.genre = Film.getGeneroNumero(context, it)
+                            generoSeleccionado = it
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 4.dp),
+                        trailingIcon = {
+                            Icon(Icons.Default.KeyboardArrowDown, "",
+                                Modifier.clickable { expandidoGeneros = !expandidoGeneros })
+                        }
+                    )
+                    DropdownMenu(
+                        expanded = expandidoGeneros,
+                        onDismissRequest = { expandidoGeneros = false },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 4.dp),
+                    ) {
+                        generos.forEach { label ->
+                            DropdownMenuItem(onClick = {
+                                generoSeleccionado = label
+                                film.genre = Film.getGeneroNumero(context, generoSeleccionado)
+                                expandidoGeneros = false
+                            }, text = { Text(label) })
+                        }
                     }
                 }
-            }
 
-            TextField(
-                value = notas,
-                onValueChange = { notas = it },
-                placeholder = { Text( text = stringResource(R.string.comentarios)) },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-            )
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentSize(Alignment.TopEnd)
+                ) {
+                    OutlinedTextField(
+                        value = formatoSeleccionado,
+                        onValueChange =
+                        {
+                            film.format =  Film.getFormatoNumero(it)
+                            formatoSeleccionado = it
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        trailingIcon = {
+                            Icon(Icons.Default.KeyboardArrowDown, "",
+                                Modifier.clickable { expandidoFormatos = !expandidoFormatos })
+                        }
+                    )
+
+                    DropdownMenu(
+                        expanded = expandidoFormatos,
+                        onDismissRequest = { expandidoFormatos = false },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 4.dp)
+                    ) {
+                        formatos.forEach { label ->
+                            DropdownMenuItem(onClick = {
+                                formatoSeleccionado = label
+                                film.format =  Film.getFormatoNumero(formatoSeleccionado)
+                                expandidoFormatos = false
+                            }, text = { Text(label) })
+                        }
+                    }
+                }
+
+                TextField(
+                    value = notas,
+                    onValueChange =
+                    {
+                        film.comments = it
+                        notas = it
+                    },
+                    placeholder = { Text(text = stringResource(R.string.comentarios)) },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true,
+                )
+            }
         }
     }
 
