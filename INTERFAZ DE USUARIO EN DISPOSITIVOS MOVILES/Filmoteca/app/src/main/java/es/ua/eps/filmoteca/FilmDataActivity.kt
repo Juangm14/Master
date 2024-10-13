@@ -121,6 +121,8 @@ class FilmDataActivity : AppCompatActivity() {
             generoPeli = formatoPeli
         }
 
+        binding.directorLabel.text = getString(R.string.anyo_label)
+        binding.anyoLabel.text = getString(R.string.director_label)
         binding.peliDatosLabel.text = selectedFilm.title
         binding.directorDataLabel.text = selectedFilm.director
         binding.anyoDataLabel.text = selectedFilm.year.toString()

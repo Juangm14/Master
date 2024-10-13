@@ -37,6 +37,6 @@
     <string name="accion_gen">Acción</string>
     <string name="comedia_gen">Comedia</string>
     <string name="drama_gen">Drama</string>
-    <string name="scifi_gen">Sci-Fi</string>
+    <string name="scifi_gen">Ciencia Ficción</string>
     <string name="terror_gen">Terror</string>
 </resources>

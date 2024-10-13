@@ -148,6 +148,8 @@ class FilmEditActivity : AppCompatActivity() {
         film.year = binding.editMovieYear.text.toString().toIntOrNull() ?: 0
         film.comments = binding.editMovieComments.text.toString()
         film.imdbUrl = binding.editMovieImdb.text.toString()
+        film.genre = Film.getGeneroNumero(this, binding.spinnerGenre.selectedItem.toString())
+        film.format = Film.getFormatoNumero(binding.spinnerFormat.selectedItem.toString())
 
         // Notifica que los cambios se han guardado
         Toast.makeText(this, getString(R.string.film_edited_success_msg), Toast.LENGTH_SHORT).show()

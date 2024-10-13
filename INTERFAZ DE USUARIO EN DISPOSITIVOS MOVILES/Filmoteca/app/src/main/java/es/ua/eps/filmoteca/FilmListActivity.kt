@@ -52,15 +52,12 @@ class FilmListActivity : AppCompatActivity() {
         setContentView(view)
 
         val listaPeliculas = findViewById<ListView>(R.id.listadoPeliculas)
-
         val peliculas = FilmDataSource.films
-
         val adaptador = FilmArrayAdapter(this, R.layout.item_film, peliculas)
 
         listaPeliculas.adapter = adaptador
 
         binding.listadoPeliculas.setOnItemClickListener { _, _, posicion, _ ->
-
             val intent = Intent(this, FilmDataActivity::class.java).apply {
                 putExtra("MODE", mode)
                 putExtra("FILM_INDEX", posicion)

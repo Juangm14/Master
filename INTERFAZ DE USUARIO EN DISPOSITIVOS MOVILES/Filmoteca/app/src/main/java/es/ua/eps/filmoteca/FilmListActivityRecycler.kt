@@ -119,6 +119,7 @@ class FilmListActivityRecycler : AppCompatActivity() {
                     val intent = Intent(contexto, FilmDataActivity::class.java).apply {
                         putExtra("MODE", mode)
                         putExtra("FILM_INDEX", films.indexOf(pelicula))
+                        Toast.makeText(contexto, "Pulsado: ${pelicula.title}", Toast.LENGTH_SHORT).show()
                     }
                     contexto.startActivity(intent)
                 }
