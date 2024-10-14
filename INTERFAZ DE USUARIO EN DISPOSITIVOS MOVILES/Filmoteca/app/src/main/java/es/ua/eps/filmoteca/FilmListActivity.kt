@@ -37,6 +37,9 @@ class FilmListActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFilmListBinding
 
+    private lateinit var filmList: MutableList<Film>
+    private lateinit var adaptador: FilmArrayAdapter
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return true
@@ -45,6 +48,7 @@ class FilmListActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.anyadir_peli -> {
+                anyadirPeli()
                 return true
             }
             R.id.acerca_de -> {
@@ -67,9 +71,6 @@ class FilmListActivity : AppCompatActivity() {
 
         mode = intent.getSerializableExtra("MODE", Mode::class.java) ?: Mode.Layouts
 
-        supportActionBar?.setHomeButtonEnabled(true)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         when(mode) {
             Mode.Layouts -> initLayouts()
             Mode.Compose -> setContent { initCompose() }
@@ -81,9 +82,13 @@ class FilmListActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        filmList = mutableListOf()
+
         val listaPeliculas = findViewById<ListView>(R.id.listadoPeliculas)
-        val peliculas = FilmDataSource.films
-        val adaptador = FilmArrayAdapter(this, R.layout.item_film, peliculas)
+        filmList = FilmDataSource.films
+        adaptador = FilmArrayAdapter(this, R.layout.item_film, filmList)
 
         listaPeliculas.adapter = adaptador
 
@@ -106,6 +111,21 @@ class FilmListActivity : AppCompatActivity() {
         }
 
         startActivity(intent)
+    }
+
+    private fun anyadirPeli(){
+        val nuevaPelicula = Film().apply {
+            title = ""
+            director = ""
+            year = 0
+            genre = Film.GENRE_ACTION
+            format = Film.FORMAT_DIGITAL
+            imdbUrl = null
+            comments = null
+        }
+
+        filmList.add(nuevaPelicula)
+        adaptador.notifyDataSetChanged()
     }
 
     @Composable
