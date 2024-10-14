@@ -56,27 +56,6 @@
         app:layout_constraintStart_toEndOf="@+id/posterFilm"
         app:layout_constraintTop_toBottomOf="@+id/anyo_data_label" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="413dp"
-        android:layout_height="128dp"
-        android:background="?attr/colorPrimary"
-        android:title="@string/app_name"
-        android:titleTextColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/logoFilmEdit2"
-        android:layout_width="80dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_filmoteca" />
-
     <Button
         android:id="@+id/backMainBtn"
         android:layout_width="175dp"
@@ -95,15 +74,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="23dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="140dp"
         android:layout_marginEnd="32dp"
         android:ellipsize="end"
         android:maxLines="2"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/posterFilm"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/director_data_label"
@@ -167,11 +147,11 @@
         android:id="@+id/posterFilm"
         android:layout_width="168dp"
         android:layout_height="212dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="140dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icon_android" />
 
     <TextView
@@ -183,24 +163,5 @@
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/posterFilm" />
-
-    <TextView
-        android:id="@+id/titulo_app"
-        android:layout_width="276dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Filmoteca"
-        android:textAlignment="textStart"
-        android:textColor="#FFFFFF"
-        android:textColorHighlight="#020101"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.205"
-        app:layout_constraintStart_toEndOf="@+id/logoFilmEdit2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

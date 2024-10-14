@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/anyadir_peli"
+        android:icon="@drawable/menu_icon"
+        android:title="Añadir película">
+    </item>
+    <item android:id="@+id/acerca_de"
+        android:title="Acerca de">
+    </item>
+</menu>

@@ -2,6 +2,8 @@ package es.ua.eps.filmoteca
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toolbar
@@ -26,6 +28,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.app.NavUtils
 import androidx.core.content.ContextCompat
 
 class FilmListActivity : AppCompatActivity() {
@@ -34,11 +37,38 @@ class FilmListActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFilmListBinding
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.anyadir_peli -> {
+                return true
+            }
+            R.id.acerca_de -> {
+                onClick(AboutActivity::class.java, flag = Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                return true
+            }
+            // NavigateUpTo equivale a haber lanzado el intent con el FLAG_ACTIVITY_CLEAR_TOP
+            android.R.id.home -> {
+                NavUtils.navigateUpTo(this, Intent(this, FilmListActivity::class.java))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
         mode = intent.getSerializableExtra("MODE", Mode::class.java) ?: Mode.Layouts
+
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         when(mode) {
             Mode.Layouts -> initLayouts()
@@ -67,9 +97,14 @@ class FilmListActivity : AppCompatActivity() {
         }
     }
 
-    private fun onClick(nuevaClase: Class<*>) {
+    fun onClick(nuevaClase: Class<*>, flag: Int? = null) {
         val intent = Intent(this@FilmListActivity, nuevaClase)
         intent.putExtra("MODE", mode)
+
+        if (flag != null){
+            intent.flags = flag
+        }
+
         startActivity(intent)
     }
 

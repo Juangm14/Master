@@ -4,6 +4,8 @@ import FilmArrayAdapterRecycler
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
@@ -52,6 +54,24 @@ class FilmListActivityRecycler : AppCompatActivity() {
             Mode.Layouts -> initLayouts()
             Mode.Compose -> setContent { initCompose() }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.anyadir_peli -> {
+                return true
+            }
+            R.id.acerca_de -> {
+                onClick(AboutActivity::class.java)
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun initLayouts() {
