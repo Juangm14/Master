@@ -2,9 +2,10 @@ package es.ua.eps.filmoteca
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.ActionMode
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ArrayAdapter
+import android.widget.AbsListView
 import android.widget.ListView
 import android.widget.Toolbar
 import androidx.activity.compose.setContent
@@ -16,7 +17,6 @@ import es.ua.eps.filmoteca.databinding.ActivityFilmListBinding
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -25,7 +25,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.app.NavUtils
@@ -37,8 +36,9 @@ class FilmListActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFilmListBinding
 
-    private lateinit var filmList: MutableList<Film>
+    private lateinit var listaPelis: MutableList<Film>
     private lateinit var adaptador: FilmArrayAdapter
+    private val selectedPositions = mutableSetOf<Int>()
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
@@ -84,13 +84,57 @@ class FilmListActivity : AppCompatActivity() {
 
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        filmList = mutableListOf()
+        listaPelis = mutableListOf()
 
         val listaPeliculas = findViewById<ListView>(R.id.listadoPeliculas)
-        filmList = FilmDataSource.films
-        adaptador = FilmArrayAdapter(this, R.layout.item_film, filmList)
+        listaPelis = FilmDataSource.films
+        adaptador = FilmArrayAdapter(this, R.layout.item_film, listaPelis)
 
         listaPeliculas.adapter = adaptador
+
+        binding.listadoPeliculas.choiceMode = ListView.CHOICE_MODE_MULTIPLE_MODAL
+        binding.listadoPeliculas.setMultiChoiceModeListener(object : AbsListView.MultiChoiceModeListener {
+            override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+                val inflater = mode.menuInflater
+                inflater.inflate(R.menu.context_menu, menu)
+                return true
+            }
+
+            override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
+                return false
+            }
+
+            override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
+                return when (item.itemId) {
+                    R.id.borrar -> {
+                        borrarPeliculasSeleccionadas(mode)
+                        mode.finish() // Cierra el modo de acción después de eliminar
+                        true
+                    }
+                    else -> false
+                }
+            }
+
+            override fun onDestroyActionMode(mode: ActionMode) {
+                selectedPositions.clear()
+                adaptador.notifyDataSetChanged() // Actualizar el adaptador para limpiar la selección
+            }
+
+            override fun onItemCheckedStateChanged(
+                mode: ActionMode, position: Int, id: Long, checked: Boolean) {
+
+                if (checked) {
+                    selectedPositions.add(position)
+                } else {
+                    selectedPositions.remove(position)
+                }
+
+                val count = selectedPositions.size
+                mode.title = "$count seleccionados"
+                adaptador.notifyDataSetChanged() // Actualizar el adaptador para reflejar los cambios
+            }
+        })
+
 
         binding.listadoPeliculas.setOnItemClickListener { _, _, posicion, _ ->
             val intent = Intent(this, FilmDataActivity::class.java).apply {
@@ -124,9 +168,27 @@ class FilmListActivity : AppCompatActivity() {
             comments = null
         }
 
-        filmList.add(nuevaPelicula)
+        listaPelis.add(nuevaPelicula)
         adaptador.notifyDataSetChanged()
     }
+
+    private fun borrarPeliculasSeleccionadas(mode: ActionMode) {
+        val posSeleccionada = binding.listadoPeliculas.checkedItemPositions
+        val peliculasAEliminar = mutableListOf<Film>()
+
+        for (i in 0 until posSeleccionada.size()) {
+            val key = posSeleccionada.keyAt(i)
+            if (posSeleccionada[key]) {
+                peliculasAEliminar.add(listaPelis[key])
+            }
+        }
+
+        listaPelis.removeAll(peliculasAEliminar)
+        adaptador.notifyDataSetChanged()
+
+        mode.finish()
+    }
+
 
     @Composable
     fun initCompose() {

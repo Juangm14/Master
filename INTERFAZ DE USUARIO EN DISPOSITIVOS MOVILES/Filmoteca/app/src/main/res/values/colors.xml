@@ -3,4 +3,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="customPurple">#FF6750A4</color>
+    <color name="itemSeleccionado">#c1c1c1</color>
 </resources>
