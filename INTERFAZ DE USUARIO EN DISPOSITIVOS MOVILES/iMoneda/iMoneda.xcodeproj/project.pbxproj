@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C71410602CC00E2900F5C54C /* cruz.png in Resources */ = {isa = PBXBuildFile; fileRef = C714105E2CC00E2900F5C54C /* cruz.png */; };
+		C71410612CC00E2900F5C54C /* cara.png in Resources */ = {isa = PBXBuildFile; fileRef = C714105F2CC00E2900F5C54C /* cara.png */; };
 		C77E4A112CB9A3B40051CFFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77E4A102CB9A3B40051CFFC /* AppDelegate.swift */; };
 		C77E4A132CB9A3B40051CFFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77E4A122CB9A3B40051CFFC /* SceneDelegate.swift */; };
 		C77E4A152CB9A3B40051CFFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77E4A142CB9A3B40051CFFC /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C714105E2CC00E2900F5C54C /* cruz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cruz.png; path = ../../../../../Downloads/imagenes_moneda/cruz.png; sourceTree = "<group>"; };
+		C714105F2CC00E2900F5C54C /* cara.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cara.png; path = ../../../../../Downloads/imagenes_moneda/cara.png; sourceTree = "<group>"; };
 		C77E4A0D2CB9A3B40051CFFC /* iMoneda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMoneda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C77E4A102CB9A3B40051CFFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C77E4A122CB9A3B40051CFFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 		C77E4A0F2CB9A3B40051CFFC /* iMoneda */ = {
 			isa = PBXGroup;
 			children = (
+				C714105F2CC00E2900F5C54C /* cara.png */,
+				C714105E2CC00E2900F5C54C /* cruz.png */,
 				C77E4A102CB9A3B40051CFFC /* AppDelegate.swift */,
 				C77E4A122CB9A3B40051CFFC /* SceneDelegate.swift */,
 				C77E4A142CB9A3B40051CFFC /* ViewController.swift */,
@@ -129,8 +135,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C77E4A1D2CB9A3B60051CFFC /* LaunchScreen.storyboard in Resources */,
+				C71410612CC00E2900F5C54C /* cara.png in Resources */,
 				C77E4A1A2CB9A3B60051CFFC /* Assets.xcassets in Resources */,
 				C77E4A182CB9A3B40051CFFC /* Main.storyboard in Resources */,
+				C71410602CC00E2900F5C54C /* cruz.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
