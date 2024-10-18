@@ -13,10 +13,13 @@ class MiDelegate : NSObject, UITableViewDelegate {
       if let celda = tableView.cellForRow(at: indexPath) {
         //Si no hay marca de verificación la ponemos. Si la hay la quitamos
         if celda.accessoryType==UITableViewCell.AccessoryType.none {
-           celda.accessoryType = .checkmark
+            celda.accessoryType = .checkmark
+            celda.tintColor = UIColor.red // Para cambiar el color del checkmark
+            celda.textLabel?.textColor = UIColor.red
         }
         else {
-           celda.accessoryType = .none
+            celda.accessoryType = .none
+            celda.textLabel?.textColor = UIColor.black
         }
         //deseleccionamos la celda, si no se quedará con el fondo gris
         tableView.deselectRow(at: indexPath, animated: true)

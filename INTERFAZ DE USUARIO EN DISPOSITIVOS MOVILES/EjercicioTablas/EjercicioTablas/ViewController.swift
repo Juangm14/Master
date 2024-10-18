@@ -17,9 +17,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         miTabla.dataSource = miDS
-        //miTabla.delegate = miDelegate
+        miTabla.delegate = miDelegate
         
-        miTabla.setEditing(true, animated: true)
+        //miTabla.setEditing(true, animated: true)
         
     }
 

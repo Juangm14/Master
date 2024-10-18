@@ -16,8 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LqQ-7o-iJg">
+                                <rect key="frame" x="294" y="59" width="83" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Insertar" cornerStyle="dynamic">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.14384205410246653" green="0.59504335228501171" blue="1" alpha="0.24702162969680058" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hms-rf-W6S">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="94" width="393" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="miCelda" textLabel="bMB-cw-fhk" style="IBUITableViewCellStyleDefault" id="0VP-WJ-DE2">
@@ -39,14 +48,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sqo-XN-sPZ">
+                                <rect key="frame" x="16" y="60" width="260" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="hms-rf-W6S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MFZ-HB-cfo"/>
+                            <constraint firstItem="LqQ-7o-iJg" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="9AS-nl-CZE"/>
+                            <constraint firstItem="Sqo-XN-sPZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="IA3-ns-qso"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hms-rf-W6S" secondAttribute="trailing" id="QR5-Id-w40"/>
+                            <constraint firstItem="Sqo-XN-sPZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="RCm-MT-9ab"/>
+                            <constraint firstItem="hms-rf-W6S" firstAttribute="top" secondItem="LqQ-7o-iJg" secondAttribute="bottom" id="Tl2-y5-UKC"/>
                             <constraint firstItem="hms-rf-W6S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UFc-VN-5xu"/>
+                            <constraint firstItem="LqQ-7o-iJg" firstAttribute="leading" secondItem="Sqo-XN-sPZ" secondAttribute="trailing" constant="6" id="aVe-md-64e"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hms-rf-W6S" secondAttribute="bottom" id="c3L-EA-YKk"/>
+                            <constraint firstItem="LqQ-7o-iJg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ktC-cE-vno"/>
                         </constraints>
                     </view>
                     <connections>
@@ -55,7 +74,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="-27"/>
+            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>
