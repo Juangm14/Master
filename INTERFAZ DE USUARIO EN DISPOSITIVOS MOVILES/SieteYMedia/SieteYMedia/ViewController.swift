@@ -12,6 +12,10 @@ class ViewController: UIViewController {
     var juego : Juego!
     var viewsCartas : [UIImageView] = []
     
+    @IBOutlet weak var nuevaPartida: UIButton!
+    @IBOutlet weak var pedirCarta: UIButton!
+    @IBOutlet weak var plantarse: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -21,6 +25,9 @@ class ViewController: UIViewController {
     @IBAction func nuevaPartida(_ sender: Any) {
         self.juego = Juego()
         self.juego.turnoMaquina()
+        self.pedirCarta.isEnabled = true
+        self.plantarse.isEnabled = true
+        self.nuevaPartida.isEnabled = false
     }
     
     @IBAction func pedirCarta(_ sender: Any) {
@@ -31,52 +38,13 @@ class ViewController: UIViewController {
             dibujarCarta(carta)
         }
         
-        if (estadoJuego != EstadoJuego.turnoJugador){
-            switch estadoJuego {
-            case .empate:
-                print("¡Empate!")
-                eliminarCartas()
-            case .ganaJugador:
-                print("¡Has ganado, pierde la máquina!");
-                eliminarCartas()
-            case .noIniciado:
-                print("¡Debes iniciar partida")
-            case .pierdeJugador:
-                print("¡Has perdido, gana la máquina!")
-                eliminarCartas()
-            case .turnoJugador:
-                print("")
-            case .sepasaJugador :
-                print("¡Has perdido, gana la máquina!")
-                eliminarCartas()
-            }
-        }
+        comprobar(el : estadoJuego)
     }
     
     
     @IBAction func plantarse(_ sender: Any) {
         let estadoJuego = self.juego.jugadorSePlanta()
-        
-        if (estadoJuego != EstadoJuego.turnoJugador){
-            switch estadoJuego {
-            case .empate:
-                print("¡Empate!")
-                eliminarCartas()
-            case .ganaJugador:
-                print("¡Has ganado, pierde la máquina!");
-                eliminarCartas()
-            case .noIniciado:
-                print("¡Debes iniciar partida")
-            case .pierdeJugador:
-                print("¡Has perdido, gana la máquina!")
-                eliminarCartas()
-            case .turnoJugador:
-                print("")
-            case .sepasaJugador :
-                print("¡Has perdido, gana la máquina!")
-                eliminarCartas()
-            }
-        }
+        comprobar(el : estadoJuego)
     }
     
     func dibujarCarta(_ carta: Carta) {
@@ -111,6 +79,58 @@ class ViewController: UIViewController {
         }
         //ya no tenemos imágenes de cartas en pantalla, ponemos el array a vacío
         self.viewsCartas=[]
+    }
+    
+    func comprobar(el estadoJuego: EstadoJuego){
+        
+        if (estadoJuego != EstadoJuego.turnoJugador){
+            switch estadoJuego {
+            case .empate:
+                print("¡Empate!")
+                eliminarCartas()
+                self.pedirCarta.isEnabled = false
+                self.plantarse.isEnabled = false
+                self.nuevaPartida.isEnabled = true
+                mostrarDialogo()
+            case .ganaJugador:
+                print("¡Has ganado, pierde la máquina!");
+                eliminarCartas()
+                self.pedirCarta.isEnabled = false
+                self.plantarse.isEnabled = false
+                self.nuevaPartida.isEnabled = true
+                mostrarDialogo()
+            case .noIniciado:
+                print("¡Debes iniciar partida")
+            case .pierdeJugador:
+                print("¡Has perdido, gana la máquina!")
+                eliminarCartas()
+                self.pedirCarta.isEnabled = false
+                self.plantarse.isEnabled = false
+                self.nuevaPartida.isEnabled = true
+                mostrarDialogo()
+            case .turnoJugador:
+                print("")
+            case .sepasaJugador :
+                print("¡Has perdido, gana la máquina!")
+                eliminarCartas()
+                self.pedirCarta.isEnabled = false
+                self.plantarse.isEnabled = false
+                self.nuevaPartida.isEnabled = true
+                mostrarDialogo()
+            }
+        }
+    }
+    
+    func mostrarDialogo(){
+        let alert = UIAlertController(
+            title: "Fin del juego",
+            message: self.juego.mensajeEstadoJuego(),
+            preferredStyle: UIAlertController.Style.alert)
+        let action = UIAlertAction(
+            title: "OK",
+            style: UIAlertAction.Style.default)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

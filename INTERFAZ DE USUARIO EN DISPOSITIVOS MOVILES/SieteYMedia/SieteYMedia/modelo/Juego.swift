@@ -85,4 +85,22 @@ class Juego {
         return suma
     }
     
+    func mensajeEstadoJuego() -> String{
+        
+        switch self.estado {
+            case .empate:
+                return "¡Has empatado contra la máquina!"
+            case .ganaJugador:
+                return "¡Le has ganado a la máquina!"
+            case .noIniciado:
+                return ""
+            case .pierdeJugador:
+                return "¡Has perdido contra la máquina!"
+            case .turnoJugador:
+                return ""
+            case .sepasaJugador :
+                return "¡Has perdido, te has pasado de puntos!"
+        }
+    }
+    
 }
