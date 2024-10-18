@@ -10,9 +10,11 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var miTabla: UITableView!
+    @IBOutlet weak var miTexto: UITextField!
+    
     let miDS = MiDatasource()
     let miDelegate = MiDelegate()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,5 +26,8 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func insertarTexto(_ sender: Any) {
+        
+    }
 }
 
