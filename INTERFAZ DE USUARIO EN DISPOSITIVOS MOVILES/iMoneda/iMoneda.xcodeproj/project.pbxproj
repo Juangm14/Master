@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C71410602CC00E2900F5C54C /* cruz.png in Resources */ = {isa = PBXBuildFile; fileRef = C714105E2CC00E2900F5C54C /* cruz.png */; };
-		C71410612CC00E2900F5C54C /* cara.png in Resources */ = {isa = PBXBuildFile; fileRef = C714105F2CC00E2900F5C54C /* cara.png */; };
 		C77E4A112CB9A3B40051CFFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77E4A102CB9A3B40051CFFC /* AppDelegate.swift */; };
 		C77E4A132CB9A3B40051CFFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77E4A122CB9A3B40051CFFC /* SceneDelegate.swift */; };
 		C77E4A152CB9A3B40051CFFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77E4A142CB9A3B40051CFFC /* ViewController.swift */; };
@@ -16,11 +14,10 @@
 		C77E4A1A2CB9A3B60051CFFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C77E4A192CB9A3B60051CFFC /* Assets.xcassets */; };
 		C77E4A1D2CB9A3B60051CFFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C77E4A1B2CB9A3B60051CFFC /* LaunchScreen.storyboard */; };
 		C77E4A252CB9A3E80051CFFC /* Moneda.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77E4A242CB9A3E80051CFFC /* Moneda.swift */; };
+		C7B6484A2CC2A6270073EE54 /* coin_ic.png in Resources */ = {isa = PBXBuildFile; fileRef = C7B648492CC2A6270073EE54 /* coin_ic.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C714105E2CC00E2900F5C54C /* cruz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cruz.png; path = ../../../../../Downloads/imagenes_moneda/cruz.png; sourceTree = "<group>"; };
-		C714105F2CC00E2900F5C54C /* cara.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cara.png; path = ../../../../../Downloads/imagenes_moneda/cara.png; sourceTree = "<group>"; };
 		C77E4A0D2CB9A3B40051CFFC /* iMoneda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMoneda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C77E4A102CB9A3B40051CFFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C77E4A122CB9A3B40051CFFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +27,7 @@
 		C77E4A1C2CB9A3B60051CFFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C77E4A1E2CB9A3B60051CFFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C77E4A242CB9A3E80051CFFC /* Moneda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moneda.swift; sourceTree = "<group>"; };
+		C7B648492CC2A6270073EE54 /* coin_ic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin_ic.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +60,7 @@
 		C77E4A0F2CB9A3B40051CFFC /* iMoneda */ = {
 			isa = PBXGroup;
 			children = (
-				C714105F2CC00E2900F5C54C /* cara.png */,
-				C714105E2CC00E2900F5C54C /* cruz.png */,
+				C7B648492CC2A6270073EE54 /* coin_ic.png */,
 				C77E4A102CB9A3B40051CFFC /* AppDelegate.swift */,
 				C77E4A122CB9A3B40051CFFC /* SceneDelegate.swift */,
 				C77E4A142CB9A3B40051CFFC /* ViewController.swift */,
@@ -134,11 +131,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7B6484A2CC2A6270073EE54 /* coin_ic.png in Resources */,
 				C77E4A1D2CB9A3B60051CFFC /* LaunchScreen.storyboard in Resources */,
-				C71410612CC00E2900F5C54C /* cara.png in Resources */,
 				C77E4A1A2CB9A3B60051CFFC /* Assets.xcassets in Resources */,
 				C77E4A182CB9A3B40051CFFC /* Main.storyboard in Resources */,
-				C71410602CC00E2900F5C54C /* cruz.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,12 +293,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iMoneda/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -324,12 +321,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iMoneda/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
