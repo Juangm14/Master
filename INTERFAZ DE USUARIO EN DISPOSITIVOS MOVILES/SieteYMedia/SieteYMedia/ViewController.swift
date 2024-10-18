@@ -88,7 +88,10 @@ class ViewController: UIViewController {
         
         print("dijujando carta: \(carta)")
         let imageView = UIImageView(image: image)
-        imageView.frame = CGRect(x: 100, y: 100, width: 100, height: 150) // Posición inicial fuera de la pantalla
+        let limitesPantalla = UIScreen.main.bounds
+        let anchoPantalla = limitesPantalla.width
+        let altoPantalla = limitesPantalla.height
+        imageView.frame = CGRect(x: 100, y: 100, width: anchoPantalla*0.20, height: altoPantalla*0.15) // Posición inicial fuera de la pantalla
         self.view.addSubview(imageView)
         
         // Animar la carta a su posición final
