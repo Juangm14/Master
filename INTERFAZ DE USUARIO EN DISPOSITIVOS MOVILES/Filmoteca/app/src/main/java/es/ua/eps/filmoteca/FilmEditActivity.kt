@@ -49,9 +49,11 @@ import androidx.core.app.ActivityCompat
 import android.Manifest
 import android.content.Context
 import android.graphics.BitmapFactory
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.core.app.NavUtils
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
@@ -95,6 +97,10 @@ class FilmEditActivity : AppCompatActivity() {
 
         filmIndex = intent.getIntExtra("FILM_INDEX", -1)
 
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_home)
+
         val film = FilmDataSource.films[filmIndex]
         binding.editMovieTitle.setText(film.title)
         binding.editMovieDirector.setText(film.director)
@@ -136,6 +142,17 @@ class FilmEditActivity : AppCompatActivity() {
         binding.buttonSelectImage.setOnClickListener {
             getImage.launch("image/*")
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                NavUtils.navigateUpTo(this, Intent(this, FilmListActivity::class.java))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun guardarDatos() {

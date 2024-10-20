@@ -58,15 +58,15 @@
 
     <Button
         android:id="@+id/backMainBtn"
-        android:layout_width="175dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="166dp"
+        android:layout_height="54dp"
         android:text="@string/volver_peli"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/notas_data_label"
-        app:layout_constraintVertical_bias="0.003" />
+        app:layout_constraintVertical_bias="0.046" />
 
     <TextView
         android:id="@+id/peli_datos_label"
@@ -120,28 +120,27 @@
 
     <Button
         android:id="@+id/verEnImdbBtn"
-        android:layout_width="178dp"
+        android:layout_width="173dp"
         android:layout_height="50dp"
         android:layout_marginTop="6dp"
         android:text="@string/relac_peli_btn"
-        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.862"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintStart_toEndOf="@+id/posterFilm"
         app:layout_constraintTop_toBottomOf="@+id/genero_formato_label" />
 
     <Button
         android:id="@+id/editPeliBtn"
-        android:layout_width="175dp"
+        android:layout_width="173dp"
         android:layout_height="50dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="6dp"
         android:text="@string/edit_peli_btn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.288"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toEndOf="@+id/backMainBtn"
         app:layout_constraintTop_toBottomOf="@+id/notas_data_label"
-        app:layout_constraintVertical_bias="0.003" />
+        app:layout_constraintVertical_bias="0.025" />
 
     <ImageView
         android:id="@+id/posterFilm"
@@ -163,5 +162,4 @@
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/posterFilm" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
