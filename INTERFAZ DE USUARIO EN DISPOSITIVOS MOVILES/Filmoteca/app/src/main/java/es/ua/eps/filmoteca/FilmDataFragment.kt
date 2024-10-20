@@ -25,11 +25,23 @@ class FilmDataFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Configurar el botón para abrir IMDB
+        // Recuperar el índice de película de los argumentos
+        arguments?.let {
+            filmIndex = it.getInt("FILM_INDEX", -1)
+        }
+
+        if (filmIndex != -1) {
+            obtenerPelicula(view)
+        }else{
+            ocultarComponentes(view)
+        }
+
         view.findViewById<Button>(R.id.verEnImdbBtn).setOnClickListener {
-            val imdbUrl = FilmDataSource.films[filmIndex].imdbUrl
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(imdbUrl))
-            startActivity(intent)
+            val imdbUrl = FilmDataSource.films.getOrNull(filmIndex)?.imdbUrl
+            if (imdbUrl != null) {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(imdbUrl))
+                startActivity(intent)
+            }
         }
     }
 
@@ -39,8 +51,11 @@ class FilmDataFragment : Fragment() {
         obtenerPelicula(view)
     }
 
-    private fun obtenerPelicula(view: View) {
-        if (filmIndex == -1) return
+    fun obtenerPelicula(view: View) {
+        if (filmIndex == -1){
+            ocultarComponentes(view)
+            return
+        }
 
         val selectedFilm = FilmDataSource.films[filmIndex]
 
@@ -54,13 +69,39 @@ class FilmDataFragment : Fragment() {
             else -> generoPeli
         }
 
-        // Establecer los datos en los TextViews
+        mostrarComponentes(view)
+
+       // Establecer los datos en los TextViews
         view.findViewById<TextView>(R.id.peli_datos_label).text = selectedFilm.title
         view.findViewById<TextView>(R.id.director_data_label).text = selectedFilm.director
         view.findViewById<TextView>(R.id.anyo_data_label).text = selectedFilm.year.toString()
         view.findViewById<TextView>(R.id.genero_formato_label).text = generoFormato
         view.findViewById<TextView>(R.id.notas_data_label).text = selectedFilm.comments
         view.findViewById<ImageView>(R.id.posterFilm).setImageResource(selectedFilm.imageResId)
+    }
+
+    private fun mostrarComponentes(view: View) {
+        view.findViewById<Button>(R.id.verEnImdbBtn).visibility = View.VISIBLE
+        view.findViewById<ImageView>(R.id.posterFilm).visibility = View.VISIBLE
+        view.findViewById<TextView>(R.id.peli_datos_label).visibility = View.VISIBLE
+        view.findViewById<TextView>(R.id.director_data_label).visibility = View.VISIBLE
+        view.findViewById<TextView>(R.id.anyo_data_label).visibility = View.VISIBLE
+        view.findViewById<TextView>(R.id.genero_formato_label).visibility = View.VISIBLE
+        view.findViewById<TextView>(R.id.notas_data_label).visibility = View.VISIBLE
+        view.findViewById<TextView>(R.id.editPeliBtn).visibility = View.VISIBLE
+        view.findViewById<TextView>(R.id.backMainBtn).visibility = View.VISIBLE
+    }
+
+    private fun ocultarComponentes(view: View) {
+        view.findViewById<Button>(R.id.verEnImdbBtn).visibility = View.GONE
+        view.findViewById<ImageView>(R.id.posterFilm).visibility = View.GONE
+        view.findViewById<TextView>(R.id.peli_datos_label).visibility = View.GONE
+        view.findViewById<TextView>(R.id.director_data_label).visibility = View.GONE
+        view.findViewById<TextView>(R.id.anyo_data_label).visibility = View.GONE
+        view.findViewById<TextView>(R.id.genero_formato_label).visibility = View.GONE
+        view.findViewById<TextView>(R.id.notas_data_label).visibility = View.GONE
+        view.findViewById<TextView>(R.id.editPeliBtn).visibility = View.GONE
+        view.findViewById<TextView>(R.id.backMainBtn).visibility = View.GONE
     }
 }
 
