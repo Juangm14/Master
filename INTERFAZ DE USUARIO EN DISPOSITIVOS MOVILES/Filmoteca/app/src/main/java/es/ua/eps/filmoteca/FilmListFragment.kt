@@ -13,6 +13,7 @@ class FilmListFragment : ListFragment() {
 
     private var callback: OnFilmSelectedListener? = null
     private lateinit var adaptador: FilmArrayAdapter
+    private var films: MutableList<Film> = mutableListOf()
 
     interface OnFilmSelectedListener {
         fun onFilmSelected(position: Int)
@@ -31,12 +32,22 @@ class FilmListFragment : ListFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        val films = FilmDataSource.films
+        films = FilmDataSource.films.toMutableList()
         adaptador = FilmArrayAdapter(requireContext(), R.layout.activity_list_item, films)
         listAdapter = adaptador
 
         return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
+    fun updateFilmList(newFilms: List<Film>) {
+        films.clear()
+        films.addAll(newFilms)
+        adaptador.notifyDataSetChanged()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateFilmList(FilmDataSource.films)
     }
 
     override fun onListItemClick(l: ListView, v: View, position: Int, id: Long) {
@@ -44,4 +55,5 @@ class FilmListFragment : ListFragment() {
         callback?.onFilmSelected(position)
     }
 }
+
 

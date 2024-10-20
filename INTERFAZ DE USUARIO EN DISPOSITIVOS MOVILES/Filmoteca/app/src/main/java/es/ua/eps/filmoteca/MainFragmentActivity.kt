@@ -20,8 +20,14 @@ class MainFragmentActivity : AppCompatActivity(), FilmListFragment.OnFilmSelecte
         }
     }
 
+    //Consideramos que una tablet a partir de 6 pulgadas
     private fun isTablet(): Boolean {
-        return true
+        val pantalla = resources.displayMetrics
+        val anchoPantalla = pantalla.widthPixels / pantalla.density
+        val altoPantalla = pantalla.heightPixels / pantalla.density
+
+        val anchoMasPequeño = Math.min(anchoPantalla, altoPantalla)
+        return anchoMasPequeño >= 600
     }
 
     override fun onFilmSelected(position: Int) {
@@ -42,4 +48,5 @@ class MainFragmentActivity : AppCompatActivity(), FilmListFragment.OnFilmSelecte
                 .commit()
         }
     }
+
 }

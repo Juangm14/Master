@@ -9,11 +9,31 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity.RESULT_CANCELED
+import androidx.appcompat.app.AppCompatActivity.RESULT_OK
 import androidx.fragment.app.Fragment
 
 class FilmDataFragment : Fragment() {
 
     private var filmIndex: Int = -1
+
+    private val editFilmResultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        when (result.resultCode) {
+            RESULT_OK -> {
+                Toast.makeText(requireContext(), getString(R.string.film_edited_success_msg), Toast.LENGTH_SHORT).show()
+                filmIndex.let {
+                    setFilmDetail(it, requireView())
+                }
+            }
+            RESULT_CANCELED -> {
+                Toast.makeText(requireContext(), getString(R.string.film_edit_cancel_msg), Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,9 +63,23 @@ class FilmDataFragment : Fragment() {
                 startActivity(intent)
             }
         }
+
+        view.findViewById<Button>(R.id.backMainBtn).setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
+
+        view.findViewById<Button>(R.id.editPeliBtn).setOnClickListener {
+            onClickEdit()
+        }
     }
 
-    // Método que se llamará para establecer los detalles de la película
+    private fun onClickEdit() {
+        val intent = Intent(requireContext(), FilmEditActivity::class.java)
+        intent.putExtra("MODE", Mode.Layouts)
+        intent.putExtra("FILM_INDEX", filmIndex)
+        editFilmResultLauncher.launch(intent)
+    }
+
     fun setFilmDetail(position: Int, view: View) {
         filmIndex = position
         obtenerPelicula(view)
@@ -71,7 +105,6 @@ class FilmDataFragment : Fragment() {
 
         mostrarComponentes(view)
 
-       // Establecer los datos en los TextViews
         view.findViewById<TextView>(R.id.peli_datos_label).text = selectedFilm.title
         view.findViewById<TextView>(R.id.director_data_label).text = selectedFilm.director
         view.findViewById<TextView>(R.id.anyo_data_label).text = selectedFilm.year.toString()
