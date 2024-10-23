@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:level="0" android:maxLevel="2550" android:drawable="@drawable/rectangulo_verde" />
+    <item android:level="2551" android:maxLevel="5000" android:drawable="@drawable/rectangulo_amarillo" />
+    <item android:level="5001" android:maxLevel="7500" android:drawable="@drawable/rectangulo_naranja" />
+    <item android:level="7501" android:maxLevel="10000" android:drawable="@drawable/rectangulo_rojo" />
+</level-list>
