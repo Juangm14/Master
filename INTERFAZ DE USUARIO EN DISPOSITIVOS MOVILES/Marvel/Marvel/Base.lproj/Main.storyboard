@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qVk-kb-nNA">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CeldaNombrePersonaje" textLabel="oCz-qv-hNS" style="IBUITableViewCellStyleDefault" id="nxn-FO-YvD">
@@ -49,14 +49,14 @@
                             <constraint firstItem="qVk-kb-nNA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="esG-ZA-dhT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Personajes" image="person.2.fill" catalog="system" id="fft-SV-HTM"/>
+                    <navigationItem key="navigationItem" title="Personajes" id="Nuj-RV-SWb"/>
                     <connections>
                         <outlet property="ListaPersonajesTabla" destination="qVk-kb-nNA" id="8ni-dy-mig"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1052.6717557251909" y="-34.507042253521128"/>
+            <point key="canvasLocation" x="1979.3893129770991" y="-34.507042253521128"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tc1-zv-2tM">
@@ -68,12 +68,31 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="kk6-jM-xq9"/>
+                        <segue destination="bs6-0D-JsV" kind="relationship" relationship="viewControllers" id="kk6-jM-xq9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zpa-aL-uu9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="130.53435114503816" y="-34.507042253521128"/>
+        </scene>
+        <!--Personajes-->
+        <scene sceneID="t4Z-04-twc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bs6-0D-JsV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Personajes" image="person.2.fill" catalog="system" id="fft-SV-HTM"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RSM-51-nyj">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="duS-r2-xIc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zyg-ZE-pZK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1052.6717557251909" y="-34.507042253521128"/>
         </scene>
     </scenes>
     <resources>

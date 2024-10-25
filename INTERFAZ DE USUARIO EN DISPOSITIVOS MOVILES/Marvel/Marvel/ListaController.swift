@@ -77,8 +77,7 @@ class ListaController : UIViewController, UISearchResultsUpdating, UITableViewDa
         //lo que aparece en la barra de búsqueda antes de teclear nada
         self.searchController.searchBar.placeholder = "Buscar texto"
         //Añadimos la barra de búsqueda a la tabla
-        self.searchController.searchBar.sizeToFit()
-        self.listaPersonajesTabla.tableHeaderView = searchController.searchBar
+        self.navigationItem.searchController = searchController
         
         //que se oculte automáticamente al pararse
         miSpinner.hidesWhenStopped = true
