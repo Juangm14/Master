@@ -55,9 +55,12 @@ class FilmListActivity : AppCompatActivity() {
                 onClick(AboutActivity::class.java, flag = Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 return true
             }
-            // NavigateUpTo equivale a haber lanzado el intent con el FLAG_ACTIVITY_CLEAR_TOP
+            // NavigateUpTo equivale a haber lanzado el intent con el FLAG_ACTIVITY_CLEAR_TOP, pero aqui hay que hacerlo así porque sino escala en jerarquia.
             android.R.id.home -> {
-                NavUtils.navigateUpTo(this, Intent(this, FilmListActivity::class.java))
+                val intent = Intent(this, FilmListActivity::class.java).apply {
+                    flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                }
+                startActivity(intent)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -84,6 +87,8 @@ class FilmListActivity : AppCompatActivity() {
 
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_home)
+
         listaPelis = mutableListOf()
 
         val listaPeliculas = findViewById<ListView>(R.id.listadoPeliculas)

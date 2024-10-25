@@ -7,30 +7,99 @@
     android:layout_height="match_parent"
     tools:context=".FilmDataActivity">
 
+    <ImageView
+        android:id="@+id/posterFilm"
+        android:layout_width="168dp"
+        android:layout_height="212dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_android" />
+
     <TextView
         android:id="@+id/director_label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="23dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:ellipsize="end"
         android:maxLines="2"
         android:textSize="16sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/posterFilm"
         app:layout_constraintTop_toBottomOf="@+id/peli_datos_label" />
 
     <TextView
-        android:id="@+id/anyo_data_label"
+        android:id="@+id/anyo_label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="23dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/posterFilm"
+        app:layout_constraintTop_toBottomOf="@+id/director_data_label" />
+
+    <TextView
+        android:id="@+id/peli_datos_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/posterFilm"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/verEnImdbBtn"
+        android:layout_width="173dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/relac_peli_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintStart_toEndOf="@+id/posterFilm"
+        app:layout_constraintTop_toBottomOf="@+id/genero_formato_label" />
+
+    <Button
+        android:id="@+id/editPeliBtn"
+        android:layout_width="173dp"
+        android:layout_height="50dp"
         android:layout_marginTop="6dp"
+        android:text="@string/edit_peli_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toEndOf="@+id/backMainBtn"
+        app:layout_constraintTop_toBottomOf="@+id/notas_data_label"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <TextView
+        android:id="@+id/director_data_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="32dp"
         android:ellipsize="end"
         android:maxLines="2"
@@ -38,7 +107,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/posterFilm"
-        app:layout_constraintTop_toBottomOf="@+id/anyo_label" />
+        app:layout_constraintTop_toBottomOf="@+id/director_label" />
 
     <TextView
         android:id="@+id/genero_formato_label"
@@ -46,7 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="23dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="32dp"
         android:ellipsize="end"
         android:maxLines="2"
@@ -58,110 +127,41 @@
 
     <Button
         android:id="@+id/backMainBtn"
-        android:layout_width="175dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="166dp"
+        android:layout_height="54dp"
         android:text="@string/volver_peli"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notas_data_label"
-        app:layout_constraintVertical_bias="0.003" />
-
-    <TextView
-        android:id="@+id/peli_datos_label"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="32dp"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/posterFilm"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/director_data_label"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="32dp"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/posterFilm"
-        app:layout_constraintTop_toBottomOf="@+id/director_label" />
-
-    <TextView
-        android:id="@+id/anyo_label"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="32dp"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:textSize="16sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/posterFilm"
-        app:layout_constraintTop_toBottomOf="@+id/director_data_label" />
-
-    <Button
-        android:id="@+id/verEnImdbBtn"
-        android:layout_width="178dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="6dp"
-        android:text="@string/relac_peli_btn"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.862"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/genero_formato_label" />
-
-    <Button
-        android:id="@+id/editPeliBtn"
-        android:layout_width="175dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/edit_peli_btn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.288"
-        app:layout_constraintStart_toEndOf="@+id/backMainBtn"
-        app:layout_constraintTop_toBottomOf="@+id/notas_data_label"
-        app:layout_constraintVertical_bias="0.003" />
-
-    <ImageView
-        android:id="@+id/posterFilm"
-        android:layout_width="168dp"
-        android:layout_height="212dp"
-        android:layout_marginTop="140dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_android" />
+        app:layout_constraintTop_toBottomOf="@+id/notas_data_label"
+        app:layout_constraintVertical_bias="0.037" />
+
+    <TextView
+        android:id="@+id/anyo_data_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/posterFilm"
+        app:layout_constraintTop_toBottomOf="@+id/anyo_label" />
 
     <TextView
         android:id="@+id/notas_data_label"
         android:layout_width="363dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/posterFilm" />
-
+        app:layout_constraintTop_toBottomOf="@+id/posterFilm"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

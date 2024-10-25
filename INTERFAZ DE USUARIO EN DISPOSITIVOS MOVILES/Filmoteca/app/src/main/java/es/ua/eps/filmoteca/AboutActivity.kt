@@ -3,6 +3,7 @@ package es.ua.eps.filmoteca
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import android.widget.Toolbar
 import androidx.activity.compose.setContent
@@ -31,6 +32,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.app.NavUtils
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -65,6 +67,10 @@ class AboutActivity : AppCompatActivity() {
             insets
         }
 
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_home)
+
         val sitioweb_btn = findViewById<android.widget.Button>(R.id.sitioweb_btn);
 
         sitioweb_btn.setOnClickListener{
@@ -82,6 +88,17 @@ class AboutActivity : AppCompatActivity() {
         volver_btn.setOnClickListener{
             onClickBack()
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                NavUtils.navigateUpTo(this, Intent(this, FilmListActivity::class.java))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     @Composable

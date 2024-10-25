@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import android.net.Uri
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.Toolbar
@@ -44,6 +45,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.app.NavUtils
 import androidx.core.content.ContextCompat
 
 import es.ua.eps.filmoteca.databinding.ActivityFilmDataBinding
@@ -95,6 +97,10 @@ class FilmDataActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_home)
+
         filmIndex = intent.getIntExtra("FILM_INDEX", -1)
 
         obtenerPelicula()
@@ -106,6 +112,17 @@ class FilmDataActivity : AppCompatActivity() {
         binding.backMainBtn.setOnClickListener {
             onClick(FilmListActivity::class.java, flag = Intent.FLAG_ACTIVITY_CLEAR_TOP)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                NavUtils.navigateUpTo(this, Intent(this, FilmListActivity::class.java))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun obtenerPelicula(){
