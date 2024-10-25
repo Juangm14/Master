@@ -6,23 +6,64 @@
 //
 
 import UIKit
+import Marvelous
 
-class ListaController : UIViewController, UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        let textoBuscado = searchController.searchBar.text!
-        //recortamos caracteres en blanco
-        let textoBuscadoTrim = textoBuscado.trimmingCharacters(in: .whitespacesAndNewlines)
-        print(textoBuscadoTrim)
-    }
+class ListaController : UIViewController, UISearchResultsUpdating, UITableViewDataSource {
     
-    //esto debería ser una propiedad de ListaController
     var searchController : UISearchController!
     
     @IBOutlet weak var listaPersonajesTabla: UITableView!
     
+    var arrayPersonajes : [RCCharacterObject] = []
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        arrayPersonajes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let nuevaCelda = listaPersonajesTabla.dequeueReusableCell(withIdentifier: "CeldaNombrePersonaje",
+                                  for: indexPath)
+        let personaje = arrayPersonajes[indexPath.row]
+        nuevaCelda.textLabel?.text = personaje.name
+            return nuevaCelda
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let textoBuscado = searchController.searchBar.text!
+        //recortamos caracteres en blanco
+        let textoBuscadoTrim = textoBuscado.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if textoBuscado.count > 2 {
+            let marvelAPI = RCMarvelAPI()
+            //PUEDES CAMBIAR ESTO PARA PONER TUS CLAVES
+            marvelAPI.publicKey = "a6927e7e15930110aade56ef90244f6d"
+            marvelAPI.privateKey = "487b621fc3c0d6f128b468ba86c99c508f24d357"
+            let filtro = RCCharacterFilter()
+            filtro.nameStartsWith = textoBuscadoTrim
+            filtro.limit = 50
+            
+            marvelAPI.characters(by: filtro) {
+                resultados, info, error in
+                if let personajes = resultados as? [RCCharacterObject] {
+                    self.arrayPersonajes = personajes
+                }else{
+                    self.arrayPersonajes = []
+                }
+            }
+            
+            OperationQueue.main.addOperation() {
+                self.listaPersonajesTabla.reloadData();
+            }
+        }
+        
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //..aquí podría haber más código
+        
+        listaPersonajesTabla.dataSource = self
+
         self.searchController = UISearchController(searchResultsController: nil)
         //el delegate somos nosotros (ListaController)
         self.searchController.searchResultsUpdater = self
