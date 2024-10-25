@@ -58,9 +58,19 @@ class ListaController : UIViewController, UISearchResultsUpdating, UITableViewDa
             }
             self.miSpinner.stopAnimating()
         }
-        
-        
-
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DetallePersonaje" {
+            if let detailVC = segue.destination as? DetalleViewController {
+                
+                if let selectedRow = listaPersonajesTabla.indexPathForSelectedRow {
+                    detailVC.personaje = self.arrayPersonajes[selectedRow.row]
+                }
+                
+            }
+        }
     }
     
     override func viewDidLoad() {

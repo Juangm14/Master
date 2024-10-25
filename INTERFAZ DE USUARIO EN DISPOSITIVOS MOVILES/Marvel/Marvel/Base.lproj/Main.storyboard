@@ -37,7 +37,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="3Li-PD-CW3" kind="show" id="Jkz-KI-6dH"/>
+                                            <segue destination="3Li-PD-CW3" kind="show" identifier="DetallePersonaje" id="Jkz-KI-6dH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="1979.3893129770991" y="-34.507042253521128"/>
         </scene>
-        <!--View Controller-->
+        <!--Detalle View Controller-->
         <scene sceneID="Iat-gQ-G3n">
             <objects>
-                <viewController id="3Li-PD-CW3" sceneMemberID="viewController">
+                <viewController id="3Li-PD-CW3" customClass="DetalleViewController" customModule="Marvel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eAY-4n-dvn">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,6 +111,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XJb-3p-1Iw"/>
+                    <connections>
+                        <outlet property="biografiaText" destination="6TM-FR-aUk" id="YSf-4d-QD4"/>
+                        <outlet property="nombreText" destination="eUd-k6-a4n" id="xNT-Ap-7DW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RAS-hx-Lwc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

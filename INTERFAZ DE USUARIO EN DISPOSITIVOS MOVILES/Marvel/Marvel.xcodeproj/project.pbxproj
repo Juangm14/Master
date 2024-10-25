@@ -15,6 +15,7 @@
 		271505A02910367F00CA95B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2715059E2910367F00CA95B0 /* LaunchScreen.storyboard */; };
 		7FEF229D91B5A060B4475976 /* Pods_Marvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025D6C6E1625BD14A92D26EC /* Pods_Marvel.framework */; };
 		C71E56E82CCBE7BE00CBBA51 /* ListaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71E56E72CCBE7BE00CBBA51 /* ListaController.swift */; };
+		C72C8EC22CCC07280083ED51 /* DetalleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72C8EC12CCC07280083ED51 /* DetalleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		28BB31CAEC8CFA7287A2317B /* Pods-Marvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.release.xcconfig"; path = "Target Support Files/Pods-Marvel/Pods-Marvel.release.xcconfig"; sourceTree = "<group>"; };
 		2DA4F53ECB744000C58FD485 /* Pods-Marvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.debug.xcconfig"; path = "Target Support Files/Pods-Marvel/Pods-Marvel.debug.xcconfig"; sourceTree = "<group>"; };
 		C71E56E72CCBE7BE00CBBA51 /* ListaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaController.swift; sourceTree = "<group>"; };
+		C72C8EC12CCC07280083ED51 /* DetalleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				271505952910367B00CA95B0 /* SceneDelegate.swift */,
 				271505972910367B00CA95B0 /* ViewController.swift */,
 				271505992910367B00CA95B0 /* Main.storyboard */,
+				C72C8EC12CCC07280083ED51 /* DetalleViewController.swift */,
 				2715059C2910367F00CA95B0 /* Assets.xcassets */,
 				2715059E2910367F00CA95B0 /* LaunchScreen.storyboard */,
 				271505A12910367F00CA95B0 /* Info.plist */,
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				271505982910367B00CA95B0 /* ViewController.swift in Sources */,
+				C72C8EC22CCC07280083ED51 /* DetalleViewController.swift in Sources */,
 				C71E56E82CCBE7BE00CBBA51 /* ListaController.swift in Sources */,
 				271505942910367B00CA95B0 /* AppDelegate.swift in Sources */,
 				271505962910367B00CA95B0 /* SceneDelegate.swift in Sources */,
