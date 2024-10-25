@@ -1,0 +1,6 @@
+framework module Marvelous {
+  umbrella header "Marvelous-umbrella.h"
+
+  export *
+  module * { export * }
+}
