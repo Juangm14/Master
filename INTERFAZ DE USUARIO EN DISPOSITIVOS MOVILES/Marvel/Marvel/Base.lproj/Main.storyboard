@@ -150,11 +150,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="bs6-0D-JsV" kind="relationship" relationship="viewControllers" id="kk6-jM-xq9"/>
+                        <segue destination="npg-Tg-1j9" kind="relationship" relationship="viewControllers" id="GpT-0o-hFp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zpa-aL-uu9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.53435114503816" y="-34.507042253521128"/>
+            <point key="canvasLocation" x="-185" y="374"/>
         </scene>
         <!--Personajes-->
         <scene sceneID="t4Z-04-twc">
@@ -175,8 +176,46 @@
             </objects>
             <point key="canvasLocation" x="1052.6717557251909" y="-34.507042253521128"/>
         </scene>
+        <!--Acerca de-->
+        <scene sceneID="rOT-J0-JgK">
+            <objects>
+                <viewController id="npg-Tg-1j9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LmA-2d-bOc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="MarvelComicLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="CMr-4i-DjL">
+                                <rect key="frame" x="45" y="196" width="303" height="248"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marvel Comics App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZ8-Wt-gD1">
+                                <rect key="frame" x="122" y="128" width="148" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="M5J-lu-rl9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="M5J-lu-rl9" firstAttribute="trailing" secondItem="CMr-4i-DjL" secondAttribute="trailing" constant="45" id="80d-MI-YAb"/>
+                            <constraint firstItem="sZ8-Wt-gD1" firstAttribute="top" secondItem="M5J-lu-rl9" secondAttribute="top" constant="69" id="BO1-Sy-ad8"/>
+                            <constraint firstItem="CMr-4i-DjL" firstAttribute="leading" secondItem="M5J-lu-rl9" secondAttribute="leading" constant="45" id="bX1-7O-TGJ"/>
+                            <constraint firstItem="sZ8-Wt-gD1" firstAttribute="leading" secondItem="M5J-lu-rl9" secondAttribute="leading" constant="122" id="iDx-18-YYx"/>
+                            <constraint firstItem="M5J-lu-rl9" firstAttribute="bottom" secondItem="CMr-4i-DjL" secondAttribute="bottom" constant="325" id="lH1-KE-I75"/>
+                            <constraint firstItem="M5J-lu-rl9" firstAttribute="trailing" secondItem="sZ8-Wt-gD1" secondAttribute="trailing" constant="123" id="qzu-L8-1GL"/>
+                            <constraint firstItem="CMr-4i-DjL" firstAttribute="top" secondItem="sZ8-Wt-gD1" secondAttribute="bottom" constant="47" id="zwX-4V-OUZ"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Acerca de" image="info" catalog="system" id="OGs-ru-NXo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KEK-Zu-W1c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1052.6717557251909" y="653.52112676056345"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="MarvelComicLogo.png" width="3840" height="2160"/>
+        <image name="info" catalog="system" width="93" height="128"/>
         <image name="person.2.fill" catalog="system" width="128" height="81"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

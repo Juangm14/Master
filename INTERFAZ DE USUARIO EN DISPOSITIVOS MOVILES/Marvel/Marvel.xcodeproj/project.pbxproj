@@ -16,6 +16,7 @@
 		7FEF229D91B5A060B4475976 /* Pods_Marvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025D6C6E1625BD14A92D26EC /* Pods_Marvel.framework */; };
 		C71E56E82CCBE7BE00CBBA51 /* ListaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71E56E72CCBE7BE00CBBA51 /* ListaController.swift */; };
 		C72C8EC22CCC07280083ED51 /* DetalleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72C8EC12CCC07280083ED51 /* DetalleViewController.swift */; };
+		C72C8EC42CCC17840083ED51 /* MarvelComicLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = C72C8EC32CCC17840083ED51 /* MarvelComicLogo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		2DA4F53ECB744000C58FD485 /* Pods-Marvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.debug.xcconfig"; path = "Target Support Files/Pods-Marvel/Pods-Marvel.debug.xcconfig"; sourceTree = "<group>"; };
 		C71E56E72CCBE7BE00CBBA51 /* ListaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaController.swift; sourceTree = "<group>"; };
 		C72C8EC12CCC07280083ED51 /* DetalleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalleViewController.swift; sourceTree = "<group>"; };
+		C72C8EC32CCC17840083ED51 /* MarvelComicLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MarvelComicLogo.png; path = ../../../../MarvelComicLogo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 		271505922910367B00CA95B0 /* Marvel */ = {
 			isa = PBXGroup;
 			children = (
+				C72C8EC32CCC17840083ED51 /* MarvelComicLogo.png */,
 				271505932910367B00CA95B0 /* AppDelegate.swift */,
 				271505952910367B00CA95B0 /* SceneDelegate.swift */,
 				271505972910367B00CA95B0 /* ViewController.swift */,
@@ -158,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				271505A02910367F00CA95B0 /* LaunchScreen.storyboard in Resources */,
+				C72C8EC42CCC17840083ED51 /* MarvelComicLogo.png in Resources */,
 				2715059D2910367F00CA95B0 /* Assets.xcassets in Resources */,
 				2715059B2910367B00CA95B0 /* Main.storyboard in Resources */,
 			);
