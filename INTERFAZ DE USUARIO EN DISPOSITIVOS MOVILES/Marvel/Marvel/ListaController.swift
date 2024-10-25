@@ -16,14 +16,16 @@ class ListaController : UIViewController, UISearchResultsUpdating, UITableViewDa
     
     var arrayPersonajes : [RCCharacterObject] = []
     
+    var miSpinner = UIActivityIndicatorView()
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        arrayPersonajes.count
+        self.arrayPersonajes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let nuevaCelda = listaPersonajesTabla.dequeueReusableCell(withIdentifier: "CeldaNombrePersonaje",
                                   for: indexPath)
-        let personaje = arrayPersonajes[indexPath.row]
+        let personaje = self.arrayPersonajes[indexPath.row]
         nuevaCelda.textLabel?.text = personaje.name
             return nuevaCelda
     }
@@ -32,8 +34,8 @@ class ListaController : UIViewController, UISearchResultsUpdating, UITableViewDa
         let textoBuscado = searchController.searchBar.text!
         //recortamos caracteres en blanco
         let textoBuscadoTrim = textoBuscado.trimmingCharacters(in: .whitespacesAndNewlines)
-        
         if textoBuscado.count > 2 {
+            self.miSpinner.startAnimating()
             let marvelAPI = RCMarvelAPI()
             //PUEDES CAMBIAR ESTO PARA PONER TUS CLAVES
             marvelAPI.publicKey = "a6927e7e15930110aade56ef90244f6d"
@@ -54,7 +56,9 @@ class ListaController : UIViewController, UISearchResultsUpdating, UITableViewDa
             OperationQueue.main.addOperation() {
                 self.listaPersonajesTabla.reloadData();
             }
+            self.miSpinner.stopAnimating()
         }
+        
         
 
     }
@@ -75,5 +79,15 @@ class ListaController : UIViewController, UISearchResultsUpdating, UITableViewDa
         //Añadimos la barra de búsqueda a la tabla
         self.searchController.searchBar.sizeToFit()
         self.listaPersonajesTabla.tableHeaderView = searchController.searchBar
+        
+        //que se oculte automáticamente al pararse
+        miSpinner.hidesWhenStopped = true
+        //lo añadimos a la vista principal del controller actual
+        self.view.addSubview(miSpinner)
+        //lo centramos en la pantalla
+        miSpinner.center.x = self.view.center.x
+        miSpinner.center.y = self.view.center.y
+        //nos aseguramos que está al frente y no tapado por la tabla
+        self.view.bringSubviewToFront(self.miSpinner)
     }
 }
