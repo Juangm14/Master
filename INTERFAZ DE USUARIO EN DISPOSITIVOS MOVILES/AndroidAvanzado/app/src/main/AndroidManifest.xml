@@ -7,6 +7,7 @@
         android:required="false" />
 
     <queries>
+
         <!-- Browser -->
         <intent>
             <action android:name="android.intent.action.VIEW" />
@@ -20,14 +21,13 @@
 
             <data android:scheme="*" />
         </intent>
-
-
         <intent>
             <action android:name="android.media.action.IMAGE_CAPTURE" />
         </intent>
         <!-- Para acceder a la galería -->
         <intent>
             <action android:name="android.intent.action.PICK" />
+
             <data android:mimeType="image/*" />
         </intent>
     </queries>
@@ -47,15 +47,23 @@
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
         tools:targetApi="34">
         <activity
+            android:name=".TextViewCitasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TextViewCitas"
+            android:exported="false" />
+        <activity
             android:name=".SelectorActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DrawablesActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".DrawablesActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

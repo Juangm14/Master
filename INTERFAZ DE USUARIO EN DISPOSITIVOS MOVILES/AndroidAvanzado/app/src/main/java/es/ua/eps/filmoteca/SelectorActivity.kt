@@ -20,5 +20,10 @@ class SelectorActivity : AppCompatActivity() {
             val intent = Intent(this, DrawablesActivity::class.java)
             startActivity(intent)
         }
+
+        binding.customComponent.setOnClickListener{
+            val intent = Intent(this, TextViewCitasActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
