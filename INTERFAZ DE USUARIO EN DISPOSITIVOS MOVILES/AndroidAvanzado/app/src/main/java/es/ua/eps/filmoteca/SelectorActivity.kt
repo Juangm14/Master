@@ -35,5 +35,10 @@ class SelectorActivity : AppCompatActivity() {
             val intent = Intent(this, GraficaActivity::class.java)
             startActivity(intent)
         }
+
+        binding.customNotificaciones.setOnClickListener{
+            val intent = Intent(this, NotificacionToastActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
