@@ -61,6 +61,8 @@
         <activity
             android:name=".TextViewCitas"
             android:exported="false" />
+        <activity android:name=".NotificacionSnackBarActivity"
+            android:exported="false" />
         <activity
             android:name=".SelectorActivity"
             android:exported="true">

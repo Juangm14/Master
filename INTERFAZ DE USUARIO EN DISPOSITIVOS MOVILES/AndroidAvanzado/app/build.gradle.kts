@@ -52,6 +52,7 @@ dependencies {
     implementation("com.google.accompanist:accompanist-permissions:0.32.0")
     implementation("androidx.recyclerview:recyclerview:1.1.0")
 
+    implementation(libs.material)
     implementation(platform("androidx.compose:compose-bom:2024.09.02"))
 
     implementation("io.coil-kt:coil-compose:2.2.2")
@@ -69,6 +70,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
 
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)

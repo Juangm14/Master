@@ -29,17 +29,6 @@
         app:layout_constraintVertical_bias="0.113" />
 
     <Button
-        android:id="@+id/customGrafica"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gráfica personalizada"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customEditText"
-        app:layout_constraintVertical_bias="0.158" />
-
-    <Button
         android:id="@+id/custom_component"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,6 +41,18 @@
         app:layout_constraintVertical_bias="0.072" />
 
     <Button
+        android:id="@+id/customNotifSnackbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notificaciones SnackBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custom_notificaciones"
+        app:layout_constraintVertical_bias="0.298" />
+
+    <Button
         android:id="@+id/custom_notificaciones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -61,6 +62,17 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/customGrafica"
-        app:layout_constraintVertical_bias="0.186" />
+        app:layout_constraintVertical_bias="0.177" />
+
+    <Button
+        android:id="@+id/customGrafica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gráfica personalizada"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customEditText"
+        app:layout_constraintVertical_bias="0.122" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
