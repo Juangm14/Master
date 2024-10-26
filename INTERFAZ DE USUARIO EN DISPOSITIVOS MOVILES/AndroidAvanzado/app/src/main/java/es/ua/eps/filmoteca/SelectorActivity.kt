@@ -30,5 +30,10 @@ class SelectorActivity : AppCompatActivity() {
             val intent = Intent(this, EdicionBorrableActivity::class.java)
             startActivity(intent)
         }
+
+        binding.customGrafica.setOnClickListener{
+            val intent = Intent(this, GraficaActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

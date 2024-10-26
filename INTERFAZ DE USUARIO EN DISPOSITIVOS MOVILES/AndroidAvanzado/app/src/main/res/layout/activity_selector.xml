@@ -15,7 +15,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.409" />
+        app:layout_constraintVertical_bias="0.387" />
 
     <Button
         android:id="@+id/custom_component"
@@ -39,4 +39,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/custom_component"
         app:layout_constraintVertical_bias="0.157" />
+
+    <Button
+        android:id="@+id/customGrafica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gráfica personalizada"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customEditText"
+        app:layout_constraintVertical_bias="0.247" />
 </androidx.constraintlayout.widget.ConstraintLayout>
