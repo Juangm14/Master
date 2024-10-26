@@ -21,10 +21,22 @@
         android:id="@+id/custom_component"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Personalización de componentes"
+        android:text="Extensión de vistas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/drawables_btn"
         app:layout_constraintVertical_bias="0.095" />
+
+    <Button
+        android:id="@+id/customEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Componentes compuestos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custom_component"
+        app:layout_constraintVertical_bias="0.157" />
 </androidx.constraintlayout.widget.ConstraintLayout>

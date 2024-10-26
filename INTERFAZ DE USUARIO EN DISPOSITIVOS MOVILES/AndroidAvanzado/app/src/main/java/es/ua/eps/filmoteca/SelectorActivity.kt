@@ -25,5 +25,10 @@ class SelectorActivity : AppCompatActivity() {
             val intent = Intent(this, TextViewCitasActivity::class.java)
             startActivity(intent)
         }
+
+        binding.customEditText.setOnClickListener{
+            val intent = Intent(this, EdicionBorrableActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -1,10 +1,7 @@
 package es.ua.eps.filmoteca
 
 import android.content.Context
-import android.graphics.Canvas
 import android.util.AttributeSet
-import android.view.KeyEvent
-import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatTextView
 
 class TextViewCitas @JvmOverloads constructor(
