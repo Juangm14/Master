@@ -45,5 +45,10 @@ class SelectorActivity : AppCompatActivity() {
             val intent = Intent(this, NotificacionSnackBarActivity::class.java)
             startActivity(intent)
         }
+
+        binding.notifDialog.setOnClickListener{
+            val intent = Intent(this, CuadroDialogoActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

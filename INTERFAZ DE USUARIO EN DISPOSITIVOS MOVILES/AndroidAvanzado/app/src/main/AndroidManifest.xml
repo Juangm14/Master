@@ -47,6 +47,9 @@
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
         tools:targetApi="34">
         <activity
+            android:name=".CuadroDialogoActivity"
+            android:exported="false" />
+        <activity
             android:name=".NotificacionToastActivity"
             android:exported="false" />
         <activity
@@ -61,7 +64,8 @@
         <activity
             android:name=".TextViewCitas"
             android:exported="false" />
-        <activity android:name=".NotificacionSnackBarActivity"
+        <activity
+            android:name=".NotificacionSnackBarActivity"
             android:exported="false" />
         <activity
             android:name=".SelectorActivity"

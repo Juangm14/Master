@@ -6,41 +6,6 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/drawables_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Drawables"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.203" />
-
-    <Button
-        android:id="@+id/customEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Componentes compuestos"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/custom_component"
-        app:layout_constraintVertical_bias="0.113" />
-
-    <Button
-        android:id="@+id/custom_component"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Extensión de vistas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/drawables_btn"
-        app:layout_constraintVertical_bias="0.072" />
-
-    <Button
         android:id="@+id/customNotifSnackbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,7 +15,55 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/custom_notificaciones"
-        app:layout_constraintVertical_bias="0.298" />
+        app:layout_constraintVertical_bias="0.172" />
+
+    <Button
+        android:id="@+id/customEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Componentes compuestos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custom_component"
+        app:layout_constraintVertical_bias="0.093" />
+
+    <Button
+        android:id="@+id/drawables_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Drawables"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.071" />
+
+    <Button
+        android:id="@+id/custom_component"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Extensión de vistas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drawables_btn"
+        app:layout_constraintVertical_bias="0.061" />
+
+    <Button
+        android:id="@+id/customGrafica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gráfica personalizada"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customEditText"
+        app:layout_constraintVertical_bias="0.095" />
 
     <Button
         android:id="@+id/custom_notificaciones"
@@ -62,17 +75,17 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/customGrafica"
-        app:layout_constraintVertical_bias="0.177" />
+        app:layout_constraintVertical_bias="0.124" />
 
     <Button
-        android:id="@+id/customGrafica"
+        android:id="@+id/notif_dialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gráfica personalizada"
+        android:text="Cuadro de diálogo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customEditText"
-        app:layout_constraintVertical_bias="0.122" />
+        app:layout_constraintTop_toBottomOf="@+id/customNotifSnackbar"
+        app:layout_constraintVertical_bias="0.291" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
