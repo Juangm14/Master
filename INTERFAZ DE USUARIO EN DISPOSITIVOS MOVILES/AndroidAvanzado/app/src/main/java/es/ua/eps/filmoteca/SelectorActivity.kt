@@ -50,5 +50,10 @@ class SelectorActivity : AppCompatActivity() {
             val intent = Intent(this, CuadroDialogoActivity::class.java)
             startActivity(intent)
         }
+
+        binding.barraEstado.setOnClickListener{
+            val intent = Intent(this, BarraEstadoActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
