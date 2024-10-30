@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Datos del Acelerómetro"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/valorX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X: 0.0"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/valorY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Y: 0.0"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/valorZ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Z: 0.0"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/aceleracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Acc: 0,0"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"/>
+
+
+</LinearLayout>
