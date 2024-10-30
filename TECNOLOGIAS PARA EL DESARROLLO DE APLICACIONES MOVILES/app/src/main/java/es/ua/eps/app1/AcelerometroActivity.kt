@@ -24,7 +24,7 @@ class AcelerometroActivity : AppCompatActivity(), SensorEventListener {
     private lateinit var zAxis : TextView
     private lateinit var aceleracion : TextView
 
-    private var umbral: Float = 10f
+    private var umbral: Float = 1.5f
     private var ultimaLectura: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,12 +55,13 @@ class AcelerometroActivity : AppCompatActivity(), SensorEventListener {
             val z = event.values[2]
 
             val aceleracionActual = sqrt((x * x + y * y + z * z).toDouble()).toFloat()
-            aceleracion.setText("Acc: " + String.format("%.2f", aceleracionActual))
+            val aceleracionSinGravedad = aceleracionActual - SensorManager.GRAVITY_EARTH
+            aceleracion.setText("Acc: " + String.format("%.2f", aceleracionSinGravedad))
 
             val tiempoActual: Long = System.currentTimeMillis()
 
             if ((tiempoActual - ultimaLectura) > 100) {
-                if (aceleracionActual > umbral) {
+                if (aceleracionSinGravedad > umbral) {
                     ultimaLectura = tiempoActual
 
                     xAxis.text = "x: " + String.format("%.2f", x)
