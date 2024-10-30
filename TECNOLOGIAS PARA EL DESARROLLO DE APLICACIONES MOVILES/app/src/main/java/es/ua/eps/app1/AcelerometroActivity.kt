@@ -55,7 +55,7 @@ class AcelerometroActivity : AppCompatActivity(), SensorEventListener {
             val z = event.values[2]
 
             val aceleracionActual = sqrt((x * x + y * y + z * z).toDouble()).toFloat()
-            aceleracion.setText(String.format("%.2f", aceleracionActual))
+            aceleracion.setText("Acc: " + String.format("%.2f", aceleracionActual))
 
             val tiempoActual: Long = System.currentTimeMillis()
 
