@@ -44,7 +44,6 @@
 		C7B6484B2CC2AD800073EE54 = {
 			isa = PBXGroup;
 			children = (
-				C7B6486D2CC2BA6D0073EE54 /* MiDelegate.swift */,
 				C7B648562CC2AD800073EE54 /* EjercicioTablas */,
 				C7B648552CC2AD800073EE54 /* Products */,
 			);
@@ -61,6 +60,7 @@
 		C7B648562CC2AD800073EE54 /* EjercicioTablas */ = {
 			isa = PBXGroup;
 			children = (
+				C7B6486D2CC2BA6D0073EE54 /* MiDelegate.swift */,
 				C7B648572CC2AD800073EE54 /* AppDelegate.swift */,
 				C7B648592CC2AD800073EE54 /* SceneDelegate.swift */,
 				C7B6485B2CC2AD800073EE54 /* ViewController.swift */,

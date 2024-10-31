@@ -27,7 +27,16 @@ class ViewController: UIViewController {
 
 
     @IBAction func insertarTexto(_ sender: Any) {
-        
+        if let nuevoTexto = miTexto.text {
+            let cantidad = miDS.lista.count
+            miDS.lista.insert(nuevoTexto , at: cantidad)
+            
+            let indexPath = IndexPath(row:cantidad,section:0)
+
+            miTabla.insertRows(at: [indexPath],
+                               with: UITableView.RowAnimation.fade)
+        }
+
     }
 }
 
