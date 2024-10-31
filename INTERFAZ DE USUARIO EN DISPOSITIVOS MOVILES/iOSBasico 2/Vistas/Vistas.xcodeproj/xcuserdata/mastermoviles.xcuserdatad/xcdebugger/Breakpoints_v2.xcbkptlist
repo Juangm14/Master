@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "CA8406E1-40F0-47E4-92CA-EECD1047D738"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "03379151-6EF0-4F41-A675-0A82A01D8B5A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Vistas/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "textoMostrarEditingDidEnd(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "03379151-6EF0-4F41-A675-0A82A01D8B5A - ff95c0edb5709b6c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vistas.ViewController.textoMostrarEditingDidEnd(__C.UITextField) -&gt; ()"
+                  moduleName = "Vistas"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mastermoviles/Desktop/Master/INTERFAZ%20DE%20USUARIO%20EN%20DISPOSITIVOS%20MOVILES/Vistas/Vistas/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "81">
+               </Location>
+               <Location
+                  uuid = "03379151-6EF0-4F41-A675-0A82A01D8B5A - ff95c0edb5709b6c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vistas.ViewController.textoMostrarEditingDidEnd(__C.UITextField) -&gt; ()"
+                  moduleName = "Vistas"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mastermoviles/Desktop/Master/INTERFAZ%20DE%20USUARIO%20EN%20DISPOSITIVOS%20MOVILES/Vistas/Vistas/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "270">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9A5CB21D-1DDA-416D-8A12-99D9A04043F1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Vistas/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "textoMostrarEditingDidEnd(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

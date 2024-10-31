@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "E0C009BE-DF4B-4FE9-B250-D79A4D54D1FF"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ADBAD0A8-5B08-46B1-B1B0-D749359106D0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SieteYMedia/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "pedirCarta(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ADBAD0A8-5B08-46B1-B1B0-D749359106D0 - aa402aa171710272"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SieteYMedia.ViewController.pedirCarta(Any) -&gt; ()"
+                  moduleName = "SieteYMedia"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mastermoviles/Desktop/Master/INTERFAZ%20DE%20USUARIO%20EN%20DISPOSITIVOS%20MOVILES/SieteYMedia/SieteYMedia/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "81">
+               </Location>
+               <Location
+                  uuid = "ADBAD0A8-5B08-46B1-B1B0-D749359106D0 - aa402aa171710272"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SieteYMedia.ViewController.pedirCarta(Any) -&gt; ()"
+                  moduleName = "SieteYMedia"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mastermoviles/Desktop/Master/INTERFAZ%20DE%20USUARIO%20EN%20DISPOSITIVOS%20MOVILES/SieteYMedia/SieteYMedia/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "513">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B6CF55C9-93E6-49A2-BCA5-9845FFB73F34"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SieteYMedia/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "pedirCarta(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

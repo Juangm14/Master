@@ -1,0 +1,961 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0656674250C943FC4A5FA26E7AA593A9 /* RCComicPriceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B4AB852EF3201F31E9F27F94F7A0380 /* RCComicPriceObject.m */; };
+		0AF026E404663CACC86A5613FB0A5AB3 /* RCImageObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B69203A1F88A6B48BFB521E626FB5E1 /* RCImageObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		14271F67F6F4A0363502B0E8E92FCB42 /* Pods-Marvel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 512737EB816DE5E25825988D0E394444 /* Pods-Marvel-dummy.m */; };
+		171FD44F9161B527EF23934D384D6305 /* RCSeriesFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3F6FB499F30A0B405D7E93851D74BC /* RCSeriesFilter.m */; };
+		1727238125EC82D071279B41ABA6D722 /* RCOrderByTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFCE1ABE5ED338B67AE27CE760762DB /* RCOrderByTypes.m */; };
+		19961E2082E9C892070660A61364D055 /* RCIssueFormats.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBA817E9FCA6C98D61F1636AB205639 /* RCIssueFormats.m */; };
+		1E2AFF5D5E6259CFFAD91DA31AF50041 /* RCDataContainerObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 29D9C55240B73134FFEEC3460E71C539 /* RCDataContainerObject.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		204E7BA2528F542F26E002C839BBA36A /* RCResponseKeys.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ED50C9800A45DA0C6FB41EB8699A1F2 /* RCResponseKeys.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		221CD55A4B825276D6B2724EE3B91D02 /* RCOperationErrorCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = A9EBA11E6D18DB82344321AA925A8943 /* RCOperationErrorCodes.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		23704F9D67603B356598AC330CDE7FBC /* RCStoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 128E5B79BEBEFA1E9DCC99C98C1464DC /* RCStoryObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2762CB4BEEC2F9DFF11E17141EEF15D4 /* RCOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C265AFEA4F5AA448511748C10E2F3 /* RCOperation.m */; };
+		2B248E1A9CFF99E012A562973D78A36D /* RCComicsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DC4A2C7FEC71B874396E0D7168E53F /* RCComicsFilter.m */; };
+		302D5964AE9472E187105F9CB689D51D /* RCTextObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3946DC37421EB4B8CEE60ADB74A40114 /* RCTextObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41BD5CE597EA2F91B987B30E58EE3574 /* RCBooleanValues.h in Headers */ = {isa = PBXBuildFile; fileRef = 07CA1F5950FFD0A9CAA07F68539D6BB8 /* RCBooleanValues.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		422853F23BA2F5C3FBFD0680766DEA76 /* RCOrderByTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = D867775826006F2954F11207227C9781 /* RCOrderByTypes.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		4425271807CB2BF9F56AC05D58EC3FF4 /* RCImageAspectRatios.m in Sources */ = {isa = PBXBuildFile; fileRef = 610BF61C1346207BFB730B9E145DC705 /* RCImageAspectRatios.m */; };
+		4525AC22A7F8CF7A15748E0B807533A6 /* RCOperationErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = C8A7288EB586960673EA39CEFB21D433 /* RCOperationErrors.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		465AFB4B8F5C6D6DC848350D2BA42C2D /* RCIssueTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D6D95C4D9BBE28A6CECDA176AC05D7D /* RCIssueTypes.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		4687102497AE9026FE34C3C2F63EC32F /* RCImageAspectRatioCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBA9251F2EAE2F2DBF587DA51FB332D /* RCImageAspectRatioCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46AD43D0FA14A197AE6053B04C7B3247 /* RCBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A401FDC0A7575F6227971085E77B43F /* RCBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		494CD1847D70C4ECC8243F20F607A0B7 /* RCOrderByTypeCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 577E9972E22E4E1F99EF805AF4ED189C /* RCOrderByTypeCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A0598B8C2A0A17E9A66724F8CE39A82 /* RCDataWrapperObject.h in Headers */ = {isa = PBXBuildFile; fileRef = D9C70728640BD141BBE1BA7405471390 /* RCDataWrapperObject.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		4DB002709BC7C7FB1FF100B76E08A460 /* RCDateDescriptors.h in Headers */ = {isa = PBXBuildFile; fileRef = 823F2415C25FA30C7FC4C7469A7A1CDB /* RCDateDescriptors.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		4E85D150F21ABC6179EE0DA53EEAD2B5 /* RCImageSizes.m in Sources */ = {isa = PBXBuildFile; fileRef = F69DA9C2D58BF79DD11620672407C4BE /* RCImageSizes.m */; };
+		5436E6584E932764CA692F5A69F9C954 /* Pods-Marvel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F64C742967F13CD0D820A08CEF035FD0 /* Pods-Marvel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		584BC15EAEB0D7F9BB2653976A228317 /* RCDateDescriptorCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 790A2744A053A877EC468B0D264F4A10 /* RCDateDescriptorCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5CBACB93CFB2AC96144D941D94C3DAC1 /* RCComicDateObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 31BF6A0AAA00EB9DA9AC83CA02190275 /* RCComicDateObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DA01CE637EF64B6AB241D38D192FCA9 /* RCImageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A7F9A2598016D15931668533C3916A /* RCImageObject.m */; };
+		5DE713045A5550A74E7148FA1E91CC8F /* RCFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = E12D48A8C3971DECDA1999266CE26C00 /* RCFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5FC04D5A38785613A0C9F0A849F40755 /* RCDataWrapperObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC323D3F06F5766B534D316DB611CEA /* RCDataWrapperObject.m */; };
+		61C583BF901454F3EE37A55E039B1EF2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		66D10D133351E9278FD09A88B509CF13 /* RCStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 15F74067A4EB9F7DB4410EA51C007DC0 /* RCStatusCodes.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		6887B9CDF3D54192BE7B1E90AE9A5373 /* RCSummaryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A6AEB49953869E0F6632E37C8C0A76 /* RCSummaryObject.m */; };
+		6CC46EC739AB7A62B0A611041824BF5A /* RCFrequencyTypeCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = ED7AF006BFE877C4DEEBDBFE90BDBDF1 /* RCFrequencyTypeCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6DAD4D2290A8E53DEAAABA831D958A8D /* RCFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6723D8F9C35DF9EC4C8C7C82068481 /* RCFilter.m */; };
+		6F04D18CADF090EF820688C619E5F776 /* RCStoryFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 53744C1C7036D49DA9080635D56577BD /* RCStoryFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7013BDA589507D107395D920542B2B46 /* RCCharacterFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8509CADE376E8A2753996EB35C903522 /* RCCharacterFilter.m */; };
+		70359F28FD411080300C3BFA7896CF7E /* RCFrequencyTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A69E1B3FD86F430D35A3DB5DD30B124 /* RCFrequencyTypes.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		70835C4E5E070926C160633DE5D94B82 /* RCEventObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 6435A3D118A0A0EDBB0C51A620EC27AE /* RCEventObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7516E20855C9D0B4E10706C33B94E565 /* RCOperationErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDE14978122D532530E6244F6B9B943 /* RCOperationErrors.m */; };
+		75755F75433EB0BDB1BC51CC668C0764 /* RCCreatorObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 478F01733E021F3BDF88CB52FE7F61EC /* RCCreatorObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		75C45C007F65CE631ADAE2CCB386D284 /* RCEventFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = AACD78918AE3A57AB2431CAF4043E5EA /* RCEventFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7FA699E8C3AC3E4C2997F8E03B4A2894 /* RCRequestKeys.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B88B4B6E86B0EF3DA16D44BF2DAE5AD /* RCRequestKeys.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		81EFD1079ED84E1825EF4E1028F18065 /* RCCharacterFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2482D1D2D1FC04DCC3CB4D0114522103 /* RCCharacterFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83FC6B39E29EF52FB9E54F1D5DF8401C /* RCBooleanValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDF22302E3A77F89B04E745503EA8E5 /* RCBooleanValues.m */; };
+		85D42A9F3F5C5AC791CE94897FADE0C4 /* RCImageSizes.h in Headers */ = {isa = PBXBuildFile; fileRef = F647E0F901CCE5210F2FCA9A962F7F21 /* RCImageSizes.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		8E522A2E5C841A4AAC726EF86394E15B /* Marvelous.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B566074431C091456177082541AEB97 /* Marvelous.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8FDC6A59A742D651790663D38D98B440 /* RCCharacterObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 299B92D46EFB087CC1DE8490503F6A3D /* RCCharacterObject.m */; };
+		8FF68A0E27330B25BC1E774376511929 /* Marvelous-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 74FA5E28BBA0808861EDBF98F60A503D /* Marvelous-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9444F437AA7477D9EAE9C67A820F5E80 /* RCBooleanValueCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = C48426DAE1AFDB5366F92CB61B8D6CD6 /* RCBooleanValueCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		975B1F51CE6C77832A7BD8573F087AA0 /* RCURLObject.h in Headers */ = {isa = PBXBuildFile; fileRef = D87529BEAD670EAD9EBB7D72E03537DE /* RCURLObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		99E03485518A1AD89568BFD700A36FFD /* RCCreatorFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6CCFCD7753849783950874EE76CAB2 /* RCCreatorFilter.m */; };
+		9A0D9661C316CFBFC9D07C38BC0AB533 /* RCComicDateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C86727F3C1201A825CBEACBE861EDA /* RCComicDateObject.m */; };
+		9A9DFFD9513B638FA46F69116E3CF55F /* RCRequestKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B50371DA88990CA0B5D099529A353D /* RCRequestKeys.m */; };
+		9AC647A754E5143DE6B90BF78901B3A1 /* RCDataContainerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC9C0EFEEFF375C4AEEB1898EC64ECD /* RCDataContainerObject.m */; };
+		9C350ED47399E434C8AA612138BBEC78 /* RCObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 30F1D0EF830C8E31DBB5B45C0AC9F520 /* RCObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9C7AF35D682101653442582DCCB01929 /* RCComicPriceObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 768229F79D04E6A4EC77CCFF2D192E3A /* RCComicPriceObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A759F3B1C329D961663CD5F77B764DF6 /* Marvelous-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B188607E7B86987D975589B30131AA /* Marvelous-dummy.m */; };
+		AD895A84AC571C332E6C05944E9E8B73 /* RCSeriesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 865BCCBABC8378215EF6C0FE7761EECC /* RCSeriesObject.m */; };
+		AEA1203E72D85212351610F1BAA11465 /* RCListObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E41BE38A3127D50C2FB8E8064EF9B36D /* RCListObject.m */; };
+		AF9875E68FE08822519598D608080DFD /* RCQueryInfoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B085B9683C678F9B9DAF813F2E2E20 /* RCQueryInfoObject.m */; };
+		B046B2352DE38C3BA4FC7746ED6A5233 /* RCObjectProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 695AD3AA9F17BAA035380FDCC8E66CFC /* RCObjectProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B11D5B4529D6041936C897576DC29533 /* RCOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 102297A0C2E50E6E9375021F2044F10B /* RCOperation.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		B25B96DE8A32D1F2ECA0C97A85A42359 /* RCImageAspectRatios.h in Headers */ = {isa = PBXBuildFile; fileRef = 2635001E79838033ED096169A9FFDE1A /* RCImageAspectRatios.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		BE49CA4E80D4E22F6AFC33C95BC18833 /* RCIssueFormats.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B3FD286C3087D07680CF6819055C54B /* RCIssueFormats.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C291BE45E3C88F80E5565C7F6BD1CA1A /* RCIssueTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6621A3F0D0698DB3E27F43F565B2AD /* RCIssueTypes.m */; };
+		C2E3AAAAFB065DBAD459BD9784640063 /* RCAPIOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = C1F95D2B6C371206C2A1BCD968DE4B09 /* RCAPIOperation.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C2E9CB112C929DA99612212C2795CBB4 /* RCEventFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5B35C2952FBFF133E38CF3BF3272A5 /* RCEventFilter.m */; };
+		C6D6EF769392EE021AF38A5EB82BAE1D /* RCURLObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE896EDD97A401637E8B1DE47D3C725 /* RCURLObject.m */; };
+		C87F421410F9829852F36E5C80647EDE /* RCSeriesObject.h in Headers */ = {isa = PBXBuildFile; fileRef = F8BF34390A2F642755361F86ABE129D3 /* RCSeriesObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9D83F4E86E60074DE4F25A2225533DC /* RCStoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1630DA8F01753D5F20DAD44314352B4B /* RCStoryObject.m */; };
+		CA48ADBC97566673934CEFECA1831841 /* RCAPIOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD95DD2A0EF47CEDBA4B2710ED5FB62 /* RCAPIOperation.m */; };
+		CAAB184F96E2279A432E570A5A02DE97 /* RCComicsObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 80A2BCD6C475B04F00322AC9C059CD3C /* RCComicsObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC266CFA8507E6076E48202776341022 /* RCMarvelAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = E7554BB4DE1B5642CB798FDC7CB675A2 /* RCMarvelAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CCDEF29D4C685EBFE255FBDD49A9D05C /* RCCreatorObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B7DF0A8633C46E63915C5092F098264F /* RCCreatorObject.m */; };
+		CDB3FFFA62EF2042A96EBEADAD1D42F7 /* RCIssueTypeCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 998772ED4982DF4E483F9A57F0FD00B5 /* RCIssueTypeCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF88581350010BD1F29C7F155D135448 /* RCEventObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B50F6EC4EC358951F1B91759934BDAD2 /* RCEventObject.m */; };
+		D297CA9C41EEB8DA27F34FC00C2C6AC3 /* RCCreatorFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = A950423EE6BC34B55E413B21FDFF42FB /* RCCreatorFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D67BF4BB5CCBA44A1863039CEBFD5BD5 /* RCDateDescriptors.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D45F932DEF168B4E87B2DA375FBB9E /* RCDateDescriptors.m */; };
+		DBA524E7E579EBE3B3417C9DF35A8FAC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		DC2EBFC279BD2A624C016763AFE8C412 /* RCMarvelAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C597EC7AA75B68E63084504D2D6F93 /* RCMarvelAPI.m */; };
+		DCA599A4C593402F885EB5C09F59DECD /* RCListObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 25BC9F62479610237F40CB3CE99A4806 /* RCListObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DD61FE9CEFFD3F10ECF27A62B8D719E1 /* RCImageSizeCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 781BD3525603EDDE8A8CCCF199AC460A /* RCImageSizeCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DD6C2D2CBD8F9114ADE44606C1F9C8BC /* RCFrequencyTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = E4649140E3C274111D7AE85470C31E44 /* RCFrequencyTypes.m */; };
+		DE7CACA4EA34F06336A95805D1D89B99 /* RCQueryInfoObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 227CDDA05B8D18641C4DF60717592A0C /* RCQueryInfoObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DF5337FA5220964CCADB51E99F18C72F /* RCComicsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DB8B2437FDC286611771D5CB5836E4 /* RCComicsObject.m */; };
+		E10884FC86ECC444FE8B7558FD0F42AA /* RCSeriesFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CA0B3C3F235CCD364EFC581E7E1053E /* RCSeriesFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E827A2ED540D54494E5DACC82D6E6FDC /* RCTextObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BF443489F44D6779CFF44E827ACA08 /* RCTextObject.m */; };
+		F205B38C174CFA19BEE512E44BE3A091 /* RCAPITypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 28F07FED7AD3833BC81F101085BEE9A2 /* RCAPITypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F3610EE4ADBF43F7250DD6F9EA66E295 /* RCCharacterObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 9580F5FA49E046CF3E18B2015450D430 /* RCCharacterObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6A0E16FD03DEB4EECE4D8D73962A14D /* RCResponseKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C2F46981D9400E78900E1EC61F2430 /* RCResponseKeys.m */; };
+		F79BE85E645681EAC6C7EA273607ACDE /* RCComicsFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = C42C2105B76FF5D2241EC648342CF677 /* RCComicsFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA0E6B52122DE07D3B6C243A05A1AB1D /* RCSummaryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C951DE122BD2C56556C6A807C9A7B01 /* RCSummaryObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FECAA038D06EC9726F67EC6129CF4455 /* RCStoryFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F58B428ED1E56A9D24A1FFF4B9C065 /* RCStoryFilter.m */; };
+		FED0C48B2AAB3D837BF965B5DCE758B4 /* RCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C94D0789F5F0B39FCD169A6663A09A2 /* RCObject.m */; };
+		FFE3BEA77FE5C279C55885132411CAB9 /* RCIssueFormatCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F14D19E6A6013C029CDA368668F2E53 /* RCIssueFormatCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1892E9EFDC582B010FE0C505B1FC7C7E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0FAC0819A59B2DC107C337AD9FEB6F;
+			remoteInfo = Marvelous;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		07C2F46981D9400E78900E1EC61F2430 /* RCResponseKeys.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCResponseKeys.m; path = Marvelous/RCResponseKeys.m; sourceTree = "<group>"; };
+		07CA1F5950FFD0A9CAA07F68539D6BB8 /* RCBooleanValues.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCBooleanValues.h; path = Marvelous/RCBooleanValues.h; sourceTree = "<group>"; };
+		0F61F7C8179CC88D19A16D4438EB7628 /* Marvelous-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Marvelous-Info.plist"; sourceTree = "<group>"; };
+		102297A0C2E50E6E9375021F2044F10B /* RCOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCOperation.h; path = Marvelous/RCOperation.h; sourceTree = "<group>"; };
+		11DB8B2437FDC286611771D5CB5836E4 /* RCComicsObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCComicsObject.m; path = Marvelous/RCComicsObject.m; sourceTree = "<group>"; };
+		128E5B79BEBEFA1E9DCC99C98C1464DC /* RCStoryObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCStoryObject.h; path = Marvelous/RCStoryObject.h; sourceTree = "<group>"; };
+		15DC4A2C7FEC71B874396E0D7168E53F /* RCComicsFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCComicsFilter.m; path = Marvelous/RCComicsFilter.m; sourceTree = "<group>"; };
+		15F74067A4EB9F7DB4410EA51C007DC0 /* RCStatusCodes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCStatusCodes.h; path = Marvelous/RCStatusCodes.h; sourceTree = "<group>"; };
+		1630DA8F01753D5F20DAD44314352B4B /* RCStoryObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCStoryObject.m; path = Marvelous/RCStoryObject.m; sourceTree = "<group>"; };
+		167153472B3CE42671D8C023664FE0C9 /* Pods-Marvel-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Marvel-frameworks.sh"; sourceTree = "<group>"; };
+		197E35E4E1B73DCF3BB4E8DFD53C34B9 /* Marvelous.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Marvelous.debug.xcconfig; sourceTree = "<group>"; };
+		1A69E1B3FD86F430D35A3DB5DD30B124 /* RCFrequencyTypes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCFrequencyTypes.h; path = Marvelous/RCFrequencyTypes.h; sourceTree = "<group>"; };
+		1BDE14978122D532530E6244F6B9B943 /* RCOperationErrors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCOperationErrors.m; path = Marvelous/RCOperationErrors.m; sourceTree = "<group>"; };
+		21B50371DA88990CA0B5D099529A353D /* RCRequestKeys.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCRequestKeys.m; path = Marvelous/RCRequestKeys.m; sourceTree = "<group>"; };
+		227CDDA05B8D18641C4DF60717592A0C /* RCQueryInfoObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCQueryInfoObject.h; path = Marvelous/RCQueryInfoObject.h; sourceTree = "<group>"; };
+		2482D1D2D1FC04DCC3CB4D0114522103 /* RCCharacterFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCCharacterFilter.h; path = Marvelous/RCCharacterFilter.h; sourceTree = "<group>"; };
+		25BC9F62479610237F40CB3CE99A4806 /* RCListObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCListObject.h; path = Marvelous/RCListObject.h; sourceTree = "<group>"; };
+		2635001E79838033ED096169A9FFDE1A /* RCImageAspectRatios.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCImageAspectRatios.h; path = Marvelous/RCImageAspectRatios.h; sourceTree = "<group>"; };
+		276058EEF6D42B3F925451A483644F8F /* Marvelous.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Marvelous.modulemap; sourceTree = "<group>"; };
+		27C597EC7AA75B68E63084504D2D6F93 /* RCMarvelAPI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCMarvelAPI.m; path = Marvelous/RCMarvelAPI.m; sourceTree = "<group>"; };
+		285BF3ED96EA697B3A5E7C03ACB67CB6 /* Pods-Marvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Marvel.release.xcconfig"; sourceTree = "<group>"; };
+		28F07FED7AD3833BC81F101085BEE9A2 /* RCAPITypes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCAPITypes.h; path = Marvelous/RCAPITypes.h; sourceTree = "<group>"; };
+		299B92D46EFB087CC1DE8490503F6A3D /* RCCharacterObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCCharacterObject.m; path = Marvelous/RCCharacterObject.m; sourceTree = "<group>"; };
+		29D9C55240B73134FFEEC3460E71C539 /* RCDataContainerObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCDataContainerObject.h; path = Marvelous/RCDataContainerObject.h; sourceTree = "<group>"; };
+		2A6621A3F0D0698DB3E27F43F565B2AD /* RCIssueTypes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCIssueTypes.m; path = Marvelous/RCIssueTypes.m; sourceTree = "<group>"; };
+		2B3348E42696D3409D6BECE31515BED0 /* Marvelous.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Marvelous.release.xcconfig; sourceTree = "<group>"; };
+		2B88B4B6E86B0EF3DA16D44BF2DAE5AD /* RCRequestKeys.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCRequestKeys.h; path = Marvelous/RCRequestKeys.h; sourceTree = "<group>"; };
+		2BDF22302E3A77F89B04E745503EA8E5 /* RCBooleanValues.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCBooleanValues.m; path = Marvelous/RCBooleanValues.m; sourceTree = "<group>"; };
+		30F1D0EF830C8E31DBB5B45C0AC9F520 /* RCObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCObject.h; path = Marvelous/RCObject.h; sourceTree = "<group>"; };
+		31BF6A0AAA00EB9DA9AC83CA02190275 /* RCComicDateObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCComicDateObject.h; path = Marvelous/RCComicDateObject.h; sourceTree = "<group>"; };
+		3946DC37421EB4B8CEE60ADB74A40114 /* RCTextObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCTextObject.h; path = Marvelous/RCTextObject.h; sourceTree = "<group>"; };
+		3ED50C9800A45DA0C6FB41EB8699A1F2 /* RCResponseKeys.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCResponseKeys.h; path = Marvelous/RCResponseKeys.h; sourceTree = "<group>"; };
+		478F01733E021F3BDF88CB52FE7F61EC /* RCCreatorObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCCreatorObject.h; path = Marvelous/RCCreatorObject.h; sourceTree = "<group>"; };
+		4A401FDC0A7575F6227971085E77B43F /* RCBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCBlocks.h; path = Marvelous/RCBlocks.h; sourceTree = "<group>"; };
+		4AB090A69A20E51D6924472D231085AF /* Marvelous-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Marvelous-prefix.pch"; sourceTree = "<group>"; };
+		4B69203A1F88A6B48BFB521E626FB5E1 /* RCImageObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCImageObject.h; path = Marvelous/RCImageObject.h; sourceTree = "<group>"; };
+		4D6723D8F9C35DF9EC4C8C7C82068481 /* RCFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCFilter.m; path = Marvelous/RCFilter.m; sourceTree = "<group>"; };
+		4F14D19E6A6013C029CDA368668F2E53 /* RCIssueFormatCodes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCIssueFormatCodes.h; path = Marvelous/RCIssueFormatCodes.h; sourceTree = "<group>"; };
+		512737EB816DE5E25825988D0E394444 /* Pods-Marvel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Marvel-dummy.m"; sourceTree = "<group>"; };
+		53744C1C7036D49DA9080635D56577BD /* RCStoryFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCStoryFilter.h; path = Marvelous/RCStoryFilter.h; sourceTree = "<group>"; };
+		577E9972E22E4E1F99EF805AF4ED189C /* RCOrderByTypeCodes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCOrderByTypeCodes.h; path = Marvelous/RCOrderByTypeCodes.h; sourceTree = "<group>"; };
+		58EC449FB23CF2B3B18DAAE8611D1775 /* Marvelous.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Marvelous.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BF18A70D9451C84D86B31B9D3ACBDE9 /* Pods-Marvel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Marvel-Info.plist"; sourceTree = "<group>"; };
+		5CA0B3C3F235CCD364EFC581E7E1053E /* RCSeriesFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCSeriesFilter.h; path = Marvelous/RCSeriesFilter.h; sourceTree = "<group>"; };
+		5DBA817E9FCA6C98D61F1636AB205639 /* RCIssueFormats.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCIssueFormats.m; path = Marvelous/RCIssueFormats.m; sourceTree = "<group>"; };
+		5E813C1B991CBBA6C9028E29D392360E /* Pods-Marvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Marvel.debug.xcconfig"; sourceTree = "<group>"; };
+		610BF61C1346207BFB730B9E145DC705 /* RCImageAspectRatios.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCImageAspectRatios.m; path = Marvelous/RCImageAspectRatios.m; sourceTree = "<group>"; };
+		6435A3D118A0A0EDBB0C51A620EC27AE /* RCEventObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCEventObject.h; path = Marvelous/RCEventObject.h; sourceTree = "<group>"; };
+		695AD3AA9F17BAA035380FDCC8E66CFC /* RCObjectProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCObjectProtocol.h; path = Marvelous/RCObjectProtocol.h; sourceTree = "<group>"; };
+		6B566074431C091456177082541AEB97 /* Marvelous.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Marvelous.h; path = Marvelous/Marvelous.h; sourceTree = "<group>"; };
+		6C94D0789F5F0B39FCD169A6663A09A2 /* RCObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCObject.m; path = Marvelous/RCObject.m; sourceTree = "<group>"; };
+		6EFCE1ABE5ED338B67AE27CE760762DB /* RCOrderByTypes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCOrderByTypes.m; path = Marvelous/RCOrderByTypes.m; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		74FA5E28BBA0808861EDBF98F60A503D /* Marvelous-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Marvelous-umbrella.h"; sourceTree = "<group>"; };
+		768229F79D04E6A4EC77CCFF2D192E3A /* RCComicPriceObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCComicPriceObject.h; path = Marvelous/RCComicPriceObject.h; sourceTree = "<group>"; };
+		781BD3525603EDDE8A8CCCF199AC460A /* RCImageSizeCodes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCImageSizeCodes.h; path = Marvelous/RCImageSizeCodes.h; sourceTree = "<group>"; };
+		790A2744A053A877EC468B0D264F4A10 /* RCDateDescriptorCodes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCDateDescriptorCodes.h; path = Marvelous/RCDateDescriptorCodes.h; sourceTree = "<group>"; };
+		7B4AB852EF3201F31E9F27F94F7A0380 /* RCComicPriceObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCComicPriceObject.m; path = Marvelous/RCComicPriceObject.m; sourceTree = "<group>"; };
+		7EE896EDD97A401637E8B1DE47D3C725 /* RCURLObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCURLObject.m; path = Marvelous/RCURLObject.m; sourceTree = "<group>"; };
+		80A2BCD6C475B04F00322AC9C059CD3C /* RCComicsObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCComicsObject.h; path = Marvelous/RCComicsObject.h; sourceTree = "<group>"; };
+		823F2415C25FA30C7FC4C7469A7A1CDB /* RCDateDescriptors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCDateDescriptors.h; path = Marvelous/RCDateDescriptors.h; sourceTree = "<group>"; };
+		8509CADE376E8A2753996EB35C903522 /* RCCharacterFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCCharacterFilter.m; path = Marvelous/RCCharacterFilter.m; sourceTree = "<group>"; };
+		865BCCBABC8378215EF6C0FE7761EECC /* RCSeriesObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCSeriesObject.m; path = Marvelous/RCSeriesObject.m; sourceTree = "<group>"; };
+		8B3FD286C3087D07680CF6819055C54B /* RCIssueFormats.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCIssueFormats.h; path = Marvelous/RCIssueFormats.h; sourceTree = "<group>"; };
+		8C951DE122BD2C56556C6A807C9A7B01 /* RCSummaryObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCSummaryObject.h; path = Marvelous/RCSummaryObject.h; sourceTree = "<group>"; };
+		92A7F9A2598016D15931668533C3916A /* RCImageObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCImageObject.m; path = Marvelous/RCImageObject.m; sourceTree = "<group>"; };
+		93B085B9683C678F9B9DAF813F2E2E20 /* RCQueryInfoObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCQueryInfoObject.m; path = Marvelous/RCQueryInfoObject.m; sourceTree = "<group>"; };
+		9580F5FA49E046CF3E18B2015450D430 /* RCCharacterObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCCharacterObject.h; path = Marvelous/RCCharacterObject.h; sourceTree = "<group>"; };
+		96F58B428ED1E56A9D24A1FFF4B9C065 /* RCStoryFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCStoryFilter.m; path = Marvelous/RCStoryFilter.m; sourceTree = "<group>"; };
+		998772ED4982DF4E483F9A57F0FD00B5 /* RCIssueTypeCodes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCIssueTypeCodes.h; path = Marvelous/RCIssueTypeCodes.h; sourceTree = "<group>"; };
+		999C3704F8D778FB9FB28DFC3DBC0C8A /* Pods-Marvel-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Marvel-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9D6D95C4D9BBE28A6CECDA176AC05D7D /* RCIssueTypes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCIssueTypes.h; path = Marvelous/RCIssueTypes.h; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A0B188607E7B86987D975589B30131AA /* Marvelous-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Marvelous-dummy.m"; sourceTree = "<group>"; };
+		A4A6AEB49953869E0F6632E37C8C0A76 /* RCSummaryObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCSummaryObject.m; path = Marvelous/RCSummaryObject.m; sourceTree = "<group>"; };
+		A5003537E30EEE6A06A41BC5E6C5ECD1 /* Pods-Marvel */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Marvel"; path = Pods_Marvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A68C265AFEA4F5AA448511748C10E2F3 /* RCOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCOperation.m; path = Marvelous/RCOperation.m; sourceTree = "<group>"; };
+		A950423EE6BC34B55E413B21FDFF42FB /* RCCreatorFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCCreatorFilter.h; path = Marvelous/RCCreatorFilter.h; sourceTree = "<group>"; };
+		A9EBA11E6D18DB82344321AA925A8943 /* RCOperationErrorCodes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCOperationErrorCodes.h; path = Marvelous/RCOperationErrorCodes.h; sourceTree = "<group>"; };
+		AACD78918AE3A57AB2431CAF4043E5EA /* RCEventFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCEventFilter.h; path = Marvelous/RCEventFilter.h; sourceTree = "<group>"; };
+		AAD95DD2A0EF47CEDBA4B2710ED5FB62 /* RCAPIOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCAPIOperation.m; path = Marvelous/RCAPIOperation.m; sourceTree = "<group>"; };
+		ABBA9251F2EAE2F2DBF587DA51FB332D /* RCImageAspectRatioCodes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCImageAspectRatioCodes.h; path = Marvelous/RCImageAspectRatioCodes.h; sourceTree = "<group>"; };
+		B50F6EC4EC358951F1B91759934BDAD2 /* RCEventObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCEventObject.m; path = Marvelous/RCEventObject.m; sourceTree = "<group>"; };
+		B7DF0A8633C46E63915C5092F098264F /* RCCreatorObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCCreatorObject.m; path = Marvelous/RCCreatorObject.m; sourceTree = "<group>"; };
+		B9BF443489F44D6779CFF44E827ACA08 /* RCTextObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCTextObject.m; path = Marvelous/RCTextObject.m; sourceTree = "<group>"; };
+		C1F95D2B6C371206C2A1BCD968DE4B09 /* RCAPIOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCAPIOperation.h; path = Marvelous/RCAPIOperation.h; sourceTree = "<group>"; };
+		C42C2105B76FF5D2241EC648342CF677 /* RCComicsFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCComicsFilter.h; path = Marvelous/RCComicsFilter.h; sourceTree = "<group>"; };
+		C48426DAE1AFDB5366F92CB61B8D6CD6 /* RCBooleanValueCodes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCBooleanValueCodes.h; path = Marvelous/RCBooleanValueCodes.h; sourceTree = "<group>"; };
+		C8A7288EB586960673EA39CEFB21D433 /* RCOperationErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCOperationErrors.h; path = Marvelous/RCOperationErrors.h; sourceTree = "<group>"; };
+		CEC9C0EFEEFF375C4AEEB1898EC64ECD /* RCDataContainerObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCDataContainerObject.m; path = Marvelous/RCDataContainerObject.m; sourceTree = "<group>"; };
+		D867775826006F2954F11207227C9781 /* RCOrderByTypes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCOrderByTypes.h; path = Marvelous/RCOrderByTypes.h; sourceTree = "<group>"; };
+		D87529BEAD670EAD9EBB7D72E03537DE /* RCURLObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCURLObject.h; path = Marvelous/RCURLObject.h; sourceTree = "<group>"; };
+		D9C70728640BD141BBE1BA7405471390 /* RCDataWrapperObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCDataWrapperObject.h; path = Marvelous/RCDataWrapperObject.h; sourceTree = "<group>"; };
+		DB3F6FB499F30A0B405D7E93851D74BC /* RCSeriesFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCSeriesFilter.m; path = Marvelous/RCSeriesFilter.m; sourceTree = "<group>"; };
+		E12D48A8C3971DECDA1999266CE26C00 /* RCFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCFilter.h; path = Marvelous/RCFilter.h; sourceTree = "<group>"; };
+		E41BE38A3127D50C2FB8E8064EF9B36D /* RCListObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCListObject.m; path = Marvelous/RCListObject.m; sourceTree = "<group>"; };
+		E4649140E3C274111D7AE85470C31E44 /* RCFrequencyTypes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCFrequencyTypes.m; path = Marvelous/RCFrequencyTypes.m; sourceTree = "<group>"; };
+		E7554BB4DE1B5642CB798FDC7CB675A2 /* RCMarvelAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCMarvelAPI.h; path = Marvelous/RCMarvelAPI.h; sourceTree = "<group>"; };
+		EB5B35C2952FBFF133E38CF3BF3272A5 /* RCEventFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCEventFilter.m; path = Marvelous/RCEventFilter.m; sourceTree = "<group>"; };
+		ECC323D3F06F5766B534D316DB611CEA /* RCDataWrapperObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCDataWrapperObject.m; path = Marvelous/RCDataWrapperObject.m; sourceTree = "<group>"; };
+		ED7AF006BFE877C4DEEBDBFE90BDBDF1 /* RCFrequencyTypeCodes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCFrequencyTypeCodes.h; path = Marvelous/RCFrequencyTypeCodes.h; sourceTree = "<group>"; };
+		F108B209C02B606E327638100FC0D809 /* Pods-Marvel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Marvel.modulemap"; sourceTree = "<group>"; };
+		F1D45F932DEF168B4E87B2DA375FBB9E /* RCDateDescriptors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCDateDescriptors.m; path = Marvelous/RCDateDescriptors.m; sourceTree = "<group>"; };
+		F5C86727F3C1201A825CBEACBE861EDA /* RCComicDateObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCComicDateObject.m; path = Marvelous/RCComicDateObject.m; sourceTree = "<group>"; };
+		F647E0F901CCE5210F2FCA9A962F7F21 /* RCImageSizes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCImageSizes.h; path = Marvelous/RCImageSizes.h; sourceTree = "<group>"; };
+		F64C742967F13CD0D820A08CEF035FD0 /* Pods-Marvel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Marvel-umbrella.h"; sourceTree = "<group>"; };
+		F69DA9C2D58BF79DD11620672407C4BE /* RCImageSizes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCImageSizes.m; path = Marvelous/RCImageSizes.m; sourceTree = "<group>"; };
+		F8BF34390A2F642755361F86ABE129D3 /* RCSeriesObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCSeriesObject.h; path = Marvelous/RCSeriesObject.h; sourceTree = "<group>"; };
+		F8F167B9E9460A0C5315E1E0FDE1CEC4 /* Pods-Marvel-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Marvel-acknowledgements.plist"; sourceTree = "<group>"; };
+		FD6CCFCD7753849783950874EE76CAB2 /* RCCreatorFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCCreatorFilter.m; path = Marvelous/RCCreatorFilter.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65CEB0847649440F50A8925361079D4E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBA524E7E579EBE3B3417C9DF35A8FAC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9050849B51F25437378E56C7658914A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61C583BF901454F3EE37A55E039B1EF2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1002352A44FA1E0B94D5C7615D53B80D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				76B8F5A0C964C73135935CBBA20832E0 /* Marvelous */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1DC33EBF0CEA736609AF7D166966B21A /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				92DE2407A6CA192E00374CBE5E5ED874 /* Pods-Marvel */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		76B8F5A0C964C73135935CBBA20832E0 /* Marvelous */ = {
+			isa = PBXGroup;
+			children = (
+				6B566074431C091456177082541AEB97 /* Marvelous.h */,
+				C1F95D2B6C371206C2A1BCD968DE4B09 /* RCAPIOperation.h */,
+				AAD95DD2A0EF47CEDBA4B2710ED5FB62 /* RCAPIOperation.m */,
+				28F07FED7AD3833BC81F101085BEE9A2 /* RCAPITypes.h */,
+				4A401FDC0A7575F6227971085E77B43F /* RCBlocks.h */,
+				C48426DAE1AFDB5366F92CB61B8D6CD6 /* RCBooleanValueCodes.h */,
+				07CA1F5950FFD0A9CAA07F68539D6BB8 /* RCBooleanValues.h */,
+				2BDF22302E3A77F89B04E745503EA8E5 /* RCBooleanValues.m */,
+				2482D1D2D1FC04DCC3CB4D0114522103 /* RCCharacterFilter.h */,
+				8509CADE376E8A2753996EB35C903522 /* RCCharacterFilter.m */,
+				9580F5FA49E046CF3E18B2015450D430 /* RCCharacterObject.h */,
+				299B92D46EFB087CC1DE8490503F6A3D /* RCCharacterObject.m */,
+				31BF6A0AAA00EB9DA9AC83CA02190275 /* RCComicDateObject.h */,
+				F5C86727F3C1201A825CBEACBE861EDA /* RCComicDateObject.m */,
+				768229F79D04E6A4EC77CCFF2D192E3A /* RCComicPriceObject.h */,
+				7B4AB852EF3201F31E9F27F94F7A0380 /* RCComicPriceObject.m */,
+				C42C2105B76FF5D2241EC648342CF677 /* RCComicsFilter.h */,
+				15DC4A2C7FEC71B874396E0D7168E53F /* RCComicsFilter.m */,
+				80A2BCD6C475B04F00322AC9C059CD3C /* RCComicsObject.h */,
+				11DB8B2437FDC286611771D5CB5836E4 /* RCComicsObject.m */,
+				A950423EE6BC34B55E413B21FDFF42FB /* RCCreatorFilter.h */,
+				FD6CCFCD7753849783950874EE76CAB2 /* RCCreatorFilter.m */,
+				478F01733E021F3BDF88CB52FE7F61EC /* RCCreatorObject.h */,
+				B7DF0A8633C46E63915C5092F098264F /* RCCreatorObject.m */,
+				29D9C55240B73134FFEEC3460E71C539 /* RCDataContainerObject.h */,
+				CEC9C0EFEEFF375C4AEEB1898EC64ECD /* RCDataContainerObject.m */,
+				D9C70728640BD141BBE1BA7405471390 /* RCDataWrapperObject.h */,
+				ECC323D3F06F5766B534D316DB611CEA /* RCDataWrapperObject.m */,
+				790A2744A053A877EC468B0D264F4A10 /* RCDateDescriptorCodes.h */,
+				823F2415C25FA30C7FC4C7469A7A1CDB /* RCDateDescriptors.h */,
+				F1D45F932DEF168B4E87B2DA375FBB9E /* RCDateDescriptors.m */,
+				AACD78918AE3A57AB2431CAF4043E5EA /* RCEventFilter.h */,
+				EB5B35C2952FBFF133E38CF3BF3272A5 /* RCEventFilter.m */,
+				6435A3D118A0A0EDBB0C51A620EC27AE /* RCEventObject.h */,
+				B50F6EC4EC358951F1B91759934BDAD2 /* RCEventObject.m */,
+				E12D48A8C3971DECDA1999266CE26C00 /* RCFilter.h */,
+				4D6723D8F9C35DF9EC4C8C7C82068481 /* RCFilter.m */,
+				ED7AF006BFE877C4DEEBDBFE90BDBDF1 /* RCFrequencyTypeCodes.h */,
+				1A69E1B3FD86F430D35A3DB5DD30B124 /* RCFrequencyTypes.h */,
+				E4649140E3C274111D7AE85470C31E44 /* RCFrequencyTypes.m */,
+				ABBA9251F2EAE2F2DBF587DA51FB332D /* RCImageAspectRatioCodes.h */,
+				2635001E79838033ED096169A9FFDE1A /* RCImageAspectRatios.h */,
+				610BF61C1346207BFB730B9E145DC705 /* RCImageAspectRatios.m */,
+				4B69203A1F88A6B48BFB521E626FB5E1 /* RCImageObject.h */,
+				92A7F9A2598016D15931668533C3916A /* RCImageObject.m */,
+				781BD3525603EDDE8A8CCCF199AC460A /* RCImageSizeCodes.h */,
+				F647E0F901CCE5210F2FCA9A962F7F21 /* RCImageSizes.h */,
+				F69DA9C2D58BF79DD11620672407C4BE /* RCImageSizes.m */,
+				4F14D19E6A6013C029CDA368668F2E53 /* RCIssueFormatCodes.h */,
+				8B3FD286C3087D07680CF6819055C54B /* RCIssueFormats.h */,
+				5DBA817E9FCA6C98D61F1636AB205639 /* RCIssueFormats.m */,
+				998772ED4982DF4E483F9A57F0FD00B5 /* RCIssueTypeCodes.h */,
+				9D6D95C4D9BBE28A6CECDA176AC05D7D /* RCIssueTypes.h */,
+				2A6621A3F0D0698DB3E27F43F565B2AD /* RCIssueTypes.m */,
+				25BC9F62479610237F40CB3CE99A4806 /* RCListObject.h */,
+				E41BE38A3127D50C2FB8E8064EF9B36D /* RCListObject.m */,
+				E7554BB4DE1B5642CB798FDC7CB675A2 /* RCMarvelAPI.h */,
+				27C597EC7AA75B68E63084504D2D6F93 /* RCMarvelAPI.m */,
+				30F1D0EF830C8E31DBB5B45C0AC9F520 /* RCObject.h */,
+				6C94D0789F5F0B39FCD169A6663A09A2 /* RCObject.m */,
+				695AD3AA9F17BAA035380FDCC8E66CFC /* RCObjectProtocol.h */,
+				102297A0C2E50E6E9375021F2044F10B /* RCOperation.h */,
+				A68C265AFEA4F5AA448511748C10E2F3 /* RCOperation.m */,
+				A9EBA11E6D18DB82344321AA925A8943 /* RCOperationErrorCodes.h */,
+				C8A7288EB586960673EA39CEFB21D433 /* RCOperationErrors.h */,
+				1BDE14978122D532530E6244F6B9B943 /* RCOperationErrors.m */,
+				577E9972E22E4E1F99EF805AF4ED189C /* RCOrderByTypeCodes.h */,
+				D867775826006F2954F11207227C9781 /* RCOrderByTypes.h */,
+				6EFCE1ABE5ED338B67AE27CE760762DB /* RCOrderByTypes.m */,
+				227CDDA05B8D18641C4DF60717592A0C /* RCQueryInfoObject.h */,
+				93B085B9683C678F9B9DAF813F2E2E20 /* RCQueryInfoObject.m */,
+				2B88B4B6E86B0EF3DA16D44BF2DAE5AD /* RCRequestKeys.h */,
+				21B50371DA88990CA0B5D099529A353D /* RCRequestKeys.m */,
+				3ED50C9800A45DA0C6FB41EB8699A1F2 /* RCResponseKeys.h */,
+				07C2F46981D9400E78900E1EC61F2430 /* RCResponseKeys.m */,
+				5CA0B3C3F235CCD364EFC581E7E1053E /* RCSeriesFilter.h */,
+				DB3F6FB499F30A0B405D7E93851D74BC /* RCSeriesFilter.m */,
+				F8BF34390A2F642755361F86ABE129D3 /* RCSeriesObject.h */,
+				865BCCBABC8378215EF6C0FE7761EECC /* RCSeriesObject.m */,
+				15F74067A4EB9F7DB4410EA51C007DC0 /* RCStatusCodes.h */,
+				53744C1C7036D49DA9080635D56577BD /* RCStoryFilter.h */,
+				96F58B428ED1E56A9D24A1FFF4B9C065 /* RCStoryFilter.m */,
+				128E5B79BEBEFA1E9DCC99C98C1464DC /* RCStoryObject.h */,
+				1630DA8F01753D5F20DAD44314352B4B /* RCStoryObject.m */,
+				8C951DE122BD2C56556C6A807C9A7B01 /* RCSummaryObject.h */,
+				A4A6AEB49953869E0F6632E37C8C0A76 /* RCSummaryObject.m */,
+				3946DC37421EB4B8CEE60ADB74A40114 /* RCTextObject.h */,
+				B9BF443489F44D6779CFF44E827ACA08 /* RCTextObject.m */,
+				D87529BEAD670EAD9EBB7D72E03537DE /* RCURLObject.h */,
+				7EE896EDD97A401637E8B1DE47D3C725 /* RCURLObject.m */,
+				CAB81C2D3F4E2445D325C8EDD9E8C715 /* Support Files */,
+			);
+			path = Marvelous;
+			sourceTree = "<group>";
+		};
+		92DE2407A6CA192E00374CBE5E5ED874 /* Pods-Marvel */ = {
+			isa = PBXGroup;
+			children = (
+				F108B209C02B606E327638100FC0D809 /* Pods-Marvel.modulemap */,
+				999C3704F8D778FB9FB28DFC3DBC0C8A /* Pods-Marvel-acknowledgements.markdown */,
+				F8F167B9E9460A0C5315E1E0FDE1CEC4 /* Pods-Marvel-acknowledgements.plist */,
+				512737EB816DE5E25825988D0E394444 /* Pods-Marvel-dummy.m */,
+				167153472B3CE42671D8C023664FE0C9 /* Pods-Marvel-frameworks.sh */,
+				5BF18A70D9451C84D86B31B9D3ACBDE9 /* Pods-Marvel-Info.plist */,
+				F64C742967F13CD0D820A08CEF035FD0 /* Pods-Marvel-umbrella.h */,
+				5E813C1B991CBBA6C9028E29D392360E /* Pods-Marvel.debug.xcconfig */,
+				285BF3ED96EA697B3A5E7C03ACB67CB6 /* Pods-Marvel.release.xcconfig */,
+			);
+			name = "Pods-Marvel";
+			path = "Target Support Files/Pods-Marvel";
+			sourceTree = "<group>";
+		};
+		BC58788F774EC289349BFEF928CB7971 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				58EC449FB23CF2B3B18DAAE8611D1775 /* Marvelous.framework */,
+				A5003537E30EEE6A06A41BC5E6C5ECD1 /* Pods-Marvel */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CAB81C2D3F4E2445D325C8EDD9E8C715 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				276058EEF6D42B3F925451A483644F8F /* Marvelous.modulemap */,
+				A0B188607E7B86987D975589B30131AA /* Marvelous-dummy.m */,
+				0F61F7C8179CC88D19A16D4438EB7628 /* Marvelous-Info.plist */,
+				4AB090A69A20E51D6924472D231085AF /* Marvelous-prefix.pch */,
+				74FA5E28BBA0808861EDBF98F60A503D /* Marvelous-umbrella.h */,
+				197E35E4E1B73DCF3BB4E8DFD53C34B9 /* Marvelous.debug.xcconfig */,
+				2B3348E42696D3409D6BECE31515BED0 /* Marvelous.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Marvelous";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				1002352A44FA1E0B94D5C7615D53B80D /* Pods */,
+				BC58788F774EC289349BFEF928CB7971 /* Products */,
+				1DC33EBF0CEA736609AF7D166966B21A /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BB0014E8410B762D9BC6EBF3CE5599D0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E522A2E5C841A4AAC726EF86394E15B /* Marvelous.h in Headers */,
+				8FF68A0E27330B25BC1E774376511929 /* Marvelous-umbrella.h in Headers */,
+				C2E3AAAAFB065DBAD459BD9784640063 /* RCAPIOperation.h in Headers */,
+				F205B38C174CFA19BEE512E44BE3A091 /* RCAPITypes.h in Headers */,
+				46AD43D0FA14A197AE6053B04C7B3247 /* RCBlocks.h in Headers */,
+				9444F437AA7477D9EAE9C67A820F5E80 /* RCBooleanValueCodes.h in Headers */,
+				41BD5CE597EA2F91B987B30E58EE3574 /* RCBooleanValues.h in Headers */,
+				81EFD1079ED84E1825EF4E1028F18065 /* RCCharacterFilter.h in Headers */,
+				F3610EE4ADBF43F7250DD6F9EA66E295 /* RCCharacterObject.h in Headers */,
+				5CBACB93CFB2AC96144D941D94C3DAC1 /* RCComicDateObject.h in Headers */,
+				9C7AF35D682101653442582DCCB01929 /* RCComicPriceObject.h in Headers */,
+				F79BE85E645681EAC6C7EA273607ACDE /* RCComicsFilter.h in Headers */,
+				CAAB184F96E2279A432E570A5A02DE97 /* RCComicsObject.h in Headers */,
+				D297CA9C41EEB8DA27F34FC00C2C6AC3 /* RCCreatorFilter.h in Headers */,
+				75755F75433EB0BDB1BC51CC668C0764 /* RCCreatorObject.h in Headers */,
+				1E2AFF5D5E6259CFFAD91DA31AF50041 /* RCDataContainerObject.h in Headers */,
+				4A0598B8C2A0A17E9A66724F8CE39A82 /* RCDataWrapperObject.h in Headers */,
+				584BC15EAEB0D7F9BB2653976A228317 /* RCDateDescriptorCodes.h in Headers */,
+				4DB002709BC7C7FB1FF100B76E08A460 /* RCDateDescriptors.h in Headers */,
+				75C45C007F65CE631ADAE2CCB386D284 /* RCEventFilter.h in Headers */,
+				70835C4E5E070926C160633DE5D94B82 /* RCEventObject.h in Headers */,
+				5DE713045A5550A74E7148FA1E91CC8F /* RCFilter.h in Headers */,
+				6CC46EC739AB7A62B0A611041824BF5A /* RCFrequencyTypeCodes.h in Headers */,
+				70359F28FD411080300C3BFA7896CF7E /* RCFrequencyTypes.h in Headers */,
+				4687102497AE9026FE34C3C2F63EC32F /* RCImageAspectRatioCodes.h in Headers */,
+				B25B96DE8A32D1F2ECA0C97A85A42359 /* RCImageAspectRatios.h in Headers */,
+				0AF026E404663CACC86A5613FB0A5AB3 /* RCImageObject.h in Headers */,
+				DD61FE9CEFFD3F10ECF27A62B8D719E1 /* RCImageSizeCodes.h in Headers */,
+				85D42A9F3F5C5AC791CE94897FADE0C4 /* RCImageSizes.h in Headers */,
+				FFE3BEA77FE5C279C55885132411CAB9 /* RCIssueFormatCodes.h in Headers */,
+				BE49CA4E80D4E22F6AFC33C95BC18833 /* RCIssueFormats.h in Headers */,
+				CDB3FFFA62EF2042A96EBEADAD1D42F7 /* RCIssueTypeCodes.h in Headers */,
+				465AFB4B8F5C6D6DC848350D2BA42C2D /* RCIssueTypes.h in Headers */,
+				DCA599A4C593402F885EB5C09F59DECD /* RCListObject.h in Headers */,
+				CC266CFA8507E6076E48202776341022 /* RCMarvelAPI.h in Headers */,
+				9C350ED47399E434C8AA612138BBEC78 /* RCObject.h in Headers */,
+				B046B2352DE38C3BA4FC7746ED6A5233 /* RCObjectProtocol.h in Headers */,
+				B11D5B4529D6041936C897576DC29533 /* RCOperation.h in Headers */,
+				221CD55A4B825276D6B2724EE3B91D02 /* RCOperationErrorCodes.h in Headers */,
+				4525AC22A7F8CF7A15748E0B807533A6 /* RCOperationErrors.h in Headers */,
+				494CD1847D70C4ECC8243F20F607A0B7 /* RCOrderByTypeCodes.h in Headers */,
+				422853F23BA2F5C3FBFD0680766DEA76 /* RCOrderByTypes.h in Headers */,
+				DE7CACA4EA34F06336A95805D1D89B99 /* RCQueryInfoObject.h in Headers */,
+				7FA699E8C3AC3E4C2997F8E03B4A2894 /* RCRequestKeys.h in Headers */,
+				204E7BA2528F542F26E002C839BBA36A /* RCResponseKeys.h in Headers */,
+				E10884FC86ECC444FE8B7558FD0F42AA /* RCSeriesFilter.h in Headers */,
+				C87F421410F9829852F36E5C80647EDE /* RCSeriesObject.h in Headers */,
+				66D10D133351E9278FD09A88B509CF13 /* RCStatusCodes.h in Headers */,
+				6F04D18CADF090EF820688C619E5F776 /* RCStoryFilter.h in Headers */,
+				23704F9D67603B356598AC330CDE7FBC /* RCStoryObject.h in Headers */,
+				FA0E6B52122DE07D3B6C243A05A1AB1D /* RCSummaryObject.h in Headers */,
+				302D5964AE9472E187105F9CB689D51D /* RCTextObject.h in Headers */,
+				975B1F51CE6C77832A7BD8573F087AA0 /* RCURLObject.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C83B3717BEC5C78B15C77A576A89CC94 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5436E6584E932764CA692F5A69F9C954 /* Pods-Marvel-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		38102F1CEB63F4AEB49C24F362B10ECC /* Pods-Marvel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A38167157A13691C9A21EF17D67614E4 /* Build configuration list for PBXNativeTarget "Pods-Marvel" */;
+			buildPhases = (
+				C83B3717BEC5C78B15C77A576A89CC94 /* Headers */,
+				E21279B4C5052A8FEB302D9350017717 /* Sources */,
+				65CEB0847649440F50A8925361079D4E /* Frameworks */,
+				E7E51B7ABB3648B1E1AA067C43710FFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				48A3E637CD8A67AD09A547A97CB1F266 /* PBXTargetDependency */,
+			);
+			name = "Pods-Marvel";
+			productName = Pods_Marvel;
+			productReference = A5003537E30EEE6A06A41BC5E6C5ECD1 /* Pods-Marvel */;
+			productType = "com.apple.product-type.framework";
+		};
+		6A0FAC0819A59B2DC107C337AD9FEB6F /* Marvelous */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB9CF0C06CF0B0EE8780C9344D727154 /* Build configuration list for PBXNativeTarget "Marvelous" */;
+			buildPhases = (
+				BB0014E8410B762D9BC6EBF3CE5599D0 /* Headers */,
+				84D21D01DF17EF6698C693F2DB1FD663 /* Sources */,
+				9050849B51F25437378E56C7658914A3 /* Frameworks */,
+				3C9BE028990F3565114E2631F5E84D81 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Marvelous;
+			productName = Marvelous;
+			productReference = 58EC449FB23CF2B3B18DAAE8611D1775 /* Marvelous.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = BC58788F774EC289349BFEF928CB7971 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6A0FAC0819A59B2DC107C337AD9FEB6F /* Marvelous */,
+				38102F1CEB63F4AEB49C24F362B10ECC /* Pods-Marvel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3C9BE028990F3565114E2631F5E84D81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7E51B7ABB3648B1E1AA067C43710FFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84D21D01DF17EF6698C693F2DB1FD663 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A759F3B1C329D961663CD5F77B764DF6 /* Marvelous-dummy.m in Sources */,
+				CA48ADBC97566673934CEFECA1831841 /* RCAPIOperation.m in Sources */,
+				83FC6B39E29EF52FB9E54F1D5DF8401C /* RCBooleanValues.m in Sources */,
+				7013BDA589507D107395D920542B2B46 /* RCCharacterFilter.m in Sources */,
+				8FDC6A59A742D651790663D38D98B440 /* RCCharacterObject.m in Sources */,
+				9A0D9661C316CFBFC9D07C38BC0AB533 /* RCComicDateObject.m in Sources */,
+				0656674250C943FC4A5FA26E7AA593A9 /* RCComicPriceObject.m in Sources */,
+				2B248E1A9CFF99E012A562973D78A36D /* RCComicsFilter.m in Sources */,
+				DF5337FA5220964CCADB51E99F18C72F /* RCComicsObject.m in Sources */,
+				99E03485518A1AD89568BFD700A36FFD /* RCCreatorFilter.m in Sources */,
+				CCDEF29D4C685EBFE255FBDD49A9D05C /* RCCreatorObject.m in Sources */,
+				9AC647A754E5143DE6B90BF78901B3A1 /* RCDataContainerObject.m in Sources */,
+				5FC04D5A38785613A0C9F0A849F40755 /* RCDataWrapperObject.m in Sources */,
+				D67BF4BB5CCBA44A1863039CEBFD5BD5 /* RCDateDescriptors.m in Sources */,
+				C2E9CB112C929DA99612212C2795CBB4 /* RCEventFilter.m in Sources */,
+				CF88581350010BD1F29C7F155D135448 /* RCEventObject.m in Sources */,
+				6DAD4D2290A8E53DEAAABA831D958A8D /* RCFilter.m in Sources */,
+				DD6C2D2CBD8F9114ADE44606C1F9C8BC /* RCFrequencyTypes.m in Sources */,
+				4425271807CB2BF9F56AC05D58EC3FF4 /* RCImageAspectRatios.m in Sources */,
+				5DA01CE637EF64B6AB241D38D192FCA9 /* RCImageObject.m in Sources */,
+				4E85D150F21ABC6179EE0DA53EEAD2B5 /* RCImageSizes.m in Sources */,
+				19961E2082E9C892070660A61364D055 /* RCIssueFormats.m in Sources */,
+				C291BE45E3C88F80E5565C7F6BD1CA1A /* RCIssueTypes.m in Sources */,
+				AEA1203E72D85212351610F1BAA11465 /* RCListObject.m in Sources */,
+				DC2EBFC279BD2A624C016763AFE8C412 /* RCMarvelAPI.m in Sources */,
+				FED0C48B2AAB3D837BF965B5DCE758B4 /* RCObject.m in Sources */,
+				2762CB4BEEC2F9DFF11E17141EEF15D4 /* RCOperation.m in Sources */,
+				7516E20855C9D0B4E10706C33B94E565 /* RCOperationErrors.m in Sources */,
+				1727238125EC82D071279B41ABA6D722 /* RCOrderByTypes.m in Sources */,
+				AF9875E68FE08822519598D608080DFD /* RCQueryInfoObject.m in Sources */,
+				9A9DFFD9513B638FA46F69116E3CF55F /* RCRequestKeys.m in Sources */,
+				F6A0E16FD03DEB4EECE4D8D73962A14D /* RCResponseKeys.m in Sources */,
+				171FD44F9161B527EF23934D384D6305 /* RCSeriesFilter.m in Sources */,
+				AD895A84AC571C332E6C05944E9E8B73 /* RCSeriesObject.m in Sources */,
+				FECAA038D06EC9726F67EC6129CF4455 /* RCStoryFilter.m in Sources */,
+				C9D83F4E86E60074DE4F25A2225533DC /* RCStoryObject.m in Sources */,
+				6887B9CDF3D54192BE7B1E90AE9A5373 /* RCSummaryObject.m in Sources */,
+				E827A2ED540D54494E5DACC82D6E6FDC /* RCTextObject.m in Sources */,
+				C6D6EF769392EE021AF38A5EB82BAE1D /* RCURLObject.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E21279B4C5052A8FEB302D9350017717 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14271F67F6F4A0363502B0E8E92FCB42 /* Pods-Marvel-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		48A3E637CD8A67AD09A547A97CB1F266 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Marvelous;
+			target = 6A0FAC0819A59B2DC107C337AD9FEB6F /* Marvelous */;
+			targetProxy = 1892E9EFDC582B010FE0C505B1FC7C7E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00857553032FDECFA6AE69330DDA262D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 285BF3ED96EA697B3A5E7C03ACB67CB6 /* Pods-Marvel.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Marvel/Pods-Marvel-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Marvel/Pods-Marvel.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		30E0B9EFD9A5C45D0D351231E81B30B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		55172EB71283BA36048F7FCFCB08ED29 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E813C1B991CBBA6C9028E29D392360E /* Pods-Marvel.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Marvel/Pods-Marvel-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Marvel/Pods-Marvel.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A7125DA7628C5F9078A2D2A7BE0D3E49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 197E35E4E1B73DCF3BB4E8DFD53C34B9 /* Marvelous.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Marvelous/Marvelous-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Marvelous/Marvelous-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Marvelous/Marvelous.modulemap";
+				PRODUCT_MODULE_NAME = Marvelous;
+				PRODUCT_NAME = Marvelous;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D537CE530F2C573CACB88CB9C8103DBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B3348E42696D3409D6BECE31515BED0 /* Marvelous.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Marvelous/Marvelous-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Marvelous/Marvelous-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Marvelous/Marvelous.modulemap";
+				PRODUCT_MODULE_NAME = Marvelous;
+				PRODUCT_NAME = Marvelous;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F4FF6A0D1970CA9705974E3CB2134802 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4FF6A0D1970CA9705974E3CB2134802 /* Debug */,
+				30E0B9EFD9A5C45D0D351231E81B30B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A38167157A13691C9A21EF17D67614E4 /* Build configuration list for PBXNativeTarget "Pods-Marvel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55172EB71283BA36048F7FCFCB08ED29 /* Debug */,
+				00857553032FDECFA6AE69330DDA262D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB9CF0C06CF0B0EE8780C9344D727154 /* Build configuration list for PBXNativeTarget "Marvelous" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7125DA7628C5F9078A2D2A7BE0D3E49 /* Debug */,
+				D537CE530F2C573CACB88CB9C8103DBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

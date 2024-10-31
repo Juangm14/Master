@@ -1,0 +1,16 @@
+PODS:
+  - Marvelous (0.7.3)
+
+DEPENDENCIES:
+  - Marvelous
+
+SPEC REPOS:
+  trunk:
+    - Marvelous
+
+SPEC CHECKSUMS:
+  Marvelous: 34bc83b40bca7f255043e0db83821df614329956
+
+PODFILE CHECKSUM: 014af2d67780d2fa5f430b34c5e3545f79ffe689
+
+COCOAPODS: 1.14.2
