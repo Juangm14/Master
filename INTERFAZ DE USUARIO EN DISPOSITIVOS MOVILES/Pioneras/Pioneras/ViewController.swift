@@ -19,4 +19,10 @@ class ViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let secundarioVC = segue.destination as? SecundarioViewController {
+            secundarioVC.nombreAsset = "\(segue.identifier ?? "")_bio"
+        }
+    }
+
 }

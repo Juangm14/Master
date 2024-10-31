@@ -13,6 +13,7 @@
 		C77788E02CD3DBAC00E80264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C77788DE2CD3DBAC00E80264 /* Main.storyboard */; };
 		C77788E22CD3DBAE00E80264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C77788E12CD3DBAE00E80264 /* Assets.xcassets */; };
 		C77788E52CD3DBAE00E80264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C77788E32CD3DBAE00E80264 /* LaunchScreen.storyboard */; };
+		C77788ED2CD3E94400E80264 /* SecundarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77788EC2CD3E94400E80264 /* SecundarioViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C77788E12CD3DBAE00E80264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C77788E42CD3DBAE00E80264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C77788E62CD3DBAE00E80264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C77788EC2CD3E94400E80264 /* SecundarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecundarioViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				C77788DA2CD3DBAC00E80264 /* SceneDelegate.swift */,
 				C77788DC2CD3DBAC00E80264 /* ViewController.swift */,
 				C77788DE2CD3DBAC00E80264 /* Main.storyboard */,
+				C77788EC2CD3E94400E80264 /* SecundarioViewController.swift */,
 				C77788E12CD3DBAE00E80264 /* Assets.xcassets */,
 				C77788E32CD3DBAE00E80264 /* LaunchScreen.storyboard */,
 				C77788E62CD3DBAE00E80264 /* Info.plist */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C77788DD2CD3DBAC00E80264 /* ViewController.swift in Sources */,
+				C77788ED2CD3E94400E80264 /* SecundarioViewController.swift in Sources */,
 				C77788D92CD3DBAC00E80264 /* AppDelegate.swift in Sources */,
 				C77788DB2CD3DBAC00E80264 /* SceneDelegate.swift in Sources */,
 			);

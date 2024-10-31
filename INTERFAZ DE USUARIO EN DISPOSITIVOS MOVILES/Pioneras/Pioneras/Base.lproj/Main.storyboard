@@ -26,7 +26,7 @@
                                             <backgroundConfiguration key="background" image="hopper"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="zEN-sz-auP" kind="show" id="TtP-NV-M1v"/>
+                                            <segue destination="zEN-sz-auP" kind="show" identifier="hopper" id="TtP-NV-M1v"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqo-yV-rzC">
@@ -36,7 +36,7 @@
                                             <backgroundConfiguration key="background" image="liskov"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="zEN-sz-auP" kind="show" id="mH6-eb-jhA"/>
+                                            <segue destination="zEN-sz-auP" kind="show" identifier="liskov" id="mH6-eb-jhA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2i-Ce-Xq7">
@@ -46,7 +46,7 @@
                                             <backgroundConfiguration key="background" image="lovelace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="zEN-sz-auP" kind="show" id="UjH-y7-FGE"/>
+                                            <segue destination="zEN-sz-auP" kind="show" identifier="lovelace" id="UjH-y7-FGE"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="-100" y="-27.464788732394368"/>
         </scene>
-        <!--View Controller-->
+        <!--Secundario View Controller-->
         <scene sceneID="XNM-5X-74B">
             <objects>
-                <viewController id="zEN-sz-auP" customClass="ViewController" customModule="Pioneras" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zEN-sz-auP" customClass="SecundarioViewController" customModule="Pioneras" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j6R-yB-hy5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,13 +79,12 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Atras"/>
                                 <connections>
-                                    <segue destination="g48-hf-ht4" kind="unwind" unwindAction="retornoDeSecundariaWithSegue:" id="jCw-vH-zV5"/>
+                                    <segue destination="g48-hf-ht4" kind="unwind" unwindAction="retornoDeSecundariaWithSegue:" id="ueF-LG-SQk"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lpu-Wk-JMW">
                                 <rect key="frame" x="0.0" y="214" width="393" height="529"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -104,6 +103,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="F5l-FY-e6R"/>
+                    <connections>
+                        <outlet property="Biografia" destination="Lpu-Wk-JMW" id="A4j-ro-cfx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="92j-8N-9Su" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="g48-hf-ht4" userLabel="Exit" sceneMemberID="exit"/>
