@@ -1,10 +1,13 @@
 package es.ua.eps.appsim
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.telephony.TelephonyManager
+import android.telephony.gsm.GsmCellLocation
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -30,6 +33,14 @@ class MainActivity : AppCompatActivity() {
                 permissionsNeeded.add(Manifest.permission.READ_PHONE_STATE)
             }
 
+            //Esas dos comprobaciones son para acceder a las celdas
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                permissionsNeeded.add(Manifest.permission.ACCESS_FINE_LOCATION)
+            }
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                permissionsNeeded.add(Manifest.permission.ACCESS_COARSE_LOCATION)
+            }
+
             if (permissionsNeeded.isNotEmpty()) {
                 ActivityCompat.requestPermissions(this, permissionsNeeded.toTypedArray(), PERMISSION_REQUEST_READ_PHONE_STATE)
             } else {
@@ -52,39 +63,48 @@ class MainActivity : AppCompatActivity() {
             val telephonyManager = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
 
             try {
-                //val iccid = telephonyManager.simSerialNumber
-                val operatorName = telephonyManager.simOperatorName
-                //val imsi = telephonyManager.subscriberId
-                val networkType = telephonyManager.networkType
-                //val imei = telephonyManager.deviceId
-                val networkOperator = telephonyManager.networkOperatorName
-                val isoCountryNetwork = telephonyManager.networkCountryIso
-                val isoCountrySim = telephonyManager.simCountryIso
-                val softwareVersion = telephonyManager.deviceSoftwareVersion
-                val voicemailNumber = telephonyManager.voiceMailNumber
-                val isRoaming = telephonyManager.isNetworkRoaming
+                //NO PUEDO ACCEDER DESDE MI TELEFONO A ALGUNOS DATOS DE LA SIM PORQUE A PARTIR DE LA VERSIÓN 10 DE ANDROID SE BLOQUEA.
+                //TUVE QUE INSTALAR UN DISPOSITIVO VIRTUAL CON MINSDK 24 Y CON VERSION 7.0 (para no ir justo)
+                val simSerialNumber = telephonyManager.getSimSerialNumber()
+                val operatorName = telephonyManager.getSimOperatorName()
+                val subscriberId = telephonyManager.getSubscriberId()
+                val networkType = telephonyManager.getNetworkType()
+                val imei = telephonyManager.getDeviceId()
+                val isoCountryNetwork = telephonyManager.getNetworkCountryIso()
+                val isoCountrySim = telephonyManager.getSimCountryIso()
+                val softwareVersion = telephonyManager.getDeviceSoftwareVersion()
+                val voicemailNumber = telephonyManager.getVoiceMailNumber()
+                val isRoaming = telephonyManager.isNetworkRoaming()
+
+                val cellLocation = telephonyManager.getCellLocation()!! as? GsmCellLocation
+                val cellId = cellLocation?.cid ?: "No está disponible"
+                val lac = cellLocation?.lac ?: "No está disponible"
 
                 val networkTypeStr = when (networkType) {
                     TelephonyManager.NETWORK_TYPE_LTE -> "4G"
                     TelephonyManager.NETWORK_TYPE_HSDPA, TelephonyManager.NETWORK_TYPE_HSPA,
                     TelephonyManager.NETWORK_TYPE_HSUPA, TelephonyManager.NETWORK_TYPE_UMTS -> "3G"
                     TelephonyManager.NETWORK_TYPE_GPRS, TelephonyManager.NETWORK_TYPE_EDGE -> "2G"
-                    else -> "Desconocido"
+                    else -> "Red desconocida"
                 }
 
                 binding.info.text = """
-                    Estado de los Datos:
+                    Detalle del teléfono:
+                    
+                    Estado de los Datos: CONECTADA
                     Tipo de Conexión: $networkTypeStr
-                    IMEI:
+                    IMEI: $imei
                     Operador de la red (físico): $operatorName
-                    ID Suscriptor: 
-                    Número de Serie SIM:
+                    ID Suscriptor: $subscriberId
+                    Número de Serie SIM: $simSerialNumber
                     Código ISO País Red: $isoCountryNetwork
                     Código ISO País SIM: $isoCountrySim
                     Versión Software IMEI: ${softwareVersion ?: "No disponible"}
                     Número del contestador: ${voicemailNumber ?: "No disponible"}
                     Tipo Red móvil: $networkTypeStr
                     Roaming activado: ${if (isRoaming) "Sí" else "No"}
+                    Cell ID: $cellId
+                    LAC: $lac
                 """.trimIndent()
             } catch (e: Exception) {
                 binding.info.text = "No se puede acceder a la información de la SIM."
