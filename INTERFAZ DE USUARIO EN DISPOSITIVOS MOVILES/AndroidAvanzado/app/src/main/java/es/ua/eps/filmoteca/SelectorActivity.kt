@@ -55,5 +55,10 @@ class SelectorActivity : AppCompatActivity() {
             val intent = Intent(this, BarraEstadoActivity::class.java)
             startActivity(intent)
         }
+
+        binding.pantallaTactil.setOnClickListener{
+            val intent = Intent(this, PantallaTactilActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

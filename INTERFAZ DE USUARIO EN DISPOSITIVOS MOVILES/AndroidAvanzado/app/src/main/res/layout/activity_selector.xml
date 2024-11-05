@@ -6,52 +6,40 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/customNotifSnackbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notificaciones SnackBar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/custom_notificaciones"
-        app:layout_constraintVertical_bias="0.172" />
-
-    <Button
-        android:id="@+id/customEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Componentes compuestos"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.536"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/custom_component"
-        app:layout_constraintVertical_bias="0.093" />
-
-    <Button
         android:id="@+id/drawables_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Drawables"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintVertical_bias="0.045" />
 
     <Button
-        android:id="@+id/custom_component"
+        android:id="@+id/customNotifSnackbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Extensión de vistas"
+        android:text="Notificaciones SnackBar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/drawables_btn"
-        app:layout_constraintVertical_bias="0.061" />
+        app:layout_constraintTop_toBottomOf="@+id/custom_notificaciones"
+        app:layout_constraintVertical_bias="0.099" />
+
+    <Button
+        android:id="@+id/barraEstado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Barra de estado"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notif_dialog"
+        app:layout_constraintVertical_bias="0.205" />
 
     <Button
         android:id="@+id/customGrafica"
@@ -60,10 +48,10 @@
         android:text="Gráfica personalizada"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintHorizontal_bias="0.556"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/customEditText"
-        app:layout_constraintVertical_bias="0.095" />
+        app:layout_constraintVertical_bias="0.09" />
 
     <Button
         android:id="@+id/custom_notificaciones"
@@ -72,10 +60,22 @@
         android:text="Notificaciones"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/customGrafica"
-        app:layout_constraintVertical_bias="0.124" />
+        app:layout_constraintVertical_bias="0.119" />
+
+    <Button
+        android:id="@+id/customEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Componentes compuestos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custom_component"
+        app:layout_constraintVertical_bias="0.063" />
 
     <Button
         android:id="@+id/notif_dialog"
@@ -86,16 +86,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/customNotifSnackbar"
-        app:layout_constraintVertical_bias="0.291" />
+        app:layout_constraintVertical_bias="0.148" />
 
     <Button
-        android:id="@+id/barraEstado"
+        android:id="@+id/pantallaTactil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Barra de estado"
+        android:text="Pantalla tactil"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="667dp" />
+
+    <Button
+        android:id="@+id/custom_component"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Extensión de vistas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.556"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notif_dialog" />
+        app:layout_constraintTop_toBottomOf="@+id/drawables_btn"
+        app:layout_constraintVertical_bias="0.059" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
