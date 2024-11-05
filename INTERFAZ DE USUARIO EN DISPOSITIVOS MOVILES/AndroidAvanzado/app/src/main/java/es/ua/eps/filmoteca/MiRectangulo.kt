@@ -24,11 +24,25 @@ class MiRectangulo @JvmOverloads constructor(
         super.onDraw(canvas)
         canvas.drawRect(rectX, rectY, rectX + rectSize, rectY + rectSize, paint)
     }
+    // ASÍ SERÍA LA PRIMERA PARTE DEL EJERCICIO 1
+//    override fun onTouchEvent(event: MotionEvent): Boolean {
+//        when (event.action) {
+//            MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
+//                rectX = event.x - rectSize / 2
+//                rectY = event.y - rectSize / 2
+//                invalidate()
+//                return true
+//            }
+//        }
+//        return super.onTouchEvent(event)
+//    }
 
+    //úLTIMA PARTE DEL EJERCIO 1
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
-                dentroDelRect = event.x in rectX..(rectX + rectSize) && event.y in rectY..(rectY + rectSize)
+                dentroDelRect =
+                    event.x in rectX..(rectX + rectSize) && event.y in rectY..(rectY + rectSize)
                 if (dentroDelRect) {
                     rectX = event.x - rectSize / 2
                     rectY = event.y - rectSize / 2
@@ -36,6 +50,7 @@ class MiRectangulo @JvmOverloads constructor(
                 }
                 return dentroDelRect
             }
+
             MotionEvent.ACTION_MOVE -> {
                 if (dentroDelRect) {
                     rectX = event.x - rectSize / 2
@@ -43,6 +58,7 @@ class MiRectangulo @JvmOverloads constructor(
                     invalidate()
                 }
             }
+
             MotionEvent.ACTION_UP -> dentroDelRect = false
         }
         return true
