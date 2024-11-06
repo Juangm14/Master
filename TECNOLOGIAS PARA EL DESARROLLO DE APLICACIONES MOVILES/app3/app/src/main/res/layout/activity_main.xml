@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Información de Red Wi-Fi"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/label_no_permisos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:textColor="#666666"/>
+
+    <TextView
+        android:id="@+id/label_ssid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SSID:"
+        android:textStyle="bold"
+        android:textColor="#666666"/>
+
+    <TextView
+        android:id="@+id/value_ssid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/label_bssid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BSSID:"
+        android:textStyle="bold"
+        android:textColor="#666666"/>
+
+    <TextView
+        android:id="@+id/value_bssid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/label_link_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Velocidad de Enlace:"
+        android:textStyle="bold"
+        android:textColor="#666666"/>
+
+    <TextView
+        android:id="@+id/value_link_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/label_frequency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Frecuencia:"
+        android:textStyle="bold"
+        android:textColor="#666666"/>
+
+    <TextView
+        android:id="@+id/value_frequency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/label_rssi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Intensidad de Señal (RSSI):"
+        android:textStyle="bold"
+        android:textColor="#666666"/>
+
+    <TextView
+        android:id="@+id/value_rssi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/label_ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dirección IP:"
+        android:textStyle="bold"
+        android:textColor="#666666"/>
+
+    <TextView
+        android:id="@+id/value_ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_marginBottom="12dp"/>
+
+
+</LinearLayout>
