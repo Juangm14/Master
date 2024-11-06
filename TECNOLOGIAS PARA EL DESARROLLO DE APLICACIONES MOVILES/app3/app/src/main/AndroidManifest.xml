@@ -8,6 +8,7 @@
 
     <!-- Este permiso se requiere a partir de Android 6.0 (API nivel 23) debido a las políticas de seguridad y privacidad de Google. -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <!-- INTERNET: Este permiso es necesario si planeas acceder a Internet desde la aplicación
     <uses-permission android:name="android.permission.INTERNET" /> -->
