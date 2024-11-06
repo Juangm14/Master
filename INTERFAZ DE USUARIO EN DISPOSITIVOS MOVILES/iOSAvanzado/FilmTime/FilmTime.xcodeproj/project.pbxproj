@@ -15,6 +15,7 @@
 		C75724C12CDBDF8700369421 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C75724BF2CDBDF8700369421 /* LaunchScreen.storyboard */; };
 		C75FCE5C2CDBE16F0036698C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75FCE5B2CDBE16F0036698C /* TableViewController.swift */; };
 		C75FCE5E2CDBE1FA0036698C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75FCE5D2CDBE1FA0036698C /* DetailViewController.swift */; };
+		C75FCE602CDBE82B0036698C /* Peliculas.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75FCE5F2CDBE82B0036698C /* Peliculas.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C75724C22CDBDF8700369421 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C75FCE5B2CDBE16F0036698C /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		C75FCE5D2CDBE1FA0036698C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C75FCE5F2CDBE82B0036698C /* Peliculas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peliculas.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				C75724BA2CDBDF8500369421 /* Main.storyboard */,
 				C75FCE5D2CDBE1FA0036698C /* DetailViewController.swift */,
 				C75FCE5B2CDBE16F0036698C /* TableViewController.swift */,
+				C75FCE5F2CDBE82B0036698C /* Peliculas.swift */,
 				C75724BD2CDBDF8700369421 /* Assets.xcassets */,
 				C75724BF2CDBDF8700369421 /* LaunchScreen.storyboard */,
 				C75724C22CDBDF8700369421 /* Info.plist */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C75FCE602CDBE82B0036698C /* Peliculas.swift in Sources */,
 				C75724B92CDBDF8500369421 /* ViewController.swift in Sources */,
 				C75724B52CDBDF8500369421 /* AppDelegate.swift in Sources */,
 				C75FCE5E2CDBE1FA0036698C /* DetailViewController.swift in Sources */,

@@ -9,10 +9,18 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
-    let contenido = ["Uno","dos","tres"]
+    var peliculas = [Pelicula]()
+    
+    func crearPeliculas() {
+        let sentidoDeLaVida = Pelicula(titulo: "El sentido de la vida", caratula: "sentido.jpg", fecha: "1983", descripcion: "Conjunto de episodios que muestran de forma disparatada los momentos más importantes del ciclo de la vida. Desde el nacimiento a la muerte, pasando por asuntos como la filosofía, la historia o la medicina, todo tratado con el inconfundible humor de los populares cómicos ingleses. El prólogo es un cortometraje independiente rodado por Terry Gilliam: Seguros permanentes Crimson.")
+
+        self.peliculas.append(sentidoDeLaVida)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        crearPeliculas()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -20,13 +28,13 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return contenido.count
+            return peliculas.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        cell.textLabel!.text = contenido[indexPath.row]
+        cell.textLabel!.text = peliculas[indexPath.row].titulo
 
         return cell
         
@@ -35,12 +43,12 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         if let indexPath = self.tableView.indexPathForSelectedRow {
-            let object = self.contenido[indexPath.row]
+            let pelicula = self.peliculas[indexPath.row]
             
 
             // Conexión con el controlador detalle
             let detailViewController = splitViewController!.viewController(for: .secondary) as? DetailViewController
-            detailViewController?.etiqueta.text = object
+            detailViewController?.etiqueta.text = pelicula.titulo
             
             //Si no se muestra el detalle del controlador es porque el dispositivo es demasiado pequesño (un movil)
             if !detailViewController!.isBeingPresented {
