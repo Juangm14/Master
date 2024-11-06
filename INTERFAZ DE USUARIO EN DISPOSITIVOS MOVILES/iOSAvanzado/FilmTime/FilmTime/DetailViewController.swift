@@ -8,8 +8,11 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
-    @IBOutlet weak var etiqueta: UILabel!
+    
+    @IBOutlet weak var titulo: UILabel!
+    @IBOutlet weak var anyoPeli: UILabel!
+    @IBOutlet weak var descripcionPeli: UITextView!
+    @IBOutlet weak var imagenPeli: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +20,18 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    func didChangePelicula(with: Pelicula){
+        if(with.titulo != self.titulo.text){
+            self.titulo.text = with.titulo
+            self.anyoPeli.text = with.fecha
+            self.descripcionPeli.text = with.descripcion
+            
+            if let image = UIImage(named: with.caratula) {
+                self.imagenPeli.image = image
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

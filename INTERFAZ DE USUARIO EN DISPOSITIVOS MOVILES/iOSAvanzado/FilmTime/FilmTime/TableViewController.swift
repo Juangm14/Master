@@ -48,7 +48,9 @@ class TableViewController: UITableViewController {
 
             // Conexión con el controlador detalle
             let detailViewController = splitViewController!.viewController(for: .secondary) as? DetailViewController
-            detailViewController?.etiqueta.text = pelicula.titulo
+            
+            //En vez de actualizar los valores qaui, los actualizamos la vista del detalle.
+            detailViewController?.didChangePelicula(with: pelicula)
             
             //Si no se muestra el detalle del controlador es porque el dispositivo es demasiado pequesño (un movil)
             if !detailViewController!.isBeingPresented {
