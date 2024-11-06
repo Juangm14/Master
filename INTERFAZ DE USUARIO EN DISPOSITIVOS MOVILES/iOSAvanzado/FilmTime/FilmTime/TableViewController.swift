@@ -36,10 +36,16 @@ class TableViewController: UITableViewController {
 
         if let indexPath = self.tableView.indexPathForSelectedRow {
             let object = self.contenido[indexPath.row]
+            
 
             // Conexión con el controlador detalle
             let detailViewController = splitViewController!.viewController(for: .secondary) as? DetailViewController
             detailViewController?.etiqueta.text = object
+            
+            //Si no se muestra el detalle del controlador es porque el dispositivo es demasiado pequesño (un movil)
+            if !detailViewController!.isBeingPresented {
+                splitViewController!.showDetailViewController(detailViewController!, sender: self)
+            }
         }
     }
 
