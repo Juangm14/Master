@@ -13,6 +13,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var anyoPeli: UILabel!
     @IBOutlet weak var descripcionPeli: UITextView!
     @IBOutlet weak var imagenPeli: UIImageView!
+    @IBOutlet weak var stackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,16 @@ class DetailViewController: UIViewController {
             }
         }
     }
+    
+    override func viewWillLayoutSubviews() {
+        if view.bounds.size.width >= view.bounds.size.height {
+            self.stackView.axis = .horizontal
+        }
+        else {
+            self.stackView.axis = .vertical
+        }
+    }
+
     
     /*
     // MARK: - Navigation
