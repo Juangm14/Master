@@ -12,4 +12,6 @@
     <color name="custom_blue">#3F51B5</color>
     <color name="custom_red">#ff0000</color>
     <color name="custom_green">#00ff00</color>
+    <color name="color_fondo">#CDCDCD</color>
+    <color name="color_texto">#000080</color>
 </resources>

@@ -28,13 +28,19 @@
                 android:layout_height="wrap_content"
                 android:text="Añadir Tarea" />
 
-            <TextView
-                android:id="@+id/txtListaTareas"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="71dp"
-                android:paddingTop="16dp"
-                android:text="Lista de Tareas\n"
-                android:textSize="18sp" />
+                android:layout_height="580dp">
+
+                <TextView
+                    android:id="@+id/txtListaTareas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="16dp"
+                    android:text="Lista de Tareas\n"
+                    android:textSize="18sp" />
+
+            </ScrollView>
 
         </LinearLayout>
     </ScrollView>

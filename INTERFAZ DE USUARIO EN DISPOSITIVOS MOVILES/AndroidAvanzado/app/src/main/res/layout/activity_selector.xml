@@ -10,102 +10,100 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Drawables"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045" />
-
-    <Button
-        android:id="@+id/customNotifSnackbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notificaciones SnackBar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintBottom_toTopOf="@id/custom_component"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/custom_notificaciones"
-        app:layout_constraintVertical_bias="0.099" />
-
-    <Button
-        android:id="@+id/barraEstado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Barra de estado"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notif_dialog"
-        app:layout_constraintVertical_bias="0.205" />
-
-    <Button
-        android:id="@+id/customGrafica"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gráfica personalizada"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.556"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customEditText"
-        app:layout_constraintVertical_bias="0.09" />
-
-    <Button
-        android:id="@+id/custom_notificaciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notificaciones"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customGrafica"
-        app:layout_constraintVertical_bias="0.119" />
-
-    <Button
-        android:id="@+id/customEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Componentes compuestos"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.563"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/custom_component"
-        app:layout_constraintVertical_bias="0.063" />
-
-    <Button
-        android:id="@+id/notif_dialog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cuadro de diálogo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customNotifSnackbar"
-        app:layout_constraintVertical_bias="0.148" />
-
-    <Button
-        android:id="@+id/pantallaTactil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pantalla tactil"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="667dp" />
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <Button
         android:id="@+id/custom_component"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Extensión de vistas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.556"
+        app:layout_constraintTop_toBottomOf="@id/drawables_btn"
+        app:layout_constraintBottom_toTopOf="@id/customEditText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/drawables_btn"
-        app:layout_constraintVertical_bias="0.059" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/customEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Componentes compuestos"
+        app:layout_constraintTop_toBottomOf="@id/custom_component"
+        app:layout_constraintBottom_toTopOf="@id/customGrafica"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/customGrafica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gráfica personalizada"
+        app:layout_constraintTop_toBottomOf="@id/customEditText"
+        app:layout_constraintBottom_toTopOf="@id/custom_notificaciones"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/custom_notificaciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notificaciones"
+        app:layout_constraintTop_toBottomOf="@id/customGrafica"
+        app:layout_constraintBottom_toTopOf="@id/customNotifSnackbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/customNotifSnackbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notificaciones SnackBar"
+        app:layout_constraintTop_toBottomOf="@id/custom_notificaciones"
+        app:layout_constraintBottom_toTopOf="@id/notif_dialog"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/notif_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cuadro de diálogo"
+        app:layout_constraintTop_toBottomOf="@id/customNotifSnackbar"
+        app:layout_constraintBottom_toTopOf="@id/barraEstado"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/barraEstado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Barra de estado"
+        app:layout_constraintTop_toBottomOf="@id/notif_dialog"
+        app:layout_constraintBottom_toTopOf="@id/pantallaTactil"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/pantallaTactil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pantalla táctil"
+        app:layout_constraintTop_toBottomOf="@id/barraEstado"
+        app:layout_constraintBottom_toTopOf="@id/estilos_main"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/estilos_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estilos Main"
+        app:layout_constraintTop_toBottomOf="@id/pantallaTactil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

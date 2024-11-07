@@ -1,6 +1,17 @@
 <resources>
-    <style name="Widget.Theme.AppCompat.Light.DarkActionBar.MyView" parent="">
-        <item name="android:background">@color/gray_600</item>
-        <item name="exampleColor">@color/light_blue_600</item>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowBackground">@color/color_fondo</item>
+        <item name="android:textColorPrimary">@color/color_texto</item>
+        <item name="android:fontFamily">serif</item>
+    </style>
+
+    <style name="EstiloTitulo" parent="@android:style/TextAppearance.Large">
+        <item name="android:textColor">@color/color_texto</item>
+    </style>
+
+    <style name="EstiloBoton">
+        <item name="android:background">@drawable/fondo_boton</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:gravity">center</item>
     </style>
 </resources>
