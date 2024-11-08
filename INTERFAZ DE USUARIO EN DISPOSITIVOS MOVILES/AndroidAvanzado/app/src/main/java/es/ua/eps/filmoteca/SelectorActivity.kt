@@ -66,5 +66,10 @@ class SelectorActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.ejemploHilos.setOnClickListener {
+            val intent = Intent(this, EjemploHilosActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

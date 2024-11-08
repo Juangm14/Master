@@ -6,104 +6,121 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/customGrafica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Gráfica personalizada"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/customEditText" />
+
+    <Button
         android:id="@+id/drawables_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="Drawables"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/custom_component"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_chainStyle="spread" />
-
-    <Button
-        android:id="@+id/custom_component"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Extensión de vistas"
-        app:layout_constraintTop_toBottomOf="@id/drawables_btn"
-        app:layout_constraintBottom_toTopOf="@id/customEditText"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/pantallaTactil" />
 
     <Button
         android:id="@+id/customEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="Componentes compuestos"
-        app:layout_constraintTop_toBottomOf="@id/custom_component"
-        app:layout_constraintBottom_toTopOf="@id/customGrafica"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/drawables_btn" />
 
     <Button
-        android:id="@+id/customGrafica"
+        android:id="@+id/ejemplo_hilos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gráfica personalizada"
-        app:layout_constraintTop_toBottomOf="@id/customEditText"
-        app:layout_constraintBottom_toTopOf="@id/custom_notificaciones"
+        android:layout_marginTop="4dp"
+        android:text="Ejemplo Hilos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/custom_notificaciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notificaciones"
-        app:layout_constraintTop_toBottomOf="@id/customGrafica"
-        app:layout_constraintBottom_toTopOf="@id/customNotifSnackbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/customNotifSnackbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notificaciones SnackBar"
-        app:layout_constraintTop_toBottomOf="@id/custom_notificaciones"
-        app:layout_constraintBottom_toTopOf="@id/notif_dialog"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/notif_dialog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cuadro de diálogo"
-        app:layout_constraintTop_toBottomOf="@id/customNotifSnackbar"
-        app:layout_constraintBottom_toTopOf="@id/barraEstado"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/barraEstado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Barra de estado"
-        app:layout_constraintTop_toBottomOf="@id/notif_dialog"
-        app:layout_constraintBottom_toTopOf="@id/pantallaTactil"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/estilos_main" />
 
     <Button
         android:id="@+id/pantallaTactil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pantalla táctil"
-        app:layout_constraintTop_toBottomOf="@id/barraEstado"
-        app:layout_constraintBottom_toTopOf="@id/estilos_main"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.112" />
+
+    <Button
+        android:id="@+id/customNotifSnackbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Notificaciones SnackBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/custom_notificaciones" />
+
+    <Button
+        android:id="@+id/notif_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Cuadro de diálogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/customNotifSnackbar" />
+
+    <Button
+        android:id="@+id/barraEstado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Barra de estado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notif_dialog" />
 
     <Button
         android:id="@+id/estilos_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="Estilos Main"
-        app:layout_constraintTop_toBottomOf="@id/pantallaTactil"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/custom_component" />
+
+    <Button
+        android:id="@+id/custom_component"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Extensión de vistas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barraEstado" />
+
+    <Button
+        android:id="@+id/custom_notificaciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Notificaciones"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/customGrafica" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -48,6 +48,18 @@
         android:theme="@style/AppTheme"
         tools:targetApi="34">
         <activity
+            android:name=".CorrutinasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AsyncTaskActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ThreadsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EjemploHilosActivity"
+            android:exported="false" />
+        <activity
             android:name=".EstilosSecondaryActivity"
             android:exported="false" />
         <activity

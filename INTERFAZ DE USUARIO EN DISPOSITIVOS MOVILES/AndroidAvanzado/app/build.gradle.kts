@@ -71,6 +71,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
+    implementation(libs.kotlin.coroutines)
 
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)
