@@ -13,12 +13,24 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var anyoPeli: UILabel!
     @IBOutlet weak var descripcionPeli: UITextView!
     @IBOutlet weak var imagenPeli: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        scrollView.addSubview(stackView)
+            scrollView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+                stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+                stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+                stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            
+                stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+            ])
     }
     
     func didChangePelicula(with: Pelicula){
