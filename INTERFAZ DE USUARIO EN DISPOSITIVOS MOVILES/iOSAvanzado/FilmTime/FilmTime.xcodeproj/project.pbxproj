@@ -16,6 +16,8 @@
 		C75FCE5C2CDBE16F0036698C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75FCE5B2CDBE16F0036698C /* TableViewController.swift */; };
 		C75FCE5E2CDBE1FA0036698C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75FCE5D2CDBE1FA0036698C /* DetailViewController.swift */; };
 		C75FCE602CDBE82B0036698C /* Peliculas.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75FCE5F2CDBE82B0036698C /* Peliculas.swift */; };
+		C79DCE472CE5131C005BFA12 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79DCE462CE5131C005BFA12 /* CollectionViewController.swift */; };
+		C79DCE492CE513AC005BFA12 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79DCE482CE513AC005BFA12 /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		C75FCE5B2CDBE16F0036698C /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		C75FCE5D2CDBE1FA0036698C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C75FCE5F2CDBE82B0036698C /* Peliculas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peliculas.swift; sourceTree = "<group>"; };
+		C79DCE462CE5131C005BFA12 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		C79DCE482CE513AC005BFA12 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				C75724B62CDBDF8500369421 /* SceneDelegate.swift */,
 				C75724B82CDBDF8500369421 /* ViewController.swift */,
 				C75724BA2CDBDF8500369421 /* Main.storyboard */,
+				C79DCE482CE513AC005BFA12 /* CollectionViewCell.swift */,
+				C79DCE462CE5131C005BFA12 /* CollectionViewController.swift */,
 				C75FCE5D2CDBE1FA0036698C /* DetailViewController.swift */,
 				C75FCE5B2CDBE16F0036698C /* TableViewController.swift */,
 				C75FCE5F2CDBE82B0036698C /* Peliculas.swift */,
@@ -149,8 +155,10 @@
 			files = (
 				C75FCE602CDBE82B0036698C /* Peliculas.swift in Sources */,
 				C75724B92CDBDF8500369421 /* ViewController.swift in Sources */,
+				C79DCE492CE513AC005BFA12 /* CollectionViewCell.swift in Sources */,
 				C75724B52CDBDF8500369421 /* AppDelegate.swift in Sources */,
 				C75FCE5E2CDBE1FA0036698C /* DetailViewController.swift in Sources */,
+				C79DCE472CE5131C005BFA12 /* CollectionViewController.swift in Sources */,
 				C75724B72CDBDF8500369421 /* SceneDelegate.swift in Sources */,
 				C75FCE5C2CDBE16F0036698C /* TableViewController.swift in Sources */,
 			);
