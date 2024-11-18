@@ -1,22 +1,20 @@
 package es.ua.eps.chatbot
 
+import android.content.Intent
 import android.graphics.Color
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.Gravity
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.unit.dp
-import androidx.core.view.marginBottom
 import es.ua.eps.chatbot.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.io.BufferedReader
-import java.io.IOException
-import java.io.InputStreamReader
-import java.io.PrintWriter
+import java.io.*
 import java.net.Socket
 
 class MainActivity : AppCompatActivity() {
@@ -25,9 +23,9 @@ class MainActivity : AppCompatActivity() {
     private var socket: Socket? = null
     private var output: PrintWriter? = null
     private var input: BufferedReader? = null
-
     private var serverIP: String = "192.168.100.12"
     private var serverPort: Int = 6000
+    private val IMAGE_PICK_CODE = 1000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,109 +33,86 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.targetAddress.setText(serverIP)
-        binding.port.setText((serverPort ?: 0).toString())
+        binding.port.setText(serverPort.toString())
 
-        // Botón para crear un nuevo socket
         binding.newSocketButton.setOnClickListener {
             val targetAddress = binding.targetAddress.text.toString()
             val port = binding.port.text.toString()
-
             if (targetAddress.isNotBlank() && port.isNotBlank()) {
                 serverIP = targetAddress
                 serverPort = port.toIntOrNull() ?: 0
-
                 if (serverPort > 0 && esDireccionIPv4Valida(targetAddress)) {
-                    // Cierra la conexión anterior si existe
                     CoroutineScope(Dispatchers.IO).launch {
                         closeConnection()
                         connectToServer()
                     }
                 } else {
-                    if(!esDireccionIPv4Valida(targetAddress)){
-                        showToast("Por favor, ingresa una dirección IP válida.")
-                    }else {
-                        showToast("Por favor, ingresa un puerto válido.")
-                    }
+                    showToast("Dirección o puerto inválido.")
                 }
             } else {
                 showToast("Por favor, ingresa una dirección y un puerto.")
             }
         }
 
-        // Botón para enviar mensaje
         binding.sendButton.setOnClickListener {
             val message = binding.messageInput.text.toString()
             if (message.isNotBlank()) {
                 CoroutineScope(Dispatchers.IO).launch {
-                    sendMessage(message)
+                    sendTextMessage(message)
                 }
             } else {
                 showToast("El mensaje no puede estar vacío")
             }
         }
 
-        // Botón para cerrar el puerto
         binding.closePortButton.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
                 closeConnection()
             }
         }
+    }
 
-        // Botón para eliminar el socket
-        binding.deleteSocketButton.setOnClickListener {
-            CoroutineScope(Dispatchers.IO).launch {
-                deleteSocket()
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == IMAGE_PICK_CODE && resultCode == RESULT_OK) {
+            val uri = data?.data
+            val filePath = uri?.let { uriPath ->
+                val cursor = contentResolver.query(uriPath, null, null, null, null)
+                cursor?.let {
+                    it.moveToFirst()
+                    val index = it.getColumnIndex(MediaStore.Images.Media.DATA)
+                    val path = it.getString(index)
+                    it.close()
+                    path
+                }
+            }
+
+            filePath?.let {
+                CoroutineScope(Dispatchers.IO).launch {
+                    sendImage(File(it))
+                }
             }
         }
     }
 
-    //Fúncion que comprueba si la dirección IPV4 introducida es válida.
-    fun esDireccionIPv4Valida(ip: String): Boolean {
-        val partes = ip.split(".")
-        if (partes.size != 4) return false
-        for (parte in partes) {
-            val numero = parte.toIntOrNull() ?: return false
-            if (numero < 0 || numero > 255) return false
-        }
-        return true
-    }
-
-    //Fúncion que comprueba si la dirección IPV4 introducida es válida. Esta es con regex, preguntada a GPT para ver si obtenia una más facil.
-    //La incluyo para saber que también es posible con otras librerias pero no la incluyo porque no la entiendo al 100% la validación.
-//    fun esDireccionIPValida(ip: String): Boolean {
-//        val patronIP = Regex("^((25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$")
-//        return patronIP.matches(ip)
-//    }
-
     private fun connectToServer() {
         try {
-            // Si ya hay una conexión abierta, ciérrala primero
             socket?.close()
-            socket = null
-            output = null
-            input = null
-
-            // Ahora, establece la nueva conexión
             socket = Socket(serverIP, serverPort)
             output = PrintWriter(socket!!.getOutputStream(), true)
             input = BufferedReader(InputStreamReader(socket!!.getInputStream()))
 
             runOnUiThread {
-                binding.connectionStatus.text = "Status: Connected to $serverIP:$serverPort"
-                binding.messageContainer.addView(createMessageTextView("Conexión establecida"))
-                showToast("Conectado al servidor")
+                binding.connectionStatus.text = "Conectado a $serverIP:$serverPort"
+                showToast("Conexión establecida")
             }
 
-            // Luego, comienza a escuchar mensajes
             CoroutineScope(Dispatchers.IO).launch {
                 listenForMessages()
             }
-
         } catch (e: IOException) {
-            socket?.close()
-            socket = null
             runOnUiThread {
-                binding.connectionStatus.text = "Status: Connection failed"
+                binding.connectionStatus.text = "Conexión fallida"
                 showToast("Error al conectar: ${e.message}")
             }
         }
@@ -146,11 +121,26 @@ class MainActivity : AppCompatActivity() {
     private fun listenForMessages() {
         try {
             var message: String?
-            while (socket != null && !socket!!.isClosed && input != null) {
-                message = input?.readLine()
-                if (message != null) {
+            while (input?.readLine().also { message = it } != null) {
+                if (message!!.startsWith("TEXT:")) {
+                    val textMessage = message!!.removePrefix("TEXT:")
                     runOnUiThread {
-                        binding.messageContainer.addView(createMessageToast(message, isMine = false))
+                        binding.messageContainer.addView(createMessageTextView(textMessage, isMine = false))
+                    }
+                } else if (message!!.startsWith("IMAGE:")) {
+                    val filePath = applicationContext.filesDir.absolutePath + "/received_image.jpg"
+                    val file = File(filePath)
+                    val outputStream = FileOutputStream(file)
+                    val buffer = ByteArray(4096)
+                    var bytesRead: Int
+                    while (socket!!.getInputStream().read(buffer).also { bytesRead = it } != -1) {
+                        outputStream.write(buffer, 0, bytesRead)
+                    }
+                    outputStream.close()
+
+                    runOnUiThread {
+                        val bitmap = BitmapFactory.decodeFile(filePath)
+                        binding.messageContainer.addView(createImageView(bitmap))
                     }
                 }
             }
@@ -161,30 +151,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun closeConnection() {
+    private fun sendTextMessage(message: String) {
         try {
-            socket?.close()
-            socket = null
-            output = null
-            input = null
+            output?.println("TEXT:$message")
             runOnUiThread {
-                binding.connectionStatus.text = "Status: Disconnected"
-                binding.messageContainer.addView(createMessageTextView("Conexión cerrada"))
-                showToast("Conexión cerrada")
-            }
-        } catch (e: IOException) {
-            runOnUiThread {
-                showToast("Error al cerrar la conexión: ${e.message}")
-            }
-        }
-    }
-
-    private fun sendMessage(message: String) {
-        try {
-            output?.println(message)
-            runOnUiThread {
-                //binding.messageContainer.addView(createMessageTextView("Tú: $message"))
-                binding.messageContainer.addView(createMessageToast("Tú: $message", isMine = true))
+                binding.messageContainer.addView(createMessageTextView("Tú: $message", isMine = true))
                 binding.messageInput.text.clear()
             }
         } catch (e: IOException) {
@@ -194,50 +165,58 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun sendImage(imageFile: File) {
+        try {
+            val outputStream = socket!!.getOutputStream()
+            output?.println("IMAGE:")
+            val fileInputStream = FileInputStream(imageFile)
+            val buffer = ByteArray(4096)
+            var bytesRead: Int
+            while (fileInputStream.read(buffer).also { bytesRead = it } != -1) {
+                outputStream.write(buffer, 0, bytesRead)
+            }
+            outputStream.flush()
+            fileInputStream.close()
+        } catch (e: Exception) {
+            runOnUiThread {
+                showToast("Error al enviar imagen: ${e.message}")
+            }
+        }
+    }
 
-    private fun createMessageToast(message: String, isMine: Boolean): TextView {
+    private fun closeConnection() {
+        try {
+            socket?.close()
+            socket = null
+            runOnUiThread {
+                binding.connectionStatus.text = "Desconectado"
+            }
+        } catch (e: IOException) {
+            runOnUiThread {
+                showToast("Error al cerrar la conexión: ${e.message}")
+            }
+        }
+    }
+
+    private fun createMessageTextView(message: String, isMine: Boolean): TextView {
         val textView = TextView(this)
         val params = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.WRAP_CONTENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
         )
-
-        params.bottomMargin = 16
-
-        if (isMine) {
-            params.gravity = Gravity.END
-            textView.setBackgroundResource(R.drawable.bocadillo_salida)
-            params.leftMargin = 96
-        } else {
-            params.gravity = Gravity.START
-            textView.setBackgroundResource(R.drawable.bocadillo_entrada)
-            params.rightMargin = 96
-        }
-
+        params.gravity = if (isMine) Gravity.END else Gravity.START
         textView.layoutParams = params
+        textView.text = message
         textView.setPadding(16, 16, 16, 16)
-        textView.text = message
+        textView.setBackgroundResource(if (isMine) R.drawable.bocadillo_salida else R.drawable.bocadillo_entrada)
         textView.setTextColor(Color.BLACK)
-        textView.textSize = 16f
-
         return textView
     }
 
-    private fun deleteSocket() {
-        socket?.close()
-        socket = null
-        runOnUiThread {
-            binding.connectionStatus.text = "Status: Disconnected"
-            binding.messageContainer.removeAllViews()
-            showToast("Socket eliminado")
-        }
-    }
-
-    private fun createMessageTextView(message: String): TextView {
-        val textView = TextView(this)
-        textView.text = message
-        textView.setPadding(8, 8, 8, 8)
-        return textView
+    private fun createImageView(bitmap: android.graphics.Bitmap): android.widget.ImageView {
+        val imageView = android.widget.ImageView(this)
+        imageView.setImageBitmap(bitmap)
+        return imageView
     }
 
     private fun showToast(message: String) {
@@ -246,12 +225,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun esDireccionIPv4Valida(ip: String): Boolean {
+        val partes = ip.split(".")
+        return partes.size == 4 && partes.all { it.toIntOrNull() in 0..255 }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
-        try {
-            socket?.close()
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
+        closeConnection()
     }
 }
