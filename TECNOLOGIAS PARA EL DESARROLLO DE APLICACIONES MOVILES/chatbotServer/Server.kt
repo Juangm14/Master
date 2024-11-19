@@ -51,9 +51,15 @@ fun handleClient(clientSocket: Socket) {
 
         while (true) {
             val messageType = input.readLine() ?: break
+
+            println("messageType")
+            println(messageType)
+            
             when {
                 messageType.startsWith("TEXT:") -> {
-                    clientMessage = messageType.removePrefix("TEXT:")
+                    clientMessage = messageType.removePrefix("TEXT:")                     
+                    println("clientMessage")
+                    println(clientMessage)   
                     println("Mensaje recibido del cliente (${clientSocket.inetAddress.hostAddress}): $clientMessage")
                     broadcastMessage("TEXT:$clientMessage", clientSocket)
                 }

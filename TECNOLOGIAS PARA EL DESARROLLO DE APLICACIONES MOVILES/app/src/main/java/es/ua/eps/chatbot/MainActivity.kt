@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.ui.unit.dp
 import es.ua.eps.chatbot.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -70,6 +71,12 @@ class MainActivity : AppCompatActivity() {
                 closeConnection()
             }
         }
+
+        binding.sendImageButton.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(intent, IMAGE_PICK_CODE)
+        }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -204,11 +211,27 @@ class MainActivity : AppCompatActivity() {
             LinearLayout.LayoutParams.WRAP_CONTENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
+
         params.gravity = if (isMine) Gravity.END else Gravity.START
+
+        params.topMargin = 16
+        params.bottomMargin = 16
+        if (isMine) {
+            params.leftMargin = 150
+        }else {
+            params.rightMargin = 150
+        }
+
         textView.layoutParams = params
+
         textView.text = message
         textView.setPadding(16, 16, 16, 16)
-        textView.setBackgroundResource(if (isMine) R.drawable.bocadillo_salida else R.drawable.bocadillo_entrada)
+        textView.setBackgroundResource(
+            if (isMine) {
+                R.drawable.bocadillo_salida
+            } else {
+                R.drawable.bocadillo_entrada
+            })
         textView.setTextColor(Color.BLACK)
         return textView
     }
@@ -227,7 +250,13 @@ class MainActivity : AppCompatActivity() {
 
     fun esDireccionIPv4Valida(ip: String): Boolean {
         val partes = ip.split(".")
-        return partes.size == 4 && partes.all { it.toIntOrNull() in 0..255 }
+        if (partes.size != 4) return false
+
+        for (parte in partes) {
+            val numero = parte.toIntOrNull() ?: return false
+            if (numero < 0 || numero > 255) return false
+        }
+        return true
     }
 
     override fun onDestroy() {
