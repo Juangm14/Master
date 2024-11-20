@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Base64
 import android.view.Gravity
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -17,6 +18,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.*
 import java.net.Socket
+import javax.crypto.Cipher
+import javax.crypto.spec.SecretKeySpec
 
 class MainActivity : AppCompatActivity() {
 
@@ -71,35 +74,49 @@ class MainActivity : AppCompatActivity() {
                 closeConnection()
             }
         }
-
-        binding.sendImageButton.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            startActivityForResult(intent, IMAGE_PICK_CODE)
-        }
-
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == IMAGE_PICK_CODE && resultCode == RESULT_OK) {
-            val uri = data?.data
-            val filePath = uri?.let { uriPath ->
-                val cursor = contentResolver.query(uriPath, null, null, null, null)
-                cursor?.let {
-                    it.moveToFirst()
-                    val index = it.getColumnIndex(MediaStore.Images.Media.DATA)
-                    val path = it.getString(index)
-                    it.close()
-                    path
-                }
-            }
+    fun cifrarTexto(texto: String, claveSecreta: String): String {
+        try {
+            // Convierte la clave secreta en un formato adecuado
+            val secretKey = SecretKeySpec(claveSecreta.toByteArray(Charsets.UTF_8), "AES")
 
-            filePath?.let {
-                CoroutineScope(Dispatchers.IO).launch {
-                    sendImage(File(it))
-                }
-            }
+            // Inicializa el cifrador
+            val cipher = Cipher.getInstance("AES")
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey)
+
+            // Cifra el texto
+            val textoCifrado = cipher.doFinal(texto.toByteArray(Charsets.UTF_8))
+
+            // Convierte el texto cifrado a una cadena en base64 para enviarlo fácilmente
+            return Base64.encodeToString(textoCifrado, Base64.DEFAULT)
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
+        return ""
+    }
+
+    fun descifrarTexto(textoCifrado: String, claveSecreta: String): String {
+        try {
+            // Convierte la clave secreta en un formato adecuado
+            val secretKey = SecretKeySpec(claveSecreta.toByteArray(Charsets.UTF_8), "AES")
+
+            // Inicializa el cifrador
+            val cipher = Cipher.getInstance("AES")
+            cipher.init(Cipher.DECRYPT_MODE, secretKey)
+
+            // Decodifica el texto cifrado de base64
+            val textoCifradoBytes = Base64.decode(textoCifrado, Base64.DEFAULT)
+
+            // Descifra el texto
+            val textoDescifrado = cipher.doFinal(textoCifradoBytes)
+
+            // Convierte el texto descifrado de bytes a String
+            return String(textoDescifrado, Charsets.UTF_8)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return ""
     }
 
     private fun connectToServer() {
@@ -129,26 +146,10 @@ class MainActivity : AppCompatActivity() {
         try {
             var message: String?
             while (input?.readLine().also { message = it } != null) {
-                if (message!!.startsWith("TEXT:")) {
-                    val textMessage = message!!.removePrefix("TEXT:")
-                    runOnUiThread {
-                        binding.messageContainer.addView(createMessageTextView(textMessage, isMine = false))
-                    }
-                } else if (message!!.startsWith("IMAGE:")) {
-                    val filePath = applicationContext.filesDir.absolutePath + "/received_image.jpg"
-                    val file = File(filePath)
-                    val outputStream = FileOutputStream(file)
-                    val buffer = ByteArray(4096)
-                    var bytesRead: Int
-                    while (socket!!.getInputStream().read(buffer).also { bytesRead = it } != -1) {
-                        outputStream.write(buffer, 0, bytesRead)
-                    }
-                    outputStream.close()
-
-                    runOnUiThread {
-                        val bitmap = BitmapFactory.decodeFile(filePath)
-                        binding.messageContainer.addView(createImageView(bitmap))
-                    }
+                // La IP ya está incluida en el mensaje por el servidor
+                runOnUiThread {
+                    var mensaje = descifrarTexto(message!!, claveSecreta = "clavesecreta1234")
+                    binding.messageContainer.addView(createMessageTextView(mensaje!!, isMine = false))
                 }
             }
         } catch (e: IOException) {
@@ -158,9 +159,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun sendTextMessage(message: String) {
+    fun sendTextMessage(message: String) {
+        val mensajeCifrado = cifrarTexto("$serverIP: $message", "clavesecreta1234") //Clave secreta
         try {
-            output?.println("TEXT:$message")
+            output?.println(mensajeCifrado)  // Enviar el mensaje cifrado
+            output?.flush()
             runOnUiThread {
                 binding.messageContainer.addView(createMessageTextView("Tú: $message", isMine = true))
                 binding.messageInput.text.clear()
@@ -168,25 +171,6 @@ class MainActivity : AppCompatActivity() {
         } catch (e: IOException) {
             runOnUiThread {
                 showToast("Error al enviar el mensaje: ${e.message}")
-            }
-        }
-    }
-
-    private fun sendImage(imageFile: File) {
-        try {
-            val outputStream = socket!!.getOutputStream()
-            output?.println("IMAGE:")
-            val fileInputStream = FileInputStream(imageFile)
-            val buffer = ByteArray(4096)
-            var bytesRead: Int
-            while (fileInputStream.read(buffer).also { bytesRead = it } != -1) {
-                outputStream.write(buffer, 0, bytesRead)
-            }
-            outputStream.flush()
-            fileInputStream.close()
-        } catch (e: Exception) {
-            runOnUiThread {
-                showToast("Error al enviar imagen: ${e.message}")
             }
         }
     }

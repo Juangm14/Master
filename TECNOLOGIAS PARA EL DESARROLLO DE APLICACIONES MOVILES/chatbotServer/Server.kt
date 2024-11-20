@@ -46,27 +46,16 @@ fun handleClient(clientSocket: Socket) {
     try {
         val input = BufferedReader(InputStreamReader(clientSocket.getInputStream()))
         val output = PrintWriter(clientSocket.getOutputStream(), true)
-        val dataInputStream = clientSocket.getInputStream()
+        val clientIp = clientSocket.inetAddress.hostAddress
         var clientMessage: String?
 
         while (true) {
-            val messageType = input.readLine() ?: break
+            clientMessage = input.readLine() ?: break  // Leemos el mensaje
 
-            println("messageType")
-            println(messageType)
-            
-            when {
-                messageType.startsWith("TEXT:") -> {
-                    clientMessage = messageType.removePrefix("TEXT:")                     
-                    println("clientMessage")
-                    println(clientMessage)   
-                    println("Mensaje recibido del cliente (${clientSocket.inetAddress.hostAddress}): $clientMessage")
-                    broadcastMessage("TEXT:$clientMessage", clientSocket)
-                }
-                messageType.startsWith("IMAGE:") -> {
-                    println("Recibiendo imagen del cliente (${clientSocket.inetAddress.hostAddress})...")
-                    broadcastImage(dataInputStream, clientSocket)
-                }
+            // Verificamos que el mensaje no sea vacío o nulo
+            if (!clientMessage.isNullOrEmpty()) {
+                println("Mensaje recibido de $clientIp: $clientMessage")
+                broadcastMessage(clientMessage, clientSocket)  // Enviamos el mensaje cifrado
             }
         }
     } catch (e: Exception) {
@@ -82,35 +71,17 @@ fun handleClient(clientSocket: Socket) {
     }
 }
 
+
+
 fun broadcastMessage(message: String, sender: Socket) {
+    val senderIp = sender.inetAddress.hostAddress  // IP del cliente que envió el mensaje
     for (client in clients) {
         if (client != sender) {
             try {
                 val output = PrintWriter(client.getOutputStream(), true)
-                output.println(message)
+                output.println("$message")  // Solo enviamos el mensaje
             } catch (e: Exception) {
                 println("Error enviando mensaje: ${e.message}")
-            }
-        }
-    }
-}
-
-fun broadcastImage(inputStream: InputStream, sender: Socket) {
-    val buffer = ByteArray(4096)
-    var bytesRead: Int
-    for (client in clients) {
-        if (client != sender) {
-            try {
-                val outputStream = client.getOutputStream()
-                outputStream.write("IMAGE:".toByteArray(Charsets.UTF_8))
-                outputStream.flush()
-                while (inputStream.read(buffer).also { bytesRead = it } != -1) {
-                    outputStream.write(buffer, 0, bytesRead)
-                }
-                outputStream.flush()
-                println("Imagen enviada a ${client.inetAddress.hostAddress}")
-            } catch (e: Exception) {
-                println("Error enviando imagen a ${client.inetAddress.hostAddress}: ${e.message}")
             }
         }
     }
