@@ -13,7 +13,7 @@
 
         <EditText
             android:id="@+id/targetAddress"
-            android:layout_width="0dp"
+            android:layout_width="153dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="Target Address"
@@ -21,10 +21,18 @@
 
         <EditText
             android:id="@+id/port"
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:hint="Port"
             android:inputType="number" />
+
+        <EditText
+            android:id="@+id/alias"
+            android:layout_width="129dp"
+            android:layout_height="wrap_content"
+            android:hint="Alias"
+            android:inputType="text" />
+
     </LinearLayout>
 
     <!-- Botones para gestionar el socket -->

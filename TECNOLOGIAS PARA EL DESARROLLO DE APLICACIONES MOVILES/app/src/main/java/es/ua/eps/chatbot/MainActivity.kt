@@ -1,17 +1,13 @@
 package es.ua.eps.chatbot
 
-import android.content.Intent
 import android.graphics.Color
-import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Base64
 import android.view.Gravity
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.unit.dp
 import es.ua.eps.chatbot.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -29,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     private var input: BufferedReader? = null
     private var serverIP: String = "192.168.100.12"
     private var serverPort: Int = 6000
-    private val IMAGE_PICK_CODE = 1000
+    private var aliasClient: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +37,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.newSocketButton.setOnClickListener {
             val targetAddress = binding.targetAddress.text.toString()
+            aliasClient = binding.alias.text.toString()
+
             val port = binding.port.text.toString()
             if (targetAddress.isNotBlank() && port.isNotBlank()) {
                 serverIP = targetAddress
@@ -160,7 +158,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun sendTextMessage(message: String) {
-        val mensajeCifrado = cifrarTexto("$serverIP: $message", "clavesecreta1234") //Clave secreta
+        val mensajeCifrado = cifrarTexto("$aliasClient: $message", "clavesecreta1234") //Clave secreta
         try {
             output?.println(mensajeCifrado)  // Enviar el mensaje cifrado
             output?.flush()
