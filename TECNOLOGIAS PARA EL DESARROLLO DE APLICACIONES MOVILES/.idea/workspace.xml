@@ -22,10 +22,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dcadd472-dc18-402e-be21-c7e9bd4bb670" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/es/ua/eps/chatbot/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/es/ua/eps/chatbot/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/bocadillo_entrada.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bocadillo_entrada.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/bocadillo_salida.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bocadillo_salida.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbotServer/Server.jar" beforeDir="false" afterPath="$PROJECT_DIR$/chatbotServer/Server.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbotServer/Server.kt" beforeDir="false" afterPath="$PROJECT_DIR$/chatbotServer/Server.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
