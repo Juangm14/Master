@@ -1,7 +1,6 @@
 package es.ua.eps.chatbot
 
 import android.graphics.Color
-import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Base64
 import android.view.Gravity
@@ -82,6 +81,19 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        binding.sendToOneButton.setOnClickListener {
+            val message = binding.messageInput.text.toString()
+            val recipientIp = binding.recipientIp.text.toString()
+
+            if (message.isNotBlank() && recipientIp.isNotBlank() && esDireccionIPv4Valida(recipientIp)) {
+                CoroutineScope(Dispatchers.IO).launch {
+                    sendPrivateMessage(message, recipientIp)
+                }
+            } else {
+                showToast("El mensaje o la IP del destinatario no puede estar vacío o ser inválido.")
+            }
+        }
+
         binding.closePortButton.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
                 closeConnection()
@@ -103,7 +115,7 @@ class MainActivity : AppCompatActivity() {
             val textoCifrado = cipher.doFinal(texto.toByteArray(Charsets.UTF_8))
 
             // Convierte el texto cifrado a una cadena en base64 para enviarlo fácilmente
-            return Base64.encodeToString(textoCifrado, Base64.DEFAULT)
+            return Base64.encodeToString(textoCifrado, Base64.NO_WRAP)
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -121,7 +133,7 @@ class MainActivity : AppCompatActivity() {
             cipher.init(Cipher.DECRYPT_MODE, secretKey)
 
             // Decodifica el texto cifrado de base64
-            val textoCifradoBytes = Base64.decode(textoCifrado, Base64.DEFAULT)
+            val textoCifradoBytes = Base64.decode(textoCifrado, Base64.NO_WRAP)
 
             // Descifra el texto
             val textoDescifrado = cipher.doFinal(textoCifradoBytes)
@@ -195,6 +207,27 @@ class MainActivity : AppCompatActivity() {
         val mensajeCifrado = cifrarTexto("$aliasClient:$message", "clavesecreta1234") //Clave secreta
         try {
             output?.println(mensajeCifrado)  // Enviar el mensaje cifrado
+            output?.flush()
+            runOnUiThread {
+                binding.messageContainer.addView(createMessageLayout("$message", isMine = true, aliasClient))
+                binding.messageInput.text.clear()
+            }
+        } catch (e: IOException) {
+            runOnUiThread {
+                showToast("Error al enviar el mensaje: ${e.message}")
+            }
+        }
+    }
+
+    //Se envia un mensaje al servidor. Con el alias del cliente y el receptor sin cifrar y su mensaje cifrado mediante AESS 16bytes (Los Bytes lo define la clave secreta)
+    private fun sendPrivateMessage(message: String, recipientIp: String) {
+        var mensajeCifrado = cifrarTexto("$aliasClient:$message", "clavesecreta1234")
+        try {
+            val ipCifrada = cifrarTexto("$recipientIp", "claveservidor123")
+
+            mensajeCifrado = "$ipCifrada:$mensajeCifrado"
+            //Concateanamos la ip del receptor cifrada para que el servidor solo se la envie a este separandolo por ":".
+            output?.println(mensajeCifrado)
             output?.flush()
             runOnUiThread {
                 binding.messageContainer.addView(createMessageLayout("$message", isMine = true, aliasClient))

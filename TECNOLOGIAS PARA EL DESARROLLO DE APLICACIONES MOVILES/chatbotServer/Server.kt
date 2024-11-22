@@ -5,12 +5,40 @@ import java.net.InetAddress
 import java.net.ServerSocket
 import java.net.Socket
 import java.util.concurrent.CopyOnWriteArrayList
+import java.util.Base64
+import javax.crypto.Cipher
+import javax.crypto.spec.SecretKeySpec
+
 
 // Lista concurrente para almacenar los sockets de los clientes conectados
 val clients = CopyOnWriteArrayList<Socket>()
 
 // Lista de direcciones IP bloqueadas (actualmente solo contiene una cadena vacía). Si añadimos la Ip de un dispositivo e intentas conectarte falla.
 val ipsBloqueadas = arrayOf("")
+
+//Misma función que tiene el cliente para descifrar la ip del receptor.
+fun descifrarTexto(textoCifrado: String, claveSecreta: String): String {
+    try {
+        // Convierte la clave secreta en un formato adecuado
+        val secretKey = SecretKeySpec(claveSecreta.toByteArray(Charsets.UTF_8), "AES")
+
+        // Inicializa el cifrador
+        val cipher = Cipher.getInstance("AES")
+        cipher.init(Cipher.DECRYPT_MODE, secretKey)
+
+        // Decodifica el texto cifrado de base64
+        val textoCifradoBytes = Base64.getDecoder().decode(textoCifrado)
+
+        // Descifra el texto
+        val textoDescifrado = cipher.doFinal(textoCifradoBytes)
+
+        // Convierte el texto descifrado de bytes a String
+        return String(textoDescifrado, Charsets.UTF_8)
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+    return ""
+}
 
 fun main() {
     val serverPort = 6000
@@ -63,7 +91,18 @@ fun handleClient(clientSocket: Socket) {
             // Verificamos que el mensaje no sea vacío o nulo y se envía
             if (!clientMessage.isNullOrEmpty()) {
                 println("Mensaje recibido de $clientIp: $clientMessage")
-                broadcastMessage(clientMessage, clientSocket)  // Enviamos el mensaje cifrado
+                //En caso de que sea mensaje privado tendrá ":" sin cifrar y obtendremos la ip del receptor privada y el mensaje cifrado(aún faltaria descifrar otra vez).
+                val partes = clientMessage.split(":")
+                if (partes.size == 2) {
+                    val recipientIp = descifrarTexto(partes[0], "claveservidor123")
+                    val message = partes[1]
+
+                    println("$recipientIp es la ip del receptor.")
+                    println("$message es el mensaje.")
+                    sendMessageToOne(message, recipientIp) // Enviamos el mensaje cifrado solo a un cliente.
+                } else {
+                    broadcastMessage(clientMessage, clientSocket) // Enviamos el mensaje cifrado a todos los clientes conectados.
+                }
             }
         }
     } catch (e: Exception) {
@@ -96,3 +135,21 @@ fun broadcastMessage(message: String, sender: Socket) {
         }
     }
 }
+
+//Mandamos solo el mensaje a un cliente en concreto.
+fun sendMessageToOne(message: String, recipientIp: String) {
+    for (client in clients) {
+        if (client.inetAddress.hostAddress == recipientIp) {
+            try {
+                val output = PrintWriter(client.getOutputStream(), true)
+                output.println("$message")
+                println("Mensaje enviado a $recipientIp")
+                return
+            } catch (e: Exception) {
+                println("Error enviando mensaje a $recipientIp: ${e.message}")
+            }
+        }
+    }
+    println("No se encontró un cliente con la IP $recipientIp")
+}
+

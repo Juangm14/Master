@@ -72,23 +72,43 @@
         android:hint="Type a message" />
 
     <!-- Botón para enviar mensajes -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp">
-
-        <Button
-            android:id="@+id/sendButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Send" />
-
-    </LinearLayout>
 
 
     <!-- Estado de la conexión -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Enviar a todos" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/recipient_ip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="IP del destinatario" />
+
+        <Button
+            android:id="@+id/sendToOneButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar a una persona" />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/connectionStatus"
         android:layout_width="match_parent"
