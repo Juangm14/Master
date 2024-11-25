@@ -1,0 +1,81 @@
+<html>
+<head>
+	<title>Almacenamiento Offline</title>
+
+	<style type="text/css">
+	#contenedor-nota {
+		margin-left:auto;
+		margin-right:auto;  
+		height: 475px;
+		width: 475px;
+		background-image: /* TODO DEFINIR IMAGEN */
+		background-repeat: no-repeat;
+	}  
+
+	#nota {
+		height: 300px;
+		width: 300px;
+		padding: 120px 100px 100px 75px; 
+		color: #486891;
+		font-family:  Arial,sans-serif;
+		font-size: 140%;
+		font-style: italic; 
+		font-weight:bold; 
+		line-height: 1.5em;  
+	}
+	#nota:focus {
+		outline: none;
+	}
+	#borrarNota {
+		border:1px solid silver;
+		padding:10px;
+		font-weight:bold; 
+		text-decoration: none;         
+	}
+	#borrarNota:hover {
+		background-color:silver;       
+	}
+	</style>
+
+
+	<script type="text/javascript"><!--
+		window.onload = function() 
+		{
+			var texto = // TODO OBTENER ITEM 'savedNote'
+
+			if( !texto )
+			{
+				var texto = 'Puedes escribir directamente sobre esta nota... '
+							+'el texto ser&aacute; guardado autom&aacute;ticamente';
+			}
+			document.getElementById('nota').innerHTML = texto;
+		}
+
+		function almacenarNota() 
+		{
+			var texto = document.getElementById('nota').innerHTML;
+
+			// TODO GUARDAR texto EN 'savedNote'
+		}
+
+		function borrarNota() 
+		{
+			// TODO BORRAR CONTENIDO
+
+			return false;
+		}
+	// --></script>
+
+</head>
+
+<body>
+
+	<a id="borrarNota" href='' onclick='borrarNota();'>Borrar localStorage</a>
+
+	<div id="contenedor-nota">
+		<div id="nota" contenteditable="true" onkeyup="almacenarNota();"></div>
+	</div>
+
+</body>
+</html>
+

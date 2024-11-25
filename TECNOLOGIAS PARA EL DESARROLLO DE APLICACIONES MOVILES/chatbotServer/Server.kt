@@ -94,12 +94,11 @@ fun handleClient(clientSocket: Socket) {
                 //En caso de que sea mensaje privado tendrá ":" sin cifrar y obtendremos la ip del receptor privada y el mensaje cifrado(aún faltaria descifrar otra vez).
                 val partes = clientMessage.split(":")
                 if (partes.size == 2) {
+                    //Desciframos la ip del receptor y procedemos a enviar el mensaje cifrado.
                     val recipientIp = descifrarTexto(partes[0], "claveservidor123")
                     val message = partes[1]
 
-                    println("$recipientIp es la ip del receptor.")
-                    println("$message es el mensaje.")
-                    sendMessageToOne(message, recipientIp) // Enviamos el mensaje cifrado solo a un cliente.
+                    sendMessageToOne(message, recipientIp, clientSocket) // Enviamos el mensaje cifrado solo a un cliente.
                 } else {
                     broadcastMessage(clientMessage, clientSocket) // Enviamos el mensaje cifrado a todos los clientes conectados.
                 }
@@ -136,10 +135,10 @@ fun broadcastMessage(message: String, sender: Socket) {
     }
 }
 
-//Mandamos solo el mensaje a un cliente en concreto.
-fun sendMessageToOne(message: String, recipientIp: String) {
+//Mandamos solo el mensaje a un cliente en concreto, distinto al que manda el mensaje.
+fun sendMessageToOne(message: String, recipientIp: String, sender: Socket) {
     for (client in clients) {
-        if (client.inetAddress.hostAddress == recipientIp) {
+        if (client.inetAddress.hostAddress == recipientIp && client != sender) {
             try {
                 val output = PrintWriter(client.getOutputStream(), true)
                 output.println("$message")

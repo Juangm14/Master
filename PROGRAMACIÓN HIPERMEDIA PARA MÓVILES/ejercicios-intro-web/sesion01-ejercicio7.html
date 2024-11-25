@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS 3</title>
+	<style type="text/css">
+		.borderRadius {
+			/* TODO BORDE REDONDEADO CON UN RADIO DE 30px */
+		}
+		.borderShadow {
+			/* TODO SOMBRA DE BORDE */
+		}
+		.textShadow {
+			/* TODO SOMBRA DE TEXTO */
+		}
+		.multiColumn {
+			/* TODO INDICAR NÚMERO DE COLUMNAS Y ESPACIO ENTRE COLUMNAS */
+		}
+		#boxTransition{
+			/* TODO INDICAR TRANSICIÓN SOBRE LA PROPIEDAD margin-left */
+		}
+		#boxTransition.transitionLeft {
+			margin-left: 0;
+		}
+		#boxTransition.transitionRight {
+			margin-left: 500px;
+		}
+	</style>
+</head>
+<body style="padding-left:50px">
+
+	<div class="borderRadius" style="width:100px;height:100px;text-align:center;border:2px solid black;"> <br/><br/>border radius </div>
+
+	<!-- - - - - - - - - - - - - - - - - -->
+	<br/><br/>
+
+	<div class="borderShadow" style="width:100px;height:100px;text-align:center;border:2px solid black;"> <br/><br/>border shadow </div>
+
+	<!-- - - - - - - - - - - - - - - - - -->
+	<br/><br/>
+
+	<span class="textShadow" style="font-size:20px;">Text Shadow</span>
+
+
+	<!-- - - - - - - - - - - - - - - - - -->
+	<br/><br/>
+
+	<div class="multiColumn" style="width:300px;border:1px solid gray;padding:10px">
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+	</div>
+
+	<!-- - - - - - - - - - - - - - - - - -->
+	<br/><br/>
+
+	<div style="border:1px solid silver; padding: 10px; width: 520px">
+		<div id="boxTransition" style="background-color:red;width:10px;height:10px;"></div>
+		<br/>
+		<input type="button" value="&lt;&lt;&lt;&lt;" onclick="document.getElementById('boxTransition').className = 'transitionLeft';"/>
+		<input type="button" value="&gt;&gt;&gt;&gt;" onclick="document.getElementById('boxTransition').className = 'transitionRight';"/>
+
+	</div>
+
+</body>
+</html>
+
