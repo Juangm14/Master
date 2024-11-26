@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="/js/formulario.js"></script>
+    <link rel="stylesheet" href="css/formulario.css">
+    <title>Validación de un formulario</title>
+</head>
+<body>
+    <div id="contenedor">
+        <div>
+            <span class="etiquetas">Usuario: </span>
+            <input id="usuario">
+        </div>
+        <div>
+            <span class="mensaje-error" id="errorusuario"></span>
+        </div>
+        <div>
+            <span class="etiquetas">Contraseña: </span>
+            <input id="password" type="password">
+        </div>
+        <div>
+            <span class="mensaje-error" id="errorpassword"></span>
+        </div>
+
+        <button id="entrar" onclick="validar()">Entrar</button>
+    </div>
+    
+</body>
+</html>

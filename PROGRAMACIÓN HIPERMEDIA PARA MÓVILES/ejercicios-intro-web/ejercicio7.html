@@ -5,18 +5,39 @@
 	<style type="text/css">
 		.borderRadius {
 			/* TODO BORDE REDONDEADO CON UN RADIO DE 30px */
+			-webkit-border-radius: 30px;
+			-moz-border-radius: 30px;
+			border-radius: 30px;
 		}
 		.borderShadow {
 			/* TODO SOMBRA DE BORDE */
+			-moz-box-shadow:5px 5px 6px #888888;
+			-webkit-box-shadow:5px 5px 6px #888888;
+			box-shadow:5px 5px 6px #888888;
 		}
 		.textShadow {
 			/* TODO SOMBRA DE TEXTO */
+			-moz-text-shadow:2px 2px 2px #888888;
+			-webkit-text-shadow:2px 2px 2px #888888;
+			text-shadow: 2px 2px 2px #9e9e9e;
 		}
 		.multiColumn {
-			/* TODO INDICAR NÚMERO DE COLUMNAS Y ESPACIO ENTRE COLUMNAS */
+			-webkit-column-count: 2;
+			-webkit-column-rule: 1px solid silver;
+			-webkit-column-gap: 15px;
+			-moz-column-count: 2;
+			-moz-column-rule: 1px solid silver;
+			-moz-column-gap: 15px;
+			column-count: 2;
+			column-rule: 1px solid silver;
+			column-gap: 15px;
 		}
 		#boxTransition{
 			/* TODO INDICAR TRANSICIÓN SOBRE LA PROPIEDAD margin-left */
+			-webkit-transition: margin-left 3s ease-in-out;
+			-moz-transition: margin-left 3s ease-in-out;
+			-o-transition: margin-left 3s ease-in-out;
+			transition: margin-left 3s ease-in-out;
 		}
 		#boxTransition.transitionLeft {
 			margin-left: 0;
