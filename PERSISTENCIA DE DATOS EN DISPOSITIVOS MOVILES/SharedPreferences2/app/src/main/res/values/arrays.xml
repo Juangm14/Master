@@ -1,0 +1,23 @@
+<resources>
+    <string-array name="text_colors">
+        <item>Negro</item>
+        <item>Rojo</item>
+        <item>Azul</item>
+    </string-array>
+    <string-array name="text_colors_values">
+        <item>#000000</item>
+        <item>#FF0000</item>
+        <item>#0000FF</item>
+    </string-array>
+
+    <string-array name="background_colors">
+        <item>Blanco</item>
+        <item>Amarillo</item>
+        <item>Verde</item>
+    </string-array>
+    <string-array name="background_colors_values">
+        <item>#FFFFFF</item>
+        <item>#FFFF00</item>
+        <item>#00FF00</item>
+    </string-array>
+</resources>

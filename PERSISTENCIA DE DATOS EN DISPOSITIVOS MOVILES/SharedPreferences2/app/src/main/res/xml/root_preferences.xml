@@ -1,0 +1,50 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Formato básico">
+        <ListPreference
+            android:key="text_size"
+            android:title="Tamaño del texto"
+            android:defaultValue="16"
+            android:entries="@array/tamanos_texto"
+            android:entryValues="@array/tamanos_texto" />
+
+        <ListPreference
+            android:key="text_color"
+            android:title="Color del texto"
+            android:defaultValue="#000000"
+            android:entries="@array/colores"
+            android:entryValues="@array/colores" />
+
+        <ListPreference
+            android:key="background_color"
+            android:title="Color de fondo"
+            android:defaultValue="#FFFFFF"
+            android:entries="@array/colores"
+            android:entryValues="@array/colores" />
+
+        <SwitchPreference
+            android:key="bold"
+            android:title="Texto en negrita"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
+            android:key="italic"
+            android:title="Texto en cursiva"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Formato avanzado">
+        <SeekBarPreference
+            android:key="alpha"
+            android:title="Transparencia"
+            android:min="0"
+            android:max="255" />
+
+        <SeekBarPreference
+            android:key="rotation"
+            android:title="Rotación"
+            android:defaultValue="0"
+            android:min="0"
+            android:max="360" />
+    </PreferenceCategory>
+</PreferenceScreen>
