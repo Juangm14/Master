@@ -19,17 +19,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import kotlin.system.exitProcess
 
 @Composable
-fun RegisterForm(navController: NavHostController) {
-    var nombreComleto by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-    var username by remember { mutableStateOf("") }
-    var email by remember { mutableStateOf("") }
-    var errorMessage by remember { mutableStateOf("") }
-
+fun LoginUser(navController: NavHostController) {
     val context = LocalContext.current
     val userDatabase = UserDatabase(context)
+
+    var username by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+    var errorMessage by remember { mutableStateOf("") }
 
     Box(
         modifier = Modifier
@@ -45,22 +44,6 @@ fun RegisterForm(navController: NavHostController) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             TextField(
-                value = email,
-                onValueChange = { email = it },
-                placeholder = { Text(text = "Email") }
-            )
-
-            Spacer(modifier = Modifier.padding(8.dp))
-
-            TextField(
-                value = nombreComleto,
-                onValueChange = { nombreComleto = it },
-                placeholder = { Text(text = "Login") }
-            )
-
-            Spacer(modifier = Modifier.padding(8.dp))
-
-            TextField(
                 value = username,
                 onValueChange = { username = it },
                 placeholder = { Text(text = "User name") }
@@ -74,6 +57,8 @@ fun RegisterForm(navController: NavHostController) {
                 placeholder = { Text(text = "Password") }
             )
 
+            Spacer(modifier = Modifier.padding(8.dp))
+
             // Mostrar mensaje de error si existe
             if (errorMessage.isNotEmpty()) {
                 Text(
@@ -81,36 +66,32 @@ fun RegisterForm(navController: NavHostController) {
                     color = androidx.compose.ui.graphics.Color.Red,
                     modifier = Modifier.padding(top = 8.dp)
                 )
+                Spacer(modifier = Modifier.padding(8.dp))
             }
 
-            Spacer(modifier = Modifier.padding(8.dp))
-
             Button(onClick = {
-                // Verificar que no haya campos vacíos
-                if (email.isEmpty() || nombreComleto.isEmpty() || password.isEmpty() || username.isEmpty()) {
+                if (password.isEmpty() || username.isEmpty()) {
                     errorMessage = "Todos los campos son obligatorios"
                 } else {
-                    // Llamar a la función para registrar al usuario
-                         val result = userDatabase.createUser(username, password, nombreComleto, email)
-                    if (result != -1L) {
-                        errorMessage = "" // Limpiar error si el registro fue exitoso
-                        navController.popBackStack() // Volver a la pantalla anterior
+                    val userId = userDatabase.login(username, password)
+                    if (userId != -1) {
+                        errorMessage = ""
+                        navController.navigate("userData/${userId}")
                     } else {
-                        errorMessage = "Hubo un error al registrar el usuario"
+                        errorMessage = "El usuario no existe."
                     }
                 }
             }) {
-                Text("New user")
+                Text("Login")
             }
 
             Spacer(modifier = Modifier.padding(8.dp))
 
             Button(onClick = {
-                navController.popBackStack() // Volver a la pantalla anterior
+                exitProcess(0)
             }) {
-                Text("Back")
+                Text("Close")
             }
-
         }
     }
 }

@@ -1,5 +1,6 @@
 package es.ua.eps.sqlite
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -13,12 +14,16 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -29,7 +34,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -39,7 +43,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import es.ua.eps.sqlite.data.User
 import es.ua.eps.sqlite.ui.theme.SQLiteTheme
-import kotlin.math.absoluteValue
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,15 +51,82 @@ class MainActivity : ComponentActivity() {
         setContent {
             SQLiteTheme {
                 val navController = rememberNavController()
-                NavigationGraph(navController)
+                AppWithTopBar(navController)
             }
         }
     }
 }
 
+
+@OptIn(ExperimentalMaterial3Api::class)
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@Composable
+fun AppWithTopBar(navController: NavHostController) {
+    var menuExpanded by remember { mutableStateOf(false) }
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("SQLite App") },
+                navigationIcon = {
+                    IconButton(onClick = { menuExpanded = true }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_menu),
+                            contentDescription = "Menu"
+                        )
+                    }
+                },
+                actions = {
+                    DropdownMenu(
+                        expanded = menuExpanded,
+                        onDismissRequest = { menuExpanded = false }
+                    ) {
+                        DropdownMenuItem(
+                            text = { Text("Create Backup") },
+                            onClick = {
+                                menuExpanded = false
+                                createBackup()
+                            }
+                        )
+                        DropdownMenuItem(
+                            text = { Text("Restore Backup") },
+                            onClick = {
+                                menuExpanded = false
+                                restoreBackup()
+                            }
+                        )
+                        DropdownMenuItem(
+                            text = { Text("Manage Users") },
+                            onClick = {
+                                menuExpanded = false
+                                navController.navigate("userManagement")
+                            }
+                        )
+                    }
+                }
+            )
+        }
+    ) { paddingValues ->
+        Column(modifier = Modifier.padding(paddingValues)) {
+            NavigationGraph(navController)
+        }
+    }
+}
+
+
+fun createBackup() {
+    // Implementa aquí el código para crear un backup
+    Log.d("Backup", "Backup creado exitosamente")
+}
+
+fun restoreBackup() {
+    // Implementa aquí el código para restaurar el backup
+    Log.d("Backup", "Backup restaurado exitosamente")
+}
+
 @Composable
 fun NavigationGraph(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = "userManagement") {
+    NavHost(navController = navController, startDestination = "loginUser") {
         composable("userManagement") {
             UserManagement(navController)
         }
@@ -74,8 +144,21 @@ fun NavigationGraph(navController: NavHostController) {
                 UpdateUser(navController, userId)
             }
         }
-        composable("deleteUser") {
-
+        composable("listUser") {
+            ListUser(navController)
+        }
+        composable("loginUser") {
+            LoginUser(navController)
+        }
+        composable("userData/{userId}",
+            arguments = listOf(navArgument("userId") { type = NavType.IntType })
+        ) {
+            val userId = remember {
+                it.arguments?.getInt("userId")
+            }
+            if (userId != null) {
+                UserData(navController, userId)
+            }
         }
     }
 }
@@ -160,7 +243,7 @@ fun UserManagement(navController: NavHostController) {
             Spacer(modifier = Modifier.padding(8.dp))
 
             Button(onClick = {
-                // Acción para listar usuarios
+                navController.navigate("listUser")
             }) {
                 Text("List users")
             }

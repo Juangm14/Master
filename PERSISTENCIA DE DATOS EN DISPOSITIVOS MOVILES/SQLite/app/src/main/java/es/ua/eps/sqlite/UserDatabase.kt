@@ -144,4 +144,31 @@ class UserDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         db.close()
         return user
     }
+
+    fun login(username: String, password: String): Int {
+        val db = this.readableDatabase
+        val cursor = db.query(
+            TABLE_USERS,
+            arrayOf(COLUMN_ID),
+            "$COLUMN_NOMBRE_USUARIO = ? AND $COLUMN_PASSWORD = ?",
+            arrayOf(username, password),
+            null,
+            null,
+            null
+        )
+
+        var result = -1
+
+        if (cursor.moveToFirst()) {
+            val idColumnIndex = cursor.getColumnIndex(COLUMN_ID)
+            if (idColumnIndex >= 0) {
+                result = cursor.getInt(idColumnIndex)
+            }
+        }
+
+        cursor.close()
+        db.close()
+
+        return result
+    }
 }
