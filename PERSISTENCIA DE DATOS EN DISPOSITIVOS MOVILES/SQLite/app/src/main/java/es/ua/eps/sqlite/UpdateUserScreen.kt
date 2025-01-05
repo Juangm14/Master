@@ -1,5 +1,6 @@
 package es.ua.eps.sqlite
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -7,8 +8,11 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -21,6 +25,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import es.ua.eps.sqlite.data.User
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun UpdateUser(navController: NavHostController, userId: Int){
     val context = LocalContext.current
@@ -34,86 +40,94 @@ fun UpdateUser(navController: NavHostController, userId: Int){
     var email by remember { mutableStateOf(user.email) }
     var errorMessage by remember { mutableStateOf("") }
 
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        contentAlignment = Alignment.Center
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Update Users") }
+            )
+        }
     ) {
-        TextField(
-            value = email,
-            onValueChange = { email = it },
-            placeholder = { Text(text = "Email") }
-        )
-
-        Spacer(modifier = Modifier.padding(8.dp))
-
-        Column(
+        Box(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(16.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
+            contentAlignment = Alignment.Center
         ) {
             TextField(
-                value = nombreComleto,
-                onValueChange = { nombreComleto = it },
-                placeholder = { Text(text = "Nombre completo") }
+                value = email,
+                onValueChange = { email = it },
+                placeholder = { Text(text = "Email") }
             )
 
             Spacer(modifier = Modifier.padding(8.dp))
 
-            TextField(
-                value = password,
-                onValueChange = { password = it },
-                placeholder = { Text(text = "Password") }
-            )
-
-            Spacer(modifier = Modifier.padding(8.dp))
-
-            TextField(
-                value = username,
-                onValueChange = { username = it },
-                placeholder = { Text(text = "User name") }
-            )
-
-            Spacer(modifier = Modifier.padding(8.dp))
-
-            // Mostrar mensaje de error si existe
-            if (errorMessage.isNotEmpty()) {
-                Text(
-                    text = errorMessage,
-                    color = androidx.compose.ui.graphics.Color.Red,
-                    modifier = Modifier.padding(top = 8.dp)
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                TextField(
+                    value = nombreComleto,
+                    onValueChange = { nombreComleto = it },
+                    placeholder = { Text(text = "Nombre completo") }
                 )
 
                 Spacer(modifier = Modifier.padding(8.dp))
-            }
 
-            Button(onClick = {
-                if (email.isEmpty() || nombreComleto.isEmpty() || password.isEmpty() || username.isEmpty()) {
-                    errorMessage = "Todos los campos son obligatorios"
-                } else {
-                    val result = userDatabase.updateUser(user.id, username, password, nombreComleto, email)
-                    if (result != -1) {
-                        errorMessage = ""
-                        navController.popBackStack()
-                    } else {
-                        errorMessage = "Hubo un error al registrar el usuario"
-                    }
+                TextField(
+                    value = password,
+                    onValueChange = { password = it },
+                    placeholder = { Text(text = "Password") }
+                )
+
+                Spacer(modifier = Modifier.padding(8.dp))
+
+                TextField(
+                    value = username,
+                    onValueChange = { username = it },
+                    placeholder = { Text(text = "User name") }
+                )
+
+                Spacer(modifier = Modifier.padding(8.dp))
+
+                // Mostrar mensaje de error si existe
+                if (errorMessage.isNotEmpty()) {
+                    Text(
+                        text = errorMessage,
+                        color = androidx.compose.ui.graphics.Color.Red,
+                        modifier = Modifier.padding(top = 8.dp)
+                    )
+
+                    Spacer(modifier = Modifier.padding(8.dp))
                 }
-            }) {
-                Text("Update user")
+
+                Button(onClick = {
+                    if (email.isEmpty() || nombreComleto.isEmpty() || password.isEmpty() || username.isEmpty()) {
+                        errorMessage = "Todos los campos son obligatorios"
+                    } else {
+                        val result = userDatabase.updateUser(user.id, username, password, nombreComleto, email)
+                        if (result != -1) {
+                            errorMessage = ""
+                            navController.popBackStack()
+                        } else {
+                            errorMessage = "Hubo un error al registrar el usuario"
+                        }
+                    }
+                }) {
+                    Text("Update user")
+                }
+
+                Spacer(modifier = Modifier.padding(8.dp))
+
+                Button(onClick = {
+                    navController.popBackStack()
+                }) {
+                    Text("Back")
+                }
+
             }
-
-            Spacer(modifier = Modifier.padding(8.dp))
-
-            Button(onClick = {
-                navController.popBackStack()
-            }) {
-                Text("Back")
-            }
-
         }
     }
 }

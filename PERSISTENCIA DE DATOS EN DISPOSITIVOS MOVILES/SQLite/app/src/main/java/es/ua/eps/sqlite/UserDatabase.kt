@@ -21,6 +21,10 @@ class UserDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         private const val COLUMN_EMAIL = "email"
     }
 
+    override fun getDatabaseName(): String {
+        return DATABASE_NAME
+    }
+
     override fun onCreate(db: SQLiteDatabase?) {
         if (!isTableExist(db, TABLE_USERS)) {
             val createTableQuery = """
