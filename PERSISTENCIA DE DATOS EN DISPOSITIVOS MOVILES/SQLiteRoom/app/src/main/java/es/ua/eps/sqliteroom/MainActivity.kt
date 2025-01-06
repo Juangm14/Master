@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -40,8 +41,18 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import es.ua.eps.sqlite.data.User
-import es.ua.eps.sqlite.ui.theme.SQLiteTheme
+import es.ua.eps.sqliteroom.ListUserRoom
+import es.ua.eps.sqliteroom.LoginUserRoom
+import es.ua.eps.sqliteroom.RegisterFormRoom
+import es.ua.eps.sqliteroom.UpdateUserRoom
+import es.ua.eps.sqliteroom.UserDataRoom
+import es.ua.eps.sqliteroom.UserDatabaseRoom
+import es.ua.eps.sqliteroom.UserRoom
+import es.ua.eps.sqliteroom.ui.theme.SqliteRoomTheme
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
@@ -52,71 +63,72 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            SQLiteTheme {
+            SqliteRoomTheme {
                 val navController = rememberNavController()
-                NavigationGraph(navController)
+                NavigationGraphRoom(navController)
             }
         }
     }
 }
 
 @Composable
-fun NavigationGraph(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = "loginUser") {
-        composable("loginUser") {
-            LoginUser(navController)
+fun NavigationGraphRoom(navController: NavHostController) {
+    NavHost(navController = navController, startDestination = "loginUserRoom") {
+        composable("loginUserRoom") {
+            LoginUserRoom(navController)
         }
 
-        composable("userManagement") {
-            UserManagement(navController)
+        composable("userManagementRoom") {
+            UserManagementRoom(navController)
         }
 
-        composable("registerUser") {
-            RegisterForm(navController)
+        composable("registerUserRoom") {
+            RegisterFormRoom(navController)
         }
-
         composable(
-            "updateUser/{userId}",
+            "updateUserRoom/{userId}",
             arguments = listOf(navArgument("userId") { type = NavType.IntType })
         ) {
             val userId = remember {
                 it.arguments?.getInt("userId")
             }
             if (userId != null) {
-                UpdateUser(navController, userId)
+                UpdateUserRoom(navController, userId)
             }
         }
 
-        composable("listUser") {
-            ListUser(navController)
+        composable("listUserRoom") {
+            ListUserRoom(navController)
         }
 
         composable(
-            "userData/{userId}",
+            "userDataRoom/{userId}",
             arguments = listOf(navArgument("userId") { type = NavType.IntType })
         ) {
             val userId = remember {
                 it.arguments?.getInt("userId")
             }
             if (userId != null) {
-                UserData(navController, userId)
+                UserDataRoom(navController, userId)
             }
         }
+
     }
 }
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun UserManagement(navController: NavHostController) {
+fun UserManagementRoom(navController: NavHostController) {
     var selectedUserId by remember { mutableStateOf(-1) }
     var showDeletePopup by remember { mutableStateOf(false) }
-    val database = UserDatabase(context = LocalContext.current)
+    val database = UserDatabaseRoom.getInstance(LocalContext.current)
 
-    val usuarios = remember { mutableStateOf(emptyList<User>()) }
-
+    val usuarios = remember { mutableStateOf(emptyList<UserRoom>()) }
     LaunchedEffect(Unit) {
-        usuarios.value = database.getAllUsers()
+        withContext(Dispatchers.IO) {
+            usuarios.value = database.userDao().loadAll()
+        }
     }
 
     Scaffold(
@@ -140,14 +152,14 @@ fun UserManagement(navController: NavHostController) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Button(onClick = {
-                    navController.navigate("registerUser")
+                    navController.navigate("registerUserRoom")
                 }) {
                     Text("New user")
                 }
 
                 Spacer(modifier = Modifier.padding(8.dp))
 
-                DropDownUsers(usuarios.value, selectedUserId) { userId ->
+                DropDownUsersRoom(usuarios.value, selectedUserId) { userId ->
                     selectedUserId = userId
                 }
 
@@ -155,7 +167,7 @@ fun UserManagement(navController: NavHostController) {
 
                 Button(onClick = {
                     if (selectedUserId != -1) {
-                        navController.navigate("updateUser/$selectedUserId")
+                        navController.navigate("updateUserRoom/$selectedUserId")
                     }
                 }) {
                     Text("Update user")
@@ -172,20 +184,25 @@ fun UserManagement(navController: NavHostController) {
                 }
 
                 if (showDeletePopup) {
-                    DeleteUserPopup(
+                    DeleteUserPopupRoom(
                         onDismiss = { showDeletePopup = false },
                         onConfirm = {
                             if (selectedUserId != -1) {
+                                CoroutineScope(Dispatchers.IO).launch {
+                                    database.userDao().deleteById(selectedUserId)
 
-                                database.deleteUser(selectedUserId)
+                                    withContext(Dispatchers.Main) {
+                                        usuarios.value = withContext(Dispatchers.IO) {
+                                            database.userDao().loadAll()
+                                        }
 
-                                usuarios.value = database.getAllUsers()
+                                        if (usuarios.value.none { it.uid == selectedUserId }) {
+                                            selectedUserId = -1
+                                        }
 
-                                if (!usuarios.value.any { it.id == selectedUserId }) {
-                                    selectedUserId = -1
+                                        showDeletePopup = false
+                                    }
                                 }
-
-                                showDeletePopup = false
                             }
                         }
                     )
@@ -194,7 +211,7 @@ fun UserManagement(navController: NavHostController) {
                 Spacer(modifier = Modifier.padding(8.dp))
 
                 Button(onClick = {
-                    navController.navigate("listUser")
+                    navController.navigate("listUserRoom")
                 }) {
                     Text("List users")
                 }
@@ -204,17 +221,17 @@ fun UserManagement(navController: NavHostController) {
 }
 
 @Composable
-fun DropDownUsers(
-    usuarios: List<User>,  // Aceptamos la lista de usuarios como parámetro
+fun DropDownUsersRoom(
+    usuarios: List<UserRoom>,
     selectedUserId: Int,
     onUserSelected: (Int) -> Unit
 ) {
     val isDropDownExpanded = remember { mutableStateOf(false) }
-    val selectedUser = remember { mutableStateOf<User?>(null) }
+    val selectedUser = remember { mutableStateOf<UserRoom?>(null) }
 
     if (usuarios.isNotEmpty() && (selectedUserId == -1 || selectedUser == null)) {
         selectedUser.value = usuarios[0]
-        onUserSelected(selectedUser.value!!.id)
+        onUserSelected(selectedUser.value!!.uid)
     }
 
     Box {
@@ -226,7 +243,7 @@ fun DropDownUsers(
             }
         ) {
             Text(
-                text = selectedUser.value?.username ?: "No users",
+                text = selectedUser.value?.name ?: "No users",
                 modifier = Modifier.padding(8.dp)
             )
             Image(
@@ -243,11 +260,11 @@ fun DropDownUsers(
             if (usuarios.isNotEmpty()) {
                 usuarios.forEach { user ->
                     DropdownMenuItem(
-                        text = { Text(text = user.username) },
+                        text = { Text(text = user.name) },
                         onClick = {
                             isDropDownExpanded.value = false
                             selectedUser.value = user
-                            onUserSelected(user.id) // Devuelve el ID del usuario seleccionado
+                            onUserSelected(user.uid)
                         }
                     )
                 }
@@ -262,11 +279,11 @@ fun DropDownUsers(
 }
 
 @Composable
-fun DeleteUserPopup(
+fun DeleteUserPopupRoom(
     onDismiss: () -> Unit,
     onConfirm: () -> Unit
 ) {
-    androidx.compose.material3.AlertDialog(
+    AlertDialog(
         onDismissRequest = { onDismiss() },
         title = {
             Text(text = "Delete user")
@@ -287,54 +304,3 @@ fun DeleteUserPopup(
     )
 }
 
-fun createBackup(context: Context) {
-    val dbPath = context.getDatabasePath("user_database.db").absolutePath
-    val backupDir = File(context.getExternalFilesDir(null), "SQLiteBackups")
-    if (!backupDir.exists() && !backupDir.mkdirs()) {
-        Toast.makeText(context, "No se pudo crear el directorio de backup", Toast.LENGTH_SHORT)
-            .show()
-        return
-    }
-    val backupFile = File(backupDir, "user_database_backup.db")
-
-    try {
-        if (!File(dbPath).exists()) {
-            Toast.makeText(context, "La base de datos no existe", Toast.LENGTH_SHORT).show()
-            return
-        }
-        FileInputStream(dbPath).use { input ->
-            FileOutputStream(backupFile).use { output ->
-                input.copyTo(output)
-            }
-        }
-        Toast.makeText(
-            context,
-            "Backup creado exitosamente: ${backupFile.absolutePath}",
-            Toast.LENGTH_SHORT
-        ).show()
-    } catch (e: IOException) {
-        Toast.makeText(context, "Error al crear el backup", Toast.LENGTH_SHORT).show()
-    }
-}
-
-fun restoreBackup(context: Context) {
-    val dbPath = context.getDatabasePath("user_database.db").absolutePath
-    val backupFile =
-        File(context.getExternalFilesDir(null), "SQLiteBackups/user_database_backup.db")
-
-    if (!backupFile.exists()) {
-        Toast.makeText(context, "El archivo de backup no existe", Toast.LENGTH_SHORT).show()
-        return
-    }
-
-    try {
-        FileInputStream(backupFile).use { input ->
-            FileOutputStream(dbPath).use { output ->
-                input.copyTo(output)
-            }
-        }
-        Toast.makeText(context, "Backup restaurado exitosamente", Toast.LENGTH_SHORT).show()
-    } catch (e: IOException) {
-        Toast.makeText(context, "Error al restaurar el backup", Toast.LENGTH_SHORT).show()
-    }
-}

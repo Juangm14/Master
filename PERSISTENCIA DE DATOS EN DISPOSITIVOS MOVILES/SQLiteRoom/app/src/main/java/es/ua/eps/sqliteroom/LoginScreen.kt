@@ -1,6 +1,8 @@
-package es.ua.eps.sqlite
+package es.ua.eps.sqliteroom
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -28,14 +30,23 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import es.ua.eps.sqlite.R
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.io.IOException
 import kotlin.system.exitProcess
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginUser(navController: NavHostController) {
+fun LoginUserRoom(navController: NavHostController) {
     val context = LocalContext.current
-    val userDatabase = UserDatabase(context)
+    val database = UserDatabaseRoom.getInstance(LocalContext.current)
 
     var menuExpanded by remember { mutableStateOf(false) }
     var username by remember { mutableStateOf("") }
@@ -46,12 +57,19 @@ fun LoginUser(navController: NavHostController) {
         if (username.isEmpty() || password.isEmpty()) {
             errorMessage = "Todos los campos son obligatorios"
         } else {
-            val userId = userDatabase.login(username, password)
-            if (userId != -1) {
-                errorMessage = ""
-                navController.navigate("userData/$userId")
-            } else {
-                errorMessage = "El usuario no existe."
+            //Hilo de fondo.
+            CoroutineScope(Dispatchers.IO).launch {
+                val userId = database.userDao().login(username, password)
+
+                //Main actualiza los datos tras obtener el resultado del hilo de fondo.
+                withContext(Dispatchers.Main) {
+                    if (userId != null) {
+                        errorMessage = ""
+                        navController.navigate("userDataRoom/$userId")
+                    } else {
+                        errorMessage = "El usuario no existe."
+                    }
+                }
             }
         }
     }
@@ -90,7 +108,7 @@ fun LoginUser(navController: NavHostController) {
                                 text = { Text("Gestionar usuarios") },
                                 onClick = {
                                     menuExpanded = false
-                                    navController.navigate("userManagement")
+                                    navController.navigate("userManagementRoom")
                                 }
                             )
                         }
@@ -143,10 +161,69 @@ fun LoginUser(navController: NavHostController) {
 
                 Spacer(modifier = Modifier.padding(8.dp))
 
-                Button(onClick = { navController.popBackStack() }) {
+                Button(onClick = { exitProcess(0) }) {
                     Text("Cerrar")
                 }
             }
         }
+    }
+}
+
+fun createBackup(context: Context) {
+    val dbPath = context.getDatabasePath("user_database").absolutePath
+    val backupDir = File(context.getExternalFilesDir(null), "")
+
+    if (!backupDir.exists() && !backupDir.mkdirs()) {
+        Toast.makeText(context, "No se pudo crear el directorio de backup", Toast.LENGTH_SHORT)
+            .show()
+        return
+    }
+    val backupFile = File(backupDir, "user_database_backup.db")
+
+    try {
+        if (!File(dbPath).exists()) {
+            Toast.makeText(context, "La base de datos no existe", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        FileInputStream(dbPath).use { input ->
+            FileOutputStream(backupFile).use { output ->
+                input.copyTo(output)
+            }
+        }
+        Toast.makeText(
+            context,
+            "Backup creado exitosamente: ${backupFile.absolutePath}",
+            Toast.LENGTH_SHORT
+        ).show()
+    } catch (e: IOException) {
+        Toast.makeText(context, "Error al crear el backup", Toast.LENGTH_SHORT).show()
+    }
+}
+
+fun restoreBackup(context: Context) {
+    val dbPath = context.getDatabasePath("user_database").absolutePath
+    val backupFile = File(context.getExternalFilesDir(null), "user_database_backup.db")
+
+    if (!backupFile.exists()) {
+        Toast.makeText(context, "El archivo de backup no existe", Toast.LENGTH_SHORT).show()
+        return
+    }
+
+    try {
+        val db = UserDatabaseRoom.getInstance(context)
+        db.close()
+
+        FileInputStream(backupFile).use { input ->
+            FileOutputStream(dbPath).use { output ->
+                input.copyTo(output)
+            }
+        }
+
+        UserDatabaseRoom.getInstance(context)
+
+        Toast.makeText(context, "Backup restaurado exitosamente", Toast.LENGTH_SHORT).show()
+    } catch (e: IOException) {
+        Toast.makeText(context, "Error al restaurar el backup", Toast.LENGTH_SHORT).show()
     }
 }
