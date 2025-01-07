@@ -170,22 +170,27 @@ fun LoginUserRoom(navController: NavHostController) {
 }
 
 fun createBackup(context: Context) {
+    // Obtén la ruta de la base de datos de Room
     val dbPath = context.getDatabasePath("user_database").absolutePath
-    val backupDir = File(context.getExternalFilesDir(null), "")
+    val backupDir = File(context.getExternalFilesDir(null), "SQLiteBackups")
 
+    // Si no existe el directorio, lo crea
     if (!backupDir.exists() && !backupDir.mkdirs()) {
         Toast.makeText(context, "No se pudo crear el directorio de backup", Toast.LENGTH_SHORT)
             .show()
         return
     }
+
     val backupFile = File(backupDir, "user_database_backup.db")
 
     try {
+        // Verifica que la base de datos existe
         if (!File(dbPath).exists()) {
             Toast.makeText(context, "La base de datos no existe", Toast.LENGTH_SHORT).show()
             return
         }
 
+        // Copia el contenido de la base de datos a un archivo de backup
         FileInputStream(dbPath).use { input ->
             FileOutputStream(backupFile).use { output ->
                 input.copyTo(output)
@@ -197,33 +202,30 @@ fun createBackup(context: Context) {
             Toast.LENGTH_SHORT
         ).show()
     } catch (e: IOException) {
-        Toast.makeText(context, "Error al crear el backup", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Error al crear el backup: ${e.message}", Toast.LENGTH_SHORT).show()
     }
 }
 
 fun restoreBackup(context: Context) {
+    // Obtén la ruta de la base de datos de Room
     val dbPath = context.getDatabasePath("user_database").absolutePath
-    val backupFile = File(context.getExternalFilesDir(null), "user_database_backup.db")
+    val backupFile = File(context.getExternalFilesDir(null), "SQLiteBackups/user_database_backup.db")
 
+    // Verifica si el archivo de backup existe
     if (!backupFile.exists()) {
         Toast.makeText(context, "El archivo de backup no existe", Toast.LENGTH_SHORT).show()
         return
     }
 
     try {
-        val db = UserDatabaseRoom.getInstance(context)
-        db.close()
-
+        // Copia el archivo de backup a la ubicación de la base de datos
         FileInputStream(backupFile).use { input ->
             FileOutputStream(dbPath).use { output ->
                 input.copyTo(output)
             }
         }
-
-        UserDatabaseRoom.getInstance(context)
-
         Toast.makeText(context, "Backup restaurado exitosamente", Toast.LENGTH_SHORT).show()
     } catch (e: IOException) {
-        Toast.makeText(context, "Error al restaurar el backup", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Error al restaurar el backup: ${e.message}", Toast.LENGTH_SHORT).show()
     }
 }
