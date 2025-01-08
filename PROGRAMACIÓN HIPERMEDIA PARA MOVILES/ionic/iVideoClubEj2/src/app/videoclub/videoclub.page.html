@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>iVideoclub</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let pelicula of peliculas" button detail>
+      <ion-thumbnail slot="start">
+        <ion-img [src]="pelicula.poster"></ion-img>
+      </ion-thumbnail>
+      <ion-label>
+        <h2><b>{{ pelicula.title }}</b></h2>
+        <p><b>Director: </b>{{ pelicula.director }}</p>
+        <p><b>Año: </b>{{ pelicula.year }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
