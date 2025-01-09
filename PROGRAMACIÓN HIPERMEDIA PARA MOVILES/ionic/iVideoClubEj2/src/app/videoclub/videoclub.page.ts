@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import peliculasJSON from './posters/lista_peliculas.json';
+import { Router } from '@angular/router';
+import { PeliculasAPIService } from '../../services/peliculas-api.service';
 
 @Component({
   selector: 'app-videoclub',
@@ -9,12 +9,27 @@ import peliculasJSON from './posters/lista_peliculas.json';
   standalone: false
 })
 export class VideoclubPage implements OnInit {
+  modoLista: boolean = true;
+  listaPeliculas: any[] = [];
 
-  peliculas: any[] = peliculasJSON;
-
-  constructor(private http: HttpClient) { }
+  constructor(private router: Router, private peliculasAPIService: PeliculasAPIService) {}
 
   ngOnInit() {
+    this.peliculasAPIService.getPeliculas().subscribe(
+      (result) => {
+        this.listaPeliculas = result;
+      },
+      (err) => {
+        console.error('Error al cargar las películas:', err);
+      }
+    );
   }
 
+  cambiarVista() {
+    this.modoLista = !this.modoLista;
+  }
+
+  verPaginaDetalle(id: number): void {
+    this.router.navigate(['/detalle', id]);
+  }
 }

@@ -7,9 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: '', redirectTo: 'home', pathMatch: 'full'
   },
   {
     path: 'autor',
@@ -22,6 +20,10 @@ const routes: Routes = [
   {
     path: 'videoclub',
     loadChildren: () => import('./videoclub/videoclub.module').then( m => m.VideoclubPageModule)
+  },
+  {
+    path: 'detalle',
+    loadChildren: () => import('./detalle/detalle.module').then( m => m.DetallePageModule)
   },
 ];
 

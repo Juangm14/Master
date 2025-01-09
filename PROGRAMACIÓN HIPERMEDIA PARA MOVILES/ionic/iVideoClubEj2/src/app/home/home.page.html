@@ -1,8 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
+    <ion-title>Home</ion-title>
+    
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -14,6 +16,7 @@
   </ion-header>
 
   <div id="container">
-    <h1>Contenido de ejemplo</h1>
+    <ion-button routerLink="/videoclub">Acceso a iVideoclub</ion-button>
+    <ion-button routerLink="/autor">Consultar información</ion-button>
   </div>
 </ion-content>

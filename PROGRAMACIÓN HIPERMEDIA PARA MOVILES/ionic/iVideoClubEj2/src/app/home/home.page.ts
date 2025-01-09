@@ -10,4 +10,19 @@ export class HomePage {
 
   constructor() {}
 
+  ionViewDidEnter() {
+    console.log('ionViewDidEnter HomePage');
+  }
+
+  ionViewWillEnter() {
+    console.log('ionViewWillEnter HomePage');
+  }
+
+  ionViewDidLeave() {
+    console.log('ionViewDidLeave HomePage');
+  }
+
+  ionViewWillLeave() {
+    console.log('ionViewWillLeave HomePage');
+  }
 }
