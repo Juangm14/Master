@@ -1,0 +1,7 @@
+{
+  "name": "iVideoclub",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

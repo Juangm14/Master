@@ -1,0 +1,62 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Capacitor Info</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Version: {{ capacitorInfo.version }}</p>
+      <p>Platform: {{ capacitorInfo.platform }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Device Info</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Model: {{ deviceInfo.model }}</p>
+      <p>Platform: {{ deviceInfo.platform }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Battery Info</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Battery Level: {{ batteryInfo.batteryLevel }}</p>
+      <p>Charging: {{ batteryInfo.isCharging ? 'Yes' : 'No' }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Network Info</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Connection Type: {{ networkInfo.connectionType }}</p>
+      <p>Is Connected: {{ networkInfo.connected ? 'Yes' : 'No' }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>GPS Info</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Latitude: {{ gpsInfo.latitude }}</p>
+      <p>Longitude: {{ gpsInfo.longitude }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Events Logs</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let log of eventLogs">{{ log }}</ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

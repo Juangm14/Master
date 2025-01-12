@@ -1,0 +1,30 @@
+.rojo{
+    background-color: red;
+}
+
+.azul{
+    background-color: blue;
+    height: 100px;
+}
+
+.verde{
+    background-color: green;
+}
+
+.rosa{
+    background-color: pink;
+}
+
+.naranja{
+    background-color: orange;
+    height: 200px;
+}
+
+.bloque {
+    padding: 20px;
+    margin: 6px 0px;
+    color: white;
+    text-align: center;
+    border: 6px solid grey;
+}
+

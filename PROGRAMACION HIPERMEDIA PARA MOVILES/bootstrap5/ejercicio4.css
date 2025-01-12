@@ -1,0 +1,31 @@
+.cabecera{
+    color: white;
+    text-align: center;
+}
+
+.azul{
+    background-color: blue;
+}
+
+.centrado{
+    text-align: center;
+}
+
+.img_small{
+    transform-origin: center;
+}
+
+footer{
+    text-align: center;
+}
+
+.grey{
+    background-color: grey;
+}
+
+button{
+    display: inline-block; 
+    border-radius: 4px; 
+}
+
+

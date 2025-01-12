@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fa535a18-c608-472f-a985-082a54e22c7c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/migrations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/es/ua/eps/contentprovider/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/es/ua/eps/contentprovider/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/es/ua/eps/contentprovider/UserProvider.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/es/ua/eps/contentprovider/ui/theme/Color.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/es/ua/eps/contentprovider/ui/theme/Theme.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/es/ua/eps/contentprovider/ui/theme/Type.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/es/ua/eps/contentprovider/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/bootstrap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/contacto.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/ejercicio1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/ejercicio1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/ejercicio2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/ejercicio2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/ejercicio3.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/ejercicio3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/ejercicio3_item.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/ejercicio4.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/ejercicio4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/imgs/FordMustangBoss302.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/imgs/FordMustangGT500.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/imgs/ford-mustang-gt-fastback.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/imgs/ford-mustang-mach1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/imgs/koenigsegg.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/imgs/mustang-ford.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/imgs/mustangEcoboost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/imgs/tesla.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/bootstrap5/modelos.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/Ejercicio 2/calculadora.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/Ejercicio 2/calculadora_avanzada.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/Ejercicio 2/css/calculadora_avanzada.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/Ejercicio 2/css/formulario.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/Ejercicio 2/formulario.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/Ejercicio 2/js/calculadora.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/Ejercicio 2/js/calculadora_avanzada.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/Ejercicio 2/js/formulario.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/ejercicio1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/ejercicio2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/ejercicio2_contenidos.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/ejercicio2_css.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/ejercicio2_profesorado.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/ejercicio3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/ejercicio3_contenidos.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/ejercicio3_css.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/ejercicio3_profesorado.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/ejercicio4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/ejercicio5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/ejercicio6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/ejercicio7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/imgs/logo.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ejercicios-intro-web/imgs/stickynote.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/.browserslistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/.eslintrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/capacitor.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/ionic.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/app.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/autor/autor-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/autor/autor.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/autor/autor.page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/autor/autor.page.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/autor/autor.page.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/autor/autor.page.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/curriculum/curriculum-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/curriculum/curriculum.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/curriculum/curriculum.page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/curriculum/curriculum.page.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/curriculum/curriculum.page.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/curriculum/curriculum.page.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/detalle/detalle-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/detalle/detalle.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/detalle/detalle.page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/detalle/detalle.page.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/detalle/detalle.page.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/detalle/detalle.page.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/home/home-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/home/home.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/home/home.page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/home/home.page.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/home/home.page.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/home/home.page.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/posters/lista_peliculas.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/videoclub/videoclub-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/videoclub/videoclub.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/videoclub/videoclub.page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/videoclub/videoclub.page.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/videoclub/videoclub.page.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/app/videoclub/videoclub.page.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/assets/cadena_perpetua.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/assets/el_padrino.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/assets/el_padrino_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/assets/icon/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/assets/la_lista_de_schindler.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/assets/pulp_fiction.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/assets/shapes.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/global.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/services/peliculas-api.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/services/peliculas-api.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/services/peliculas.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/services/peliculas.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/theme/variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/src/zone-flags.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoClubEj2/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/.browserslistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/.eslintrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/capacitor.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/ionic.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/app.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/autor/autor-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/autor/autor.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/autor/autor.page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/autor/autor.page.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/autor/autor.page.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/autor/autor.page.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/curriculum/curriculum-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/curriculum/curriculum.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/curriculum/curriculum.page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/curriculum/curriculum.page.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/curriculum/curriculum.page.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/curriculum/curriculum.page.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/example/example-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/example/example.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/example/example.page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/example/example.page.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/example/example.page.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/example/example.page.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/home/home-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/home/home.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/home/home.page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/home/home.page.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/home/home.page.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/home/home.page.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/videoclub/videoclub-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/videoclub/videoclub.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/videoclub/videoclub.page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/videoclub/videoclub.page.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/videoclub/videoclub.page.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/app/videoclub/videoclub.page.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/assets/icon/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/assets/shapes.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/global.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/theme/variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/src/zone-flags.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROGRAMACIÓN HIPERMEDIA PARA MOVILES/ionic/iVideoclub/tsconfig.spec.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\johns\.android\avd\Pixel_7_API_35.avd)]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ContentProvider" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ContentProvider" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ContentProvider" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ContentProvider" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2rGMxowNW20kNRHeBgx5HC1PS65" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android App.app.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "com.google.services.firebase.aqiPopupShown": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/johns/Desktop/Master/Master/PERSISTENCIA DE DATOS EN DISPOSITIVOS MOVILES/ContentProviders",
+    "settings.editor.selected.configurable": "preferences.updates"
+  },
+  "keyToStringList": {
+    "kotlin-gradle-user-dirs": [
+      "C:\\Users\\johns\\.gradle"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\johns\Desktop\Master\Master\PERSISTENCIA DE DATOS EN DISPOSITIVOS MOVILES\app\src\main\java\es\ua\eps\contentprovider" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="ContentProvider.app.main" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fa535a18-c608-472f-a985-082a54e22c7c" name="Changes" comment="" />
+      <created>1736181208248</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1736181208248</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/es/ua/eps/contentprovider/UserProvider.kt</url>
+          <line>50</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

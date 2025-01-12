@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mapa de Ubicación Actual con OpenStreetMap</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        function getGeolocation() {
+            // Intentar obtener la ubicación actual del usuario
+            if (navigator.geolocation) {
+
+                // TODO - OBTENER LA POSICIÓN ACTUAL, PASÁNDO COMO PARÁMETRO EL NOMBRE DE LA FUNCIÓN showPosition
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("La geolocalización no es soportada por este navegador.");
+            }
+        }
+
+        function showPosition(position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+
+            document.getElementById('latitude').innerHTML = lat;
+            document.getElementById('longitude').innerHTML = lng;
+
+            var map = L.map('map').setView([0, 0], 1); // Inicializa el mapa con una vista por defecto
+
+            // Carga y muestra el mapa base de OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Centra el mapa en la ubicación del usuario y ajusta el nivel de zoom
+            map.setView([lat, lng], 13);
+
+            // Añade un marcador en la ubicación del usuario
+            L.marker([lat, lng]).addTo(map)
+                .bindPopup('Estás aquí!')
+                .openPopup();
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Mi Ubicación Actual</h1>
+
+    <p><strong>Latitud:</strong> <span id="latitude">?</span></p>
+
+    <p><strong>Longitud:</strong> <span id="longitude">?</span></p>
+
+    <p><button id="show_position" onclick="getGeolocation()">D&oacute;nde estoy??</button>
+
+    <div id="map" style="height:400px"></div>
+
+</body>
+</html>
