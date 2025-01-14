@@ -7,7 +7,7 @@
         </button>
 
 
-        @if( true || Auth::check() )
+        @if( Auth::check() )
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 mr-auto">
                     <li class="nav-item">
