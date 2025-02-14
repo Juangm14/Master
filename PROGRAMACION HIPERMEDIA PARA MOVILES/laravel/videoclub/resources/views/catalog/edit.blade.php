@@ -8,7 +8,7 @@
             Modificar película
          </div>
          <div class="card-body" style="padding:30px">
-            <form method="POST" action="{{ url('/catalog/edit/' . $id) }}">
+            <form method="POST" action="{{ url('/catalog/edit/' . $pelicula->id) }}">
                @csrf
                @method('PUT')
                <div class="form-group">
@@ -41,5 +41,4 @@
       </div>
    </div>
 </div>
-
 @endsection

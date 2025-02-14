@@ -13,10 +13,20 @@
 
         @if ($pelicula->rented)
             <p><strong>Estado:</strong> Película actualmente alquilada</p>
-            <button class="btn btn-danger">Devolver película</button>
+            <form action="{{action([App\Http\Controllers\CatalogController::class, 'putReturn'], ['id' => $pelicula->id])}}" method="POST" style="display:inline">
+                @method('PUT')
+                @csrf
+                <button type="submit" class="btn btn-danger" style="display:inline">
+                    Devolver película
+                </button>
+            </form>
         @else
             <p><strong>Estado:</strong> Película disponible</p>
-            <button class="btn btn-primary">Alquilar película</button>
+            <form action="{{ action([App\Http\Controllers\CatalogController::class, 'putRent'], ['id' => $pelicula->id]) }}" method="POST" style="display:inline">
+                @method('PUT')
+                @csrf
+                <button type="submit" class="btn btn-primary" style="display:inline">Alquilar película</button>
+            </form>
         @endif
 
         <a href="{{ url('/catalog/edit/' . $pelicula->id) }}" class="btn btn-warning">Editar película</a>

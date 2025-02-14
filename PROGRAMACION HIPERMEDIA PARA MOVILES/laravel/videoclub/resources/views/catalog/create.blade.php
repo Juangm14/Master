@@ -8,7 +8,7 @@
             Añadir película
          </div>
          <div class="card-body" style="padding:30px">
-            <form method="POST" action="">
+            <form method="POST" action="{{ url('/catalog/create') }}">
                @csrf
                <div class="form-group">
                   <label for="title">Título</label>
@@ -40,5 +40,4 @@
       </div>
    </div>
 </div>
-
 @endsection
