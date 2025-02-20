@@ -169,7 +169,7 @@ open class BaseActivity : AppCompatActivity() {
     //---------------------------------
 
     //---------------------------------
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String?>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         for (index in permissions.indices) {
             if (index < grantResults.size  && grantResults[index] == PackageManager.PERMISSION_GRANTED) {
