@@ -6,11 +6,26 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".FilmListActivity">
+    tools:context=".FilmListActivity"
+    android:padding="16dp">
 
+    <!-- ListView para mostrar las películas -->
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
+    <!-- Botón para crear una película -->
+    <Button
+        android:id="@+id/addFilm"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Botón de crear película"
+        android:drawableLeft="@drawable/ic_input_add_custom"
+        android:drawablePadding="8dp"
+        android:gravity="center_horizontal"
+        android:padding="12dp" />
 </LinearLayout>

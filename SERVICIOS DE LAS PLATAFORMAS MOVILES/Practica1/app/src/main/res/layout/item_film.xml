@@ -36,6 +36,16 @@
             android:layout_weight="1"
             android:gravity="top"
             tools:text="Director" />
+        
+        <Button
+            android:id="@+id/removeFilmButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eliminar"
+            android:contentDescription="Botón para eliminar película"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp" />
 
     </LinearLayout>
 </LinearLayout>

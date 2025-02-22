@@ -1,7 +1,10 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    // Add the Google services Gradle plugin
+    id("com.google.gms.google-services")
 }
+
 
 android {
     namespace = "es.ua.eps.raw_filmoteca"
@@ -36,6 +39,14 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    packagingOptions {
+        exclude("META-INF/DEPENDENCIES")
+        exclude("META-INF/LICENSE")
+        exclude("META-INF/LICENSE.txt")
+        exclude("META-INF/NOTICE")
+        exclude("META-INF/NOTICE.txt")
+    }
 }
 
 tasks {
@@ -49,6 +60,20 @@ dependencies {
     implementation("com.google.android.gms:play-services-auth:20.7.0")
     //implementation("com.google.firebase:firebase-auth-ktx")
     //implementation("com.google.firebase:firebase-firestore-ktx")
+// Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
+    implementation("com.google.firebase:firebase-messaging-ktx:23.3.1")
+    implementation("com.google.auth:google-auth-library-oauth2-http:1.0.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.0")
+
+    // TODO: Add the dependencies for Firebase products you want to use
+    // When using the BoM, don't specify versions in Firebase dependencies
+    //implementation("com.google.firebase:firebase-analytics")
+
+    // Add the dependencies for any other desired Firebase products
+    // https://firebase.google.com/docs/android/setup#available-libraries
+
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
 
 
 

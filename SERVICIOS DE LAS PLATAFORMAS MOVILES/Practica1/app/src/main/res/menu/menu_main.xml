@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_about"
+        android:title="Acerca de"
+        android:icon="@android:drawable/ic_menu_info_details"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_sign_out"
+        android:title="Cerrar sesión"
+        android:icon="@android:drawable/ic_menu_revert"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_disconnect"
+        android:title="Desconectar"
+        android:icon="@drawable/ic_exit"
+        app:showAsAction="never" />
+</menu>

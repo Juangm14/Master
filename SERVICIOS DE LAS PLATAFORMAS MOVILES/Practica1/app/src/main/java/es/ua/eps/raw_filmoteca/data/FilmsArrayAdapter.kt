@@ -24,6 +24,12 @@ class FilmsArrayAdapter(context: Context?, resource: Int, objects: List<Film>?)
             bindings.title.text = film.title
             bindings.director.text = film.director
             Log.d("Item", film.title.toString())
+
+            bindings.removeFilmButton.setOnClickListener {
+                Log.d("Remove", "Eliminando película: ${film.title}")
+                remove(film)
+                notifyDataSetChanged()
+            }
         }
 
         return bindings.root
