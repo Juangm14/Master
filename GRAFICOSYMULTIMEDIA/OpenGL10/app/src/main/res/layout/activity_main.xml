@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Aquí van tus botones u otros controles -->
+    <Button
+        android:id="@+id/buttonRotateHeadLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rotar Cabeza Izquierda" />
+
+    <Button
+        android:id="@+id/buttonRotateHeadRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rotar Cabeza Derecha" />
+
+    <!-- Contenedor donde se añadirá el GLSurfaceView -->
+    <FrameLayout
+        android:id="@+id/glSurfaceViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</LinearLayout>

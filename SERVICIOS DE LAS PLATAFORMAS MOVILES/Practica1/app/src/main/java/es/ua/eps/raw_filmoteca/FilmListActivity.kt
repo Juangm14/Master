@@ -20,6 +20,7 @@ import es.ua.eps.raw_filmoteca.databinding.ActivityFilmListBinding
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.EditText
+import android.widget.ListView
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -33,9 +34,7 @@ import java.io.IOException
 class FilmListActivity : BaseActivity()
     , AdapterView.OnItemClickListener {
 
-
     private lateinit var googleSignInClient: GoogleSignInClient
-
 
     private lateinit var bindings : ActivityFilmListBinding
     private lateinit var filmAdapter: FilmsArrayAdapter
@@ -48,6 +47,18 @@ class FilmListActivity : BaseActivity()
             filmAdapter.notifyDataSetChanged()
         })
 
+        bindings.list.setOnItemClickListener { parent, view, position, id ->
+            // Obtienes el ID de la película (o índice) seleccionado
+            val filmId = position // o el ID que estás usando en tu lista
+
+            // Crea un Intent para abrir FilmDataActivity
+            val intent = Intent(this, FilmDataActivity::class.java).apply {
+                putExtra(FilmDataActivity.EXTRA_FILM_ID, filmId)
+            }
+
+            // Inicia la actividad
+            startActivity(intent)
+        }
 
         googleSignInClient = GoogleSignIn.getClient(this, GoogleSignInOptions.DEFAULT_SIGN_IN)
 

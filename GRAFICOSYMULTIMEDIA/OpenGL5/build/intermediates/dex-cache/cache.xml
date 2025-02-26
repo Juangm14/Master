@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/mastermoviles/Desktop/Máster Móviles/OpenGL.Studio/OpenGL5/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="/Users/mastermoviles/Desktop/Máster Móviles/OpenGL.Studio/OpenGL5/app/build/intermediates/pre-dexed/debug/classes-05f1f5df3f1c66b8d45b167c33ad8f2ea968acf9.jar" />
+    </item>
+    <item
+        jar="/Users/mastermoviles/Desktop/Máster Móviles/OpenGL.Studio/OpenGL5/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="/Users/mastermoviles/Desktop/Máster Móviles/OpenGL.Studio/OpenGL5/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.0-b95943d0ce4ab3703b35c474fb0b12f79732c8df.jar" />
+    </item>
+    <item
+        jar="/Users/mastermoviles/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="/Users/mastermoviles/Desktop/Máster Móviles/OpenGL.Studio/OpenGL5/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.0-aff7c9d1e3c12c26e5ed11a5b51c52ca4048c26b.jar" />
+    </item>
+    <item
+        jar="/Users/mastermoviles/Desktop/Máster Móviles/OpenGL.Studio/OpenGL5/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4fcf0b1879f8caf497c073e1432d398e9e2988c1">
+        <dex dex="/Users/mastermoviles/Desktop/Máster Móviles/OpenGL.Studio/OpenGL5/app/build/intermediates/pre-dexed/debug/classes-be2af493c5c44326ca26ec2b58e348ad3526d2b5.jar" />
+    </item>
+
+</items>
