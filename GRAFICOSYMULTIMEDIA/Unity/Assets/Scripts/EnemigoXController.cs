@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemigoXController : MonoBehaviour
 {
     public float speed = 4f; // Velocidad constante del enemigo
     private Rigidbody rb;
