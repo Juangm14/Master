@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(movimiento * velocidad);
 
         // Detecta si se presiona la barra espaciadora y si el jugador está en el suelo.
-        if (Input.GetKeyDown(KeyCode.Space) && enSuelo) 
+        if (Input.GetKeyDown(KeyCode.Space) && enSuelo)
         {
             rb.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse); // Aplica una fuerza hacia arriba para realizar el salto.
             enSuelo = false; // Evita que el jugador haga saltos dobles hasta que vuelva a tocar el suelo.
@@ -62,9 +62,20 @@ public class PlayerController : MonoBehaviour
     }
 
     // Detecta si el jugador toca el suelo.
-    void OnCollisionEnter(Collision collision) 
+    void OnCollisionEnter(Collision collision)
     {
-        enSuelo = true;
+        if (collision.gameObject.CompareTag("suelo"))
+        {
+            enSuelo = true; // El jugador está en el suelo, puede saltar.
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("suelo"))
+        {
+            enSuelo = false; // El jugador ha dejado de tocar el suelo, no puede saltar.
+        }
     }
 
     void SetCountText()
