@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,19 +11,25 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
     private int contador;
+    private int contadorMonedas;
     private int contadorVidas;
 
-    public float fuerzaSalto = 6f; // Define la fuerza con la que el jugador saltará.
-    private bool enSuelo; // Variable para saber si el jugador está en el suelo.
+    public float fuerzaSalto = 6f;
+    private bool enSuelo;
+
+    private bool cargandoNivel = false;
 
     void Start()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded; // Registrar el evento de carga de la escena
+
         rb = GetComponent<Rigidbody>();
         contador = 0;
-        contadorVidas = 3; // Inicializar las vidas del jugador
+        contadorMonedas = 0;
+        contadorVidas = 2;
         SetCountText();
         winText.text = "";
-        UpdateVidasText(); // Actualizar la visualización de las vidas con corazones
+        UpdateVidasText();
         rb.useGravity = true;
         rb.constraints = RigidbodyConstraints.None;
 
@@ -40,18 +47,16 @@ public class PlayerController : MonoBehaviour
 
         if (transform.position.y < -10.0f)
         {
-            // Pierde una vida cuando cae fuera de la zona permitida
             PerderVida();
         }
 
         Vector3 movimiento = new Vector3(posH, 0.0f, posV);
         rb.AddForce(movimiento * velocidad);
 
-        // Detecta si se presiona la barra espaciadora y si el jugador está en el suelo.
         if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(rb.velocity.y) < 0.2f)
         {
-            rb.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse); // Aplica una fuerza hacia arriba para realizar el salto.
-            enSuelo = false; // Evita que el jugador haga saltos dobles hasta que vuelva a tocar el suelo.
+            rb.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse);
+            enSuelo = false;
         }
     }
 
@@ -63,43 +68,89 @@ public class PlayerController : MonoBehaviour
             contador++;
             SetCountText();
         }
+
+        if (other.gameObject.CompareTag("coin"))
+        {
+            other.gameObject.SetActive(false);
+            contadorMonedas++;
+            SetCountText();
+        }
+
+        if (other.gameObject.CompareTag("heart"))
+        {
+            other.gameObject.SetActive(false);
+            contadorVidas++;
+            UpdateVidasText();
+        }
     }
 
-    // Detecta si el jugador toca el suelo.
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("enemigo"))
         {
-            // Pierde una vida al tocar al enemigo
             PerderVida();
         }
     }
 
     void SetCountText()
     {
-        countText.text = "Contador: " + contador.ToString();
-        if (contador >= 5)
+        string escenaActual = SceneManager.GetActiveScene().name;
+
+        int requeridosMonos = 0;
+        int requeridosMonedas = 0;
+
+        switch (escenaActual)
+        {
+            case "Nivel1":
+                requeridosMonos = 5;
+                requeridosMonedas = 0;
+                break;
+            case "Nivel2":
+                requeridosMonos = 4;
+                requeridosMonedas = 0;
+                break;
+            case "Nivel3":
+                requeridosMonos = 4;
+                requeridosMonedas = 1;
+                break;
+            case "Nivel4":
+                requeridosMonos = 5;
+                requeridosMonedas = 2;
+                break;
+            case "Nivel5":
+                requeridosMonos = 5;
+                requeridosMonedas = 3;
+                break;
+        }
+
+        countText.text = "Monos: " + contador.ToString() + "/" + requeridosMonos.ToString() + "\n" +
+                        "Monedas: " + contadorMonedas.ToString() + "/" + requeridosMonedas.ToString();
+
+        if (contador >= requeridosMonos && contadorMonedas >= requeridosMonedas)
         {
             winText.text = "Ganaste!!";
-            Invoke("QuitGame", 1.5f);
+            if (!cargandoNivel)
+            {
+                cargandoNivel = true;
+                Invoke("CargarSiguienteNivel", 2f);
+            }
         }
     }
 
     void UpdateVidasText()
     {
-        // Mostrar las vidas con emoticonos de corazón
         string vidasDisplay = "";
         for (int i = 0; i < contadorVidas; i++)
         {
-            vidasDisplay += "❤ "; // Añadir un corazón por cada vida
+            vidasDisplay += "❤ ";
         }
         vidasText.text = "Vidas: " + vidasDisplay;
     }
 
     void PerderVida()
     {
-        // Restar una vida
         contadorVidas--;
+        UpdateVidasText();
         if (contadorVidas <= 0)
         {
             winText.text = "Perdiste!!";
@@ -107,10 +158,35 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            // Reposicionar al jugador en las coordenadas (-2.25, -1.53, 7.69)
             transform.position = new Vector3(-2.25f, 0.5f, 7.69f);
-            UpdateVidasText(); // Actualizar la visualización de las vidas
         }
+    }
+
+    void CargarSiguienteNivel()
+    {
+        string escenaActual = SceneManager.GetActiveScene().name;
+        string siguienteEscena = "";
+
+        switch (escenaActual)
+        {
+            case "Nivel1": siguienteEscena = "Nivel2"; break;
+            case "Nivel2": siguienteEscena = "Nivel3"; break;
+            case "Nivel3": siguienteEscena = "Nivel4"; break;
+            case "Nivel4": siguienteEscena = "Nivel5"; break;
+            case "Nivel5":
+                winText.text = "¡Juego terminado!";
+                return;
+        }
+
+        if (!string.IsNullOrEmpty(siguienteEscena))
+        {
+            SceneManager.LoadScene(siguienteEscena);
+        }
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        cargandoNivel = false;
     }
 
     void QuitGame()
